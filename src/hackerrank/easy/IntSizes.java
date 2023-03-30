@@ -1,15 +1,12 @@
-package cchef.jtrain.tidy;
+package hackerrank.easy;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
-class Codechef {
+class IntSizes {
 static final String INPUT_PATH = "/home/kali/Documents/001_CC/in.txt";
 static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
 static final FastWriter OUT = new FastWriter();
@@ -20,29 +17,32 @@ public static void main(String[] args) throws Exception {
 
 	int t = IN.nextInt();
 	int caseLength = 2;
+	int kase = 0;
+	Scanner sc = new Scanner(new InputStreamReader(System.in));
+	
 
 
-	while( t-- > 0 ) {
-		String[] arr = IN.nextLine_A(caseLength);
-		int n = Integer.parseInt(arr[0]);
-		boolean evenPair = false;
-		boolean raisedEven = false;
+	while (t-- > 0) {
+		try
+		{
+			long x=IN.nextLong();
+			System.out.println(x+" can be fitted in:");
+			if(x>=-128 && x<=127)System.out.println("* byte");
+			if( x>= Short.MIN_VALUE && x<= Short.MAX_VALUE )
+				System.out.println("* " + "short");
+			if(x>= Integer.MIN_VALUE && x<= Integer.MAX_VALUE )
+				System.out.println("* " + "int");
+			System.out.println("* " + "long");
+
+		}
+		catch(Exception e)
+		{
+			System.out.println(IN.next()+" can't be fitted anywhere.");
+		}
+
+		}
 
 
-		double temp = ( double ) n / 2;
-
-		// This seems pedantic, but I reinvented the wheel here.
-		if( (temp + 0.5d) % 2 == 0 ) raisedEven = true;
-		if( temp % 2 == 0 || raisedEven ) evenPair = true;
-
-
-		if(evenPair)
-			OUT.println(n);
-		else
-			OUT.println(n-1);
-
-
-	}
 
 	IN.close();
 	OUT.close();

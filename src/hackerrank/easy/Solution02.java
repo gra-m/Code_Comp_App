@@ -1,4 +1,4 @@
-package cchef.jtrain.tidy;
+package hackerrank.easy;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
-class Codechef {
+class Solution02 {
 static final String INPUT_PATH = "/home/kali/Documents/001_CC/in.txt";
 static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
 static final FastWriter OUT = new FastWriter();
@@ -20,26 +20,23 @@ public static void main(String[] args) throws Exception {
 
 	int t = IN.nextInt();
 	int caseLength = 2;
+	int kase = 0;
 
 
-	while( t-- > 0 ) {
+	while (t-- > 0) {
+		kase ++;
 		String[] arr = IN.nextLine_A(caseLength);
 		int n = Integer.parseInt(arr[0]);
-		boolean evenPair = false;
-		boolean raisedEven = false;
+		//int s = Integer.parseInt(arr[1]);
 
 
-		double temp = ( double ) n / 2;
 
-		// This seems pedantic, but I reinvented the wheel here.
-		if( (temp + 0.5d) % 2 == 0 ) raisedEven = true;
-		if( temp % 2 == 0 || raisedEven ) evenPair = true;
-
-
-		if(evenPair)
-			OUT.println(n);
-		else
-			OUT.println(n-1);
+		if(kase > 0) {
+			System.out.print("kase " + kase);
+			if (n%2 == 1 || n > 5 && n < 21)
+				System.out.println("Weird");
+			else System.out.println("Not Weird");
+		}
 
 
 	}

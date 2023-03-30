@@ -1,4 +1,4 @@
-package cchef.jtrain.tidy;
+package hackerrank.easy;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
-class Codechef {
+class Solution04 {
 static final String INPUT_PATH = "/home/kali/Documents/001_CC/in.txt";
 static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
 static final FastWriter OUT = new FastWriter();
@@ -20,29 +20,31 @@ public static void main(String[] args) throws Exception {
 
 	int t = IN.nextInt();
 	int caseLength = 2;
+	int kase = 0;
 
 
-	while( t-- > 0 ) {
+	while (t-- > 0) {
+		kase ++;
 		String[] arr = IN.nextLine_A(caseLength);
-		int n = Integer.parseInt(arr[0]);
-		boolean evenPair = false;
-		boolean raisedEven = false;
+		int a = Integer.parseInt(arr[0]);
+		int b = Integer.parseInt(arr[1]);
+		int n = Integer.parseInt(arr[2]);
+		int temp = 0;
+		int power = 1;
+
+		for (int x = 1; x <= n; x++) {
+				temp = temp + power * b;
+				int temp2 = temp + a;
+				System.out.print(temp2 + " ");
+				power = power * 2;
+			}
 
 
-		double temp = ( double ) n / 2;
+		System.out.println("");
 
-		// This seems pedantic, but I reinvented the wheel here.
-		if( (temp + 0.5d) % 2 == 0 ) raisedEven = true;
-		if( temp % 2 == 0 || raisedEven ) evenPair = true;
+		}
 
 
-		if(evenPair)
-			OUT.println(n);
-		else
-			OUT.println(n-1);
-
-
-	}
 
 	IN.close();
 	OUT.close();

@@ -1,4 +1,4 @@
-package cchef.jtrain.tidy;
+package cchef.jtrain.starters81;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
-class Codechef {
+class Codechef81_1 {
 static final String INPUT_PATH = "/home/kali/Documents/001_CC/in.txt";
 static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
 static final FastWriter OUT = new FastWriter();
@@ -19,27 +19,19 @@ static final boolean FILE_WRITE = false;
 public static void main(String[] args) throws Exception {
 
 	int t = IN.nextInt();
-	int caseLength = 2;
+	int caseLength = 1;
 
 
 	while( t-- > 0 ) {
 		String[] arr = IN.nextLine_A(caseLength);
 		int n = Integer.parseInt(arr[0]);
-		boolean evenPair = false;
-		boolean raisedEven = false;
 
 
-		double temp = ( double ) n / 2;
-
-		// This seems pedantic, but I reinvented the wheel here.
-		if( (temp + 0.5d) % 2 == 0 ) raisedEven = true;
-		if( temp % 2 == 0 || raisedEven ) evenPair = true;
 
 
-		if(evenPair)
-			OUT.println(n);
-		else
-			OUT.println(n-1);
+
+
+			OUT.println(n>24?"YES":"NO");
 
 
 	}

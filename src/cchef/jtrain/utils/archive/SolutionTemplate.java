@@ -1,4 +1,4 @@
-package cchef.jtrain.utils;
+package cchef.jtrain.utils.archive;
 
 /*LoudSilence Copied from codechef -darcy_official DISTOPPSUMS  91242231
 Original Imports:

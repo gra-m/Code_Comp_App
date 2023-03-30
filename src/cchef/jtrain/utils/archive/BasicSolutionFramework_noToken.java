@@ -1,15 +1,11 @@
-package cchef.jtrain.arrayinput; /*
+package cchef.jtrain.utils.archive; /*
 Improved solution modified from sorabhtomar that uses Java recommended BufferedReader split("\\s+")
 StringTokenizer == legacy.*/
 
 import java.io.*;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
-class MaxDiff {
+class BasicSolutionFramework_noToken {
     //static BufferedReader br = getOnline();
     static final String INPUT_PATH = "/home/kali/Documents/001_CC/input.txt";
     static FastWriter out = new FastWriter();
@@ -21,42 +17,26 @@ class MaxDiff {
 
         while (t-- > 0) {
             String[] line1 = bri.readLine().split("\\s+");
-            Integer n = Integer.parseInt(line1[0]);
-            Integer k = Integer.parseInt(line1[1]);
+            int n = Integer.parseInt(line1[0]);
+            int p = Integer.parseInt(line1[1]);
+            int x = Integer.parseInt(line1[2]);
+            int y = Integer.parseInt(line1[3]);
 
-            List<Integer> input = strArrToList(bri.readLine());
-            Collections.sort(input);
+            int[] input = strToIntArray(bri.readLine());
 
+            int time = 0;
 
-
-            Integer minWeight = 0;
-            //Integer totalWeight = input.stream().reduce(0, (a,b) -> a + b);
-            Integer totalWeight = input.stream().reduce(0, Integer::sum);
-
-            for (int i = 0; i < k; i++)
-                minWeight += input.get(i);
-            out.println(totalWeight - (totalWeight - minWeight));
+            for (int i = 0; i < p; i++)
+                time += input[i] == 0 ? x : y;
+            out.println(time);
 
         }
         bri.close();
         out.close();
     }
 
-    private static List<Integer> strArrToList(String readLine) {
-        int[] returned = strToIntArray(readLine);
-        IntStream stream = Arrays.stream(returned);
-        Stream<Integer> boxed = stream.boxed();
-        Integer[] boxedFromStream = boxed.toArray(Integer[]::new);
-        return Arrays.asList(boxedFromStream);
-    }
-
-   /* private static List<Integer> sortArray(int[] input) {
-        List<Integer> temp = Arrays.asList(input) ;
-    }*/
-
     private static int[] strToIntArray(String readLine) {
         return Arrays.stream(readLine.split("\\s+")).mapToInt(Integer::parseInt).toArray();
-
     }
 
     private static BufferedReader getIDE() {

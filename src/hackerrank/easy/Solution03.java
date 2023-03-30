@@ -1,15 +1,12 @@
-package cchef.jtrain.tidy;
+package hackerrank.easy;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
-class Codechef {
+class Solution03 {
 static final String INPUT_PATH = "/home/kali/Documents/001_CC/in.txt";
 static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
 static final FastWriter OUT = new FastWriter();
@@ -18,34 +15,14 @@ static final boolean FILE_WRITE = false;
 
 public static void main(String[] args) throws Exception {
 
-	int t = IN.nextInt();
-	int caseLength = 2;
+	Scanner scan = new Scanner(System.in);
+	int i = Integer.parseInt( scan.nextLine());
+	Double d = Double.parseDouble( scan.nextLine());
+	String s = scan.nextLine();
 
-
-	while( t-- > 0 ) {
-		String[] arr = IN.nextLine_A(caseLength);
-		int n = Integer.parseInt(arr[0]);
-		boolean evenPair = false;
-		boolean raisedEven = false;
-
-
-		double temp = ( double ) n / 2;
-
-		// This seems pedantic, but I reinvented the wheel here.
-		if( (temp + 0.5d) % 2 == 0 ) raisedEven = true;
-		if( temp % 2 == 0 || raisedEven ) evenPair = true;
-
-
-		if(evenPair)
-			OUT.println(n);
-		else
-			OUT.println(n-1);
-
-
-	}
-
-	IN.close();
-	OUT.close();
+	System.out.println("String: " + s);
+	System.out.println("Double: " + d);
+	System.out.println("Int: " + i);
 }
 
 /*===========================================================================*/

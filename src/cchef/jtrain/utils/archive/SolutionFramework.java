@@ -1,4 +1,4 @@
-package cchef.jtrain.utils;
+package cchef.jtrain.utils.archive;
 
 /*LoudSilence Copied from codechef -darcy_official DISTOPPSUMS  91242231
 Original Imports:
@@ -98,6 +98,17 @@ class SolutionFramework {
                 e.printStackTrace();
             }
             return str;
+        }
+
+        String[] nextLine_A(int n) {
+            // Prob want to use readIntArr just added for testing
+            String[] arr = new String[n];
+            try {
+                return br.readLine().trim().split("\\s+");
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+            return arr;
         }
     }
 
