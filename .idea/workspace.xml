@@ -8,67 +8,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="MaxDiff working but before change to String Array">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/arrayinput/JibbyJabQ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/CStock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/ChfRich.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/Chfspl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/Hoops.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/Imdb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/ManySums.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/MxEvnSub.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/Probcat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/Proglang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/SmalPosWho.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/TandJ1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/TdMaxDiff.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/TurnIt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/TurnIt1st.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/TwoDish.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/Vdates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/Weightbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/DecToBinary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Div03.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Horses.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Horses_Improved.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Linchess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/sorting/MaxDiff.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Signflip.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Signflip_loopOnly.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/sorting/SmPair.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Sticks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Sticks_4Squares.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Sticks_wtf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters80/Codechef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters80/Codechef01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters80/Codechef02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters81/Codechef81_1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters81/Codechef81_2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters81/Codechef81_3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters81/Codechef81_4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters83/BitwiseXor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters83/Codechef83_1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters83/Codechef83_2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters83/Codechef83_3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters83/Codechef83_4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/utils/Codechef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/utils/archive/BasicSolutionFramework.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/utils/archive/BasicSolutionFramework_noToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/utils/archive/Horses_Improved.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hackerrank/easy/IntSizes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hackerrank/easy/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hackerrank/easy/Solution02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hackerrank/easy/Solution03.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hackerrank/easy/Solution04.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hackerrank/easy/printf.java" afterDir="false" />
+    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="A few comps">
+      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_4_solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_5solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_6_chfadjsum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_7_awesum_.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters85/Codechef85_1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters85/Codechef85_2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters85/Codechef85_3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters85/Codechef85_4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/starters85/Codechef85_4LastTwoDigits.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/GiftShopCoupon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/LuckFour.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/Matches.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/PairQ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/Pushpa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/PushpaTooSlow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/Revsort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/arrayinput/MaxDiff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/arrayinput/JibbyJabQ_improved.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/ChfRich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/bprog/ChfRich.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/tidy/Codechef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/tidy/Codechef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/utils/SolutionFramework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/utils/archive/SolutionFramework.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/utils/SolutionTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/utils/archive/SolutionTemplate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,24 +79,29 @@
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JAVA&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cchef.jtrain.starters85" />
+      <recent name="cchef.jtrain.starters84" />
+      <recent name="cchef.jtrain.timecomplexity" />
       <recent name="cchef.jtrain.bprog" />
       <recent name="cchef.jtrain.self" />
-      <recent name="cchef.jtrain.starters83" />
-      <recent name="hackerrank.easy" />
-      <recent name="cchef.jtrain.starters81" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DecToBinary">
-    <configuration name="Codechef83_1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cchef.jtrain.starters83.Codechef83_1" />
+  <component name="RunManager" selected="Application.Codechef85_3">
+    <configuration name="Codechef" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cchef.jtrain.tidy.Codechef" />
       <module name="Code_Site_CC" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cchef.jtrain.starters83.*" />
+          <option name="PATTERN" value="cchef.jtrain.tidy.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -140,12 +109,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Codechef83_2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cchef.jtrain.starters83.Codechef83_2" />
+    <configuration name="Codechef85_1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cchef.jtrain.starters85.Codechef85_1" />
       <module name="Code_Site_CC" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cchef.jtrain.starters83.*" />
+          <option name="PATTERN" value="cchef.jtrain.starters85.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -153,12 +122,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Codechef83_3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cchef.jtrain.starters83.Codechef83_3" />
+    <configuration name="Codechef85_2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cchef.jtrain.starters85.Codechef85_2" />
       <module name="Code_Site_CC" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cchef.jtrain.starters83.*" />
+          <option name="PATTERN" value="cchef.jtrain.starters85.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -166,12 +135,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Codechef83_4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cchef.jtrain.starters83.Codechef83_4" />
+    <configuration name="Codechef85_3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cchef.jtrain.starters85.Codechef85_3" />
       <module name="Code_Site_CC" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cchef.jtrain.starters83.*" />
+          <option name="PATTERN" value="cchef.jtrain.starters85.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Codechef85_4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cchef.jtrain.starters85.Codechef85_4" />
+      <module name="Code_Site_CC" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cchef.jtrain.starters85.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -184,19 +166,6 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="cchef.jtrain.arrays.SmallestElement" />
       <module name="Code_Site_CC" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DecToBinary" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cchef.jtrain.self.DecToBinary" />
-      <module name="Code_Site_CC" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cchef.jtrain.self.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -214,19 +183,19 @@
     <list>
       <item itemvalue="Application.LOCAL_IDE_RUN" />
       <item itemvalue="Application.Current Class Run" />
-      <item itemvalue="Application.DecToBinary" />
-      <item itemvalue="Application.Codechef83_1" />
-      <item itemvalue="Application.Codechef83_2" />
-      <item itemvalue="Application.Codechef83_3" />
-      <item itemvalue="Application.Codechef83_4" />
+      <item itemvalue="Application.Codechef" />
+      <item itemvalue="Application.Codechef85_4" />
+      <item itemvalue="Application.Codechef85_1" />
+      <item itemvalue="Application.Codechef85_2" />
+      <item itemvalue="Application.Codechef85_3" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DecToBinary" />
-        <item itemvalue="Application.Codechef83_4" />
-        <item itemvalue="Application.Codechef83_3" />
-        <item itemvalue="Application.Codechef83_2" />
-        <item itemvalue="Application.Codechef83_1" />
+        <item itemvalue="Application.Codechef85_3" />
+        <item itemvalue="Application.Codechef" />
+        <item itemvalue="Application.Codechef85_4" />
+        <item itemvalue="Application.Codechef85_2" />
+        <item itemvalue="Application.Codechef85_1" />
       </list>
     </recent_temporary>
   </component>
@@ -260,6 +229,16 @@
       <workItem from="1678952320975" duration="7868000" />
       <workItem from="1680087178637" duration="16621000" />
       <workItem from="1680160371770" duration="10508000" />
+      <workItem from="1680186279585" duration="1891000" />
+      <workItem from="1680280653427" duration="13238000" />
+      <workItem from="1680497861783" duration="1520000" />
+      <workItem from="1680499478466" duration="8000" />
+      <workItem from="1680600515194" duration="10000" />
+      <workItem from="1680670205503" duration="32516000" />
+      <workItem from="1680755959251" duration="11707000" />
+      <workItem from="1681278092450" duration="853000" />
+      <workItem from="1681305342530" duration="11763000" />
+      <workItem from="1681359621226" duration="762000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit for this java playground..">
       <created>1677790778872</created>
@@ -275,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677944408980</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="A few comps">
+      <created>1680186539411</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680186539412</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +281,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit for this java playground.." />
     <MESSAGE value="MaxDiff working but before change to String Array" />
-    <option name="LAST_COMMIT_MESSAGE" value="MaxDiff working but before change to String Array" />
+    <MESSAGE value="A few comps" />
+    <option name="LAST_COMMIT_MESSAGE" value="A few comps" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -328,8 +315,19 @@
           <line>52</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_4.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="under20" language="JAVA" />
+        <watch expression="ndivOff" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

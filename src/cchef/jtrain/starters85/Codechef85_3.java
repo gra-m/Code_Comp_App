@@ -1,4 +1,4 @@
-package cchef.jtrain.bprog;
+package cchef.jtrain.starters85;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-
-class ChfRich {
+class Codechef85_3 {
 static final String INPUT_PATH = "/home/kali/Documents/001_CC/in.txt";
 static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
 static final FastWriter OUT = new FastWriter();
@@ -19,18 +18,37 @@ static final boolean FILE_WRITE = false;
 public static void main(String[] args) throws Exception {
 
 	int t = IN.nextInt();
-	int caseLength = 3;
 	int kase = 0;
 
 
 	while (t-- > 0) {
 		kase ++;
-		String[] arr = IN.nextLine_A(caseLength);
-		int a = Integer.parseInt(arr[0]);
-		int b = Integer.parseInt(arr[1]);
-		int x = Integer.parseInt(arr[2]);
+		int n_balls = IN.nextInt();
+		int[] arr = IN.readIntArr(n_balls);
+		int count = 0;
+		int runTotal = 0;
+		double strikeRate = 0.0;
+		int index = 1;
 
-		OUT.println((b - a) / x);
+
+
+		if(kase > 0) {
+			for(int i = 0; i < arr.length; i++) {
+				runTotal = runTotal + arr[i];
+				strikeRate = (double)runTotal/(i+1);
+
+				if (strikeRate * 100 == 100) {
+					count++;
+				}
+
+			}
+
+			OUT.println(count);
+			
+
+
+		}
+
 
 	}
 

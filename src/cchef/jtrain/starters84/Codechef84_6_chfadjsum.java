@@ -1,4 +1,56 @@
-package cchef.jtrain.bprog;
+package cchef.jtrain.starters84;
+
+/*
+Diff 1604..
+
+HINT 1:
+First, sort the array and compute Z as mentioned in the statement.
+
+Now, let M1 be the largest element of A and M2 be the second largest.
+Of course, Z=M1+M2
+
+In any valid rearrangement, no instance of M1 should be next to any instance of M2.
+Any element that's strictly smaller than M2 doesn't matter,
+it can never reach a sum of Z.
+
+We want to check if this is possible.
+
+Now, there are two possibilities: M1=M2 , and M1≠M2.
+
+Analyze each case separately and see what conditions are required.
+
+HINT 2:
+
+First, consider M1=M2M
+
+Since the two largest elements are equal, this means no two occurrences of this
+maximum should be next to each other.
+The absolute best we can do in terms of separation is to place them at indices
+1,3,5,7,…
+
+This gives us ⌈N/2⌉ positions where
+they can be placed. Here, ⌈ ⌉ is the ceiling function.
+
+So, if the maximum occurs more than ⌈N2⌉ times, the answer is No; otherwise,
+the answer is Yes.
+
+Can you analyze the M1≠M2M case similarly?
+*
+
+Hint 3:
+
+If M1≠M2, there's only one occurrence of M1, and we want to separate it
+from all occurrences of M2.
+If every other element equals M2, this is obviously impossible.
+
+Otherwise, it's not hard to see that it's always possible to separate them:
+place M1 at one end of the array, all the occurrences of M2 at the other end,
+and everything else between them.
+
+So, in this case, the answer is No if M2 occurs N−1 times in A, and Yes otherwise.
+*
+*
+* */
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,7 +61,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
-class ChfRich {
+class Codechef84_6_chfadjsum {
 static final String INPUT_PATH = "/home/kali/Documents/001_CC/in.txt";
 static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
 static final FastWriter OUT = new FastWriter();
@@ -19,18 +71,25 @@ static final boolean FILE_WRITE = false;
 public static void main(String[] args) throws Exception {
 
 	int t = IN.nextInt();
-	int caseLength = 3;
+	int caseLength = 2;
 	int kase = 0;
 
 
 	while (t-- > 0) {
 		kase ++;
 		String[] arr = IN.nextLine_A(caseLength);
-		int a = Integer.parseInt(arr[0]);
-		int b = Integer.parseInt(arr[1]);
-		int x = Integer.parseInt(arr[2]);
+		int n = Integer.parseInt(arr[0]);
+		int s = Integer.parseInt(arr[1]);
 
-		OUT.println((b - a) / x);
+
+
+		if(kase > 0) {
+			if (s < n || n == s)
+				OUT.println(s);
+			else
+				OUT.println(n - (s-n));
+		}
+
 
 	}
 

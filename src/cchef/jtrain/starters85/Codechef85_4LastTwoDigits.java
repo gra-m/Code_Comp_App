@@ -1,4 +1,4 @@
-package cchef.jtrain.tidy;
+package cchef.jtrain.starters85;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-class Codechef {
+class Codechef85_4LastTwoDigits {
 static final String INPUT_PATH = "/home/kali/Documents/001_CC/in.txt";
 static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
 static final FastWriter OUT = new FastWriter();

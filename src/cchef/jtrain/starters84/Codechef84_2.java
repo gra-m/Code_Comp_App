@@ -1,4 +1,4 @@
-package cchef.jtrain.bprog;
+package cchef.jtrain.starters84;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
-class ChfRich {
+class Codechef84_2 {
 static final String INPUT_PATH = "/home/kali/Documents/001_CC/in.txt";
 static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
 static final FastWriter OUT = new FastWriter();
@@ -19,18 +19,30 @@ static final boolean FILE_WRITE = false;
 public static void main(String[] args) throws Exception {
 
 	int t = IN.nextInt();
-	int caseLength = 3;
+	int caseLength = 2;
 	int kase = 0;
 
 
 	while (t-- > 0) {
 		kase ++;
 		String[] arr = IN.nextLine_A(caseLength);
-		int a = Integer.parseInt(arr[0]);
-		int b = Integer.parseInt(arr[1]);
-		int x = Integer.parseInt(arr[2]);
+		int n = Integer.parseInt(arr[0]);
+		int x = Integer.parseInt(arr[1]);
+		Integer[] arr2 = IN.readIntegerArray(n);
+		Arrays.sort(arr2);
+		int count = 0;
 
-		OUT.println((b - a) / x);
+
+
+		if(kase > 0) {
+			for (Integer i : arr2) {
+				if(i >= x)
+					count++;
+			}
+			OUT.println(count);
+
+		}
+
 
 	}
 

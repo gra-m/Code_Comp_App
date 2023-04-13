@@ -1,4 +1,4 @@
-package cchef.jtrain.bprog;
+package cchef.jtrain.timecomplexity;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
-class ChfRich {
+class Matches {
 static final String INPUT_PATH = "/home/kali/Documents/001_CC/in.txt";
 static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
 static final FastWriter OUT = new FastWriter();
@@ -19,18 +19,31 @@ static final boolean FILE_WRITE = false;
 public static void main(String[] args) throws Exception {
 
 	int t = IN.nextInt();
-	int caseLength = 3;
+	int caseLength = 2;
 	int kase = 0;
 
 
 	while (t-- > 0) {
 		kase ++;
 		String[] arr = IN.nextLine_A(caseLength);
-		int a = Integer.parseInt(arr[0]);
-		int b = Integer.parseInt(arr[1]);
-		int x = Integer.parseInt(arr[2]);
+		int n = Integer.parseInt(arr[0]);
+		int s = Integer.parseInt(arr[1]);
+		int total = n + s;
+		int[] matches = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6};
+		String totStr = Integer.toString(total);
+		int count = 0;
 
-		OUT.println((b - a) / x);
+		if(kase > 0) {
+				for (int x = 0; x < totStr.length(); x++)
+				{
+					count += matches[Character
+					.getNumericValue(totStr.charAt(x))];
+
+				}
+		}
+
+		OUT.println(count);
+
 
 	}
 

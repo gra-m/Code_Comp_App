@@ -1,15 +1,12 @@
-package cchef.jtrain.bprog;
+package cchef.jtrain.timecomplexity;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
-class ChfRich {
+class Pushpa {
 static final String INPUT_PATH = "/home/kali/Documents/001_CC/in.txt";
 static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
 static final FastWriter OUT = new FastWriter();
@@ -19,23 +16,84 @@ static final boolean FILE_WRITE = false;
 public static void main(String[] args) throws Exception {
 
 	int t = IN.nextInt();
-	int caseLength = 3;
 	int kase = 0;
 
 
 	while (t-- > 0) {
 		kase ++;
-		String[] arr = IN.nextLine_A(caseLength);
-		int a = Integer.parseInt(arr[0]);
-		int b = Integer.parseInt(arr[1]);
-		int x = Integer.parseInt(arr[2]);
+		int caseLength = IN.nextInt();
+		Integer[] arr = IN.readIntegerArray(caseLength);
+		Integer[] arr2 = arr;
+		ArrayList<Integer> getMax = new ArrayList<>(Arrays.asList(arr));
+		int maxOnFirst = Collections.max(getMax);
+		int maxOnIncrement = 0;
+		int currentVal = 0;
+		int towerIndex = 0;
+		boolean onARoll = false;
+		OUT.println("\nmaxOnFirst is: "  + maxOnFirst);
 
-		OUT.println((b - a) / x);
+
+
+
+		if(kase > 0) {
+			for ( int x = 0; x < caseLength; x++) {
+				currentVal = arr[x];
+				if (currentVal > maxOnIncrement)
+					maxOnIncrement = currentVal;
+				OUT.print("\nX loop currentVal is " + currentVal +
+				  " maxOnIncrement is " + maxOnIncrement);
+				towerIndex = x;
+				onARoll = true;
+				int increment = 0;
+
+				while (onARoll) {
+					onARoll = false;
+					// Now copy array incrementing by 1
+					// reset current tower to original value
+					arr2 = incrementAndSetIndex(arr2, towerIndex, currentVal);
+					OUT.println("\nOnARoll " + ++increment + " " +
+					" current array " + Arrays.toString(arr2));
+					// Now see if there is a +1 in the new array if there is
+					// currentVal++  and towerIndex == its index
+					for( int z = 0; z < caseLength; z++ ) {
+						if( arr2[z] == currentVal + 1 ) {
+							currentVal = arr2[z];
+							towerIndex = z;
+							onARoll = true;
+							break;
+						}
+					}
+				}
+
+				// reset arr2
+				arr2 = arr;
+
+
+
+
+
+				//OUT.println("\n" + Arrays.toString(arr));
+				//OUT.println(Arrays.toString(arr2));
+			}
+		}
+		OUT.println("\n\n maxOnFirst is " + maxOnFirst + " currentVal is " + currentVal);
+
 
 	}
 
 	IN.close();
 	OUT.close();
+}
+
+private static Integer[] incrementAndSetIndex(Integer[] arr2, int towerIndex, int currentVal) {
+	int len = arr2.length;
+	Integer[] result = new Integer[len];
+	for (int a = 0; a < len; a++)
+	{
+		result[a] = arr2[a] + 1;
+	}
+	result[towerIndex] = currentVal;
+	return result;
 }
 
 /*===========================================================================*/

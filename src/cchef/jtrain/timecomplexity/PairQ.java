@@ -1,4 +1,4 @@
-package cchef.jtrain.bprog;
+package cchef.jtrain.timecomplexity;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
-class ChfRich {
+class PairQ {
 static final String INPUT_PATH = "/home/kali/Documents/001_CC/in.txt";
 static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
 static final FastWriter OUT = new FastWriter();
@@ -19,20 +19,51 @@ static final boolean FILE_WRITE = false;
 public static void main(String[] args) throws Exception {
 
 	int t = IN.nextInt();
-	int caseLength = 3;
 	int kase = 0;
 
-
+	 //todo FREQUENCY ARRAY for occurrence count
 	while (t-- > 0) {
 		kase ++;
-		String[] arr = IN.nextLine_A(caseLength);
-		int a = Integer.parseInt(arr[0]);
-		int b = Integer.parseInt(arr[1]);
-		int x = Integer.parseInt(arr[2]);
+		int arrayLength = IN.nextInt();
+		Integer[] arr = IN.readIntegerArray(arrayLength);
+		Arrays.sort(arr);
+		int counter = 0;
+		// initialise current as start of array
+		int curr = arr[0];
+		int maxCount = -1;
 
-		OUT.println((b - a) / x);
 
+
+		if(kase > 0) {
+
+			for (int e : arr){
+				if (curr == e){
+					counter++;
+				} else {
+					if (counter > maxCount){
+						maxCount = counter;
+					}
+					counter = 0;
+					curr = e;
+				}
+			}
+
+		}
+		int maxOccurrences = Math.max(counter, maxCount);
+
+		OUT.println(arrayLength - maxOccurrences );
+
+		int[] freq = new int[1001];
+		for( int i = 0; i< arrayLength; i++)
+		{
+			freq[arr[i]]++;
+		}
+		Arrays.sort(freq);
+		System.out.println("Alternate with freq array: " + (arrayLength-freq[1000]));
 	}
+
+
+
 
 	IN.close();
 	OUT.close();

@@ -1,4 +1,4 @@
-package cchef.jtrain.bprog;
+package cchef.jtrain.starters84;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
-class ChfRich {
+class Codechef84_4 {
 static final String INPUT_PATH = "/home/kali/Documents/001_CC/in.txt";
 static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
 static final FastWriter OUT = new FastWriter();
@@ -19,18 +19,81 @@ static final boolean FILE_WRITE = false;
 public static void main(String[] args) throws Exception {
 
 	int t = IN.nextInt();
-	int caseLength = 3;
+	int caseLength = 2;
 	int kase = 0;
 
 
 	while (t-- > 0) {
 		kase ++;
 		String[] arr = IN.nextLine_A(caseLength);
-		int a = Integer.parseInt(arr[0]);
-		int b = Integer.parseInt(arr[1]);
-		int x = Integer.parseInt(arr[2]);
+		int n_binaryStringLength = Integer.parseInt(arr[0]);
+		int k_maxOperations = Integer.parseInt(arr[1]);
+		String binary = IN.cleanDigitsSpaces();
 
-		OUT.println((b - a) / x);
+
+
+		if(kase > 0) {
+			OUT.println("StringL " + n_binaryStringLength);
+			OUT.println("Max OPs " + k_maxOperations);
+			OUT.println(binary);
+			StringBuilder option1 = new StringBuilder(binary);
+			StringBuilder option2 = new StringBuilder(binary);
+			StringBuilder option3 = new StringBuilder(binary);
+			StringBuilder option4 = new StringBuilder(binary);
+
+			if (k_maxOperations > 1 && k_maxOperations%2==0){
+				int option1Operations = k_maxOperations;
+
+				while(option1Operations > 0) {
+					option1.insert(0, 1);
+					option1Operations -=2;
+				}
+
+				int option2Operations = k_maxOperations;
+				while(option2Operations > 0) {
+					option2.append(0);
+					option2Operations--;
+					
+				}
+			}   else  {
+
+				if (k_maxOperations == 1)
+					option3.append(0);
+				else {
+					int option4Operations = k_maxOperations;
+					while(option4Operations > 1) {
+						option4.insert(0, 1);
+						option4Operations -=2;
+					}
+					option4.append(0);
+				}
+
+			}
+
+
+			OUT.println("opt1 Added 1 at begin? " + option1);
+			OUT.println("opt2 Added 0s at end " + option2);
+
+			String step1Winner =
+			String.valueOf(Math.max((Integer.parseInt(option1.toString(),
+			2)), (Integer.parseInt(option2.toString()))));
+
+			OUT.println("Step1Winner is " + step1Winner);
+			OUT.println(
+			"----------------------------------------------------------");
+			OUT.println("opt3 Added 1 at begin? " + option3);
+			OUT.println("opt4 Added 0s at end " + option4);
+
+			String step2Winner =
+			String.valueOf(Math.max((Integer.parseInt(option3.toString(),
+			2)), (Integer.parseInt(option4.toString()))));
+
+			OUT.println("Step2Winner is " + step2Winner);
+			OUT.println(
+			"----------------------------------------------------------");
+
+		}
+
 
 	}
 
