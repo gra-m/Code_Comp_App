@@ -8,68 +8,42 @@ import java.util.StringTokenizer;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-
-class GiftShopCoupon {
+class GiftShopCoupon_2 {
 static final String INPUT_PATH = "/home/kali/Documents/001_CC/in.txt";
 static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
 static final FastWriter OUT = new FastWriter();
 static final FastScanner IN = new FastScanner();
-static final boolean FILE_WRITE = true;
+static final boolean FILE_WRITE = false;
 
 public static void main(String[] args) throws Exception {
 
       int t = IN.nextInt();
       int caseLength = 2;
-      int kase = 0;
 
 
       while( t-- > 0 ) {
-            kase++;
             String[] arr = IN.nextLine_A(caseLength);
-            int itemsAvailable;
-            int cashAvailable;
-            try {
-            itemsAvailable = Integer.parseInt(arr[0]); // num of items
-            cashAvailable = Integer.parseInt(arr[1]); // money
-                  } catch (NumberFormatException e) {
-                  // poss print 0 for the crap input
-                  continue;
-            }
+            int itemsAvailable = Integer.parseInt(arr[0]); // num of items
+            int cashAvailable = Integer.parseInt(arr[1]); // money
             int[] items = IN.readIntArr(itemsAvailable);
-            int total = 0;
+            int i = 0;
 
             Arrays.sort(items);
+            OUT.println(sumOfArray(items, items.length-1) + " array is: " + Arrays.toString(items) +" ca " + cashAvailable);
 
-            // total with recursion:
-            int sum = sumOfArray(items, items.length - 1);
-
-
-            if( kase > 0 ) {
-                  OUT.println("--------New case:" + kase + " -------------------------------");
-                  OUT.println(Arrays.toString(arr) + " total items " + itemsAvailable + " "
-			+ " cash " + cashAvailable);
-                  OUT.println(Arrays.toString(items));
-                  OUT.println("All item sum: " + sum);
-
-                  if( sum <= cashAvailable ) OUT.println(items.length);
-                  for( int i = 0; i < items.length; i++ ) {
-                        total += items[i];
-
-				if (total >= cashAvailable) {
-					double discount = Math.floor(( double ) items[i] / 2);
-					OUT.println("discount is " + discount + " total is " + total + " i is " + i);
-
-					if( (total - discount) <= cashAvailable ) {
-						OUT.println("R-> discount used " + (i + 1));
-						break;
-					}
-					else {
-						OUT.println("R-> without discount " + i);
-						break;
-					}
-				}
+                  for (; i < items.length;) {
+                        if (cashAvailable == 0) break;
+                        if (i == 0) {
+                              if (Math.ceil(items[i]/2) >= cashAvailable) break;
+                        }
+                        else {
+                              if (Math.ceil(items[i]/2) + sumOfArray(items, i -1) >= cashAvailable) break;
+                        }
+                        i++;
                   }
-            }
+
+
+            OUT.println(i);
       }
 
       IN.close();
@@ -83,6 +57,7 @@ public static void main(String[] args) throws Exception {
 private static int sumOfArray(int[] a, int n) {
       if( n == 0 ) return a[n];
       else {
+
             int result = a[n] + sumOfArray(a, n - 1);
             return result;
       }
