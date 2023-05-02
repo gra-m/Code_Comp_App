@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import cchef.jtrain.self.getdata.StringsInArray.*;
 
 
 class GetData {
@@ -19,7 +20,9 @@ class GetData {
   static final String _3ACT_IN = "/home/kali/Documents/001_CC/00act.txt";
   static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
   static final FastWriter OUT = new FastWriter();
-  static final boolean FILE_WRITE = false;
+  static final StringType inputStringType = StringsInArray.StringType.DECIMAL;
+static final StringType outputStringType = StringType.DOUBLE;
+static final boolean FILE_WRITE = false;
   static FastScanner IN = new FastScanner(1);
   static int fileLength =  (int) IN.countLines(); // lossy but array[long] not available
   static int casesFromArray = 0;
@@ -32,30 +35,27 @@ class GetData {
     casesFromArray = Integer.parseInt(fullIn[0]);
     linesPerCase = Utilz.getCaseLength(fullIn);
 
-    OUT.println(casesFromArray);
-    OUT.println(linesPerCase);
+    //OUT.println(casesFromArray);
+    //OUT.println(linesPerCase);
     IN.close(); // todo create safe/auto close
     // END of Input Data import and check.
 
-
-
-    /*
-    int count = case_t;
     IN = new FastScanner(2);
-    String[] exp = IN.readStringArray(t); // todo read string array / to lower / compare
+    String[] exp = IN.readStringArray(casesFromArray); // todo read string array / to lower / compare
     IN.close();
-    IN = new FastScanner(3);
-    String[] act = IN.readStringArray(t);
-    IN.close();
+    // END import of expected Output
 
-    OUT.println(t);
-    OUT.println(Arrays.toString(fullIn));
-    OUT.println(Arrays.toString(exp));
-    OUT.println(Arrays.toString(act));
-    OUT.println(t);
+    IN = new FastScanner(3);
+    String[] act = IN.readStringArray(casesFromArray);
+    IN.close();
+    // END import of actual Output
+    /*
+
      */
 
     // todo define exp and fullin as eg: string / string and decimal / decimal only / suspected double ie int and . found
+    OUT.println(StringsInArray.isAsExpected(inputStringType, outputStringType));
+    OUT.println(StringsInArray.defineStringType(exp, 0));
 
 
 
