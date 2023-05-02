@@ -1,6 +1,9 @@
 package cchef.jtrain.self.getdata;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,24 +11,36 @@ import java.util.StringTokenizer;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+
 class GetData {
+
   static final String _1FULL_IN = "/home/kali/Documents/001_CC/00fullIn.txt";
   static final String _2EXP_IN = "/home/kali/Documents/001_CC/00exp.txt";
   static final String _3ACT_IN = "/home/kali/Documents/001_CC/00act.txt";
-
   static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
   static final FastWriter OUT = new FastWriter();
   static final boolean FILE_WRITE = false;
   static FastScanner IN = new FastScanner(1);
-  static final int CASE_LINES = 2;
+  static int fileLength =  (int) IN.countLines(); // lossy but array[long] not available
+  static int casesFromArray = 0;
+  static int linesPerCase = 0;
+
 
   public static void main(String[] args) throws Exception {
 
-    int t = IN.nextInt(); // 900 // todo check data length matches cases 't' * CASE_LINES
-    int case_t = t * CASE_LINES; // todo define/ascertain case length
-    String [] fullIn = IN.readStringArray(case_t + 1) ;
-    int count = case_t;
+    String [] fullIn = IN.readStringArray(fileLength) ;
+    casesFromArray = Integer.parseInt(fullIn[0]);
+    linesPerCase = Utilz.getCaseLength(fullIn);
+
+    OUT.println(casesFromArray);
+    OUT.println(linesPerCase);
     IN.close(); // todo create safe/auto close
+    // END of Input Data import and check.
+
+
+
+    /*
+    int count = case_t;
     IN = new FastScanner(2);
     String[] exp = IN.readStringArray(t); // todo read string array / to lower / compare
     IN.close();
@@ -38,16 +53,23 @@ class GetData {
     OUT.println(Arrays.toString(exp));
     OUT.println(Arrays.toString(act));
     OUT.println(t);
+     */
 
-    // todo define exp and fullin as          
+    // todo define exp and fullin as eg: string / string and decimal / decimal only / suspected double ie int and . found
 
-    while (case_t-- > 0) {
 
-     /* int caseNum = count - case_t;
+
+
+
+
+
+    /*while (case_t-- > 0) {
+
+      int caseNum = count - case_t;
       OUT.println(caseNum + " " + 1);
-      OUT.println(caseNum + " " + 2);*/
+      OUT.println(caseNum + " " + 2);
 
-    }
+    }*/
 
     IN.close();
     OUT.close();
@@ -70,14 +92,16 @@ class GetData {
   static class FastScanner {
     private final BufferedReader BR;
     private StringTokenizer st;
-
+    // activePath used by countLines
+    private String activePath = "";
     public FastScanner(int pathNum) {
       BufferedReader br1;
+
       if (System.getProperty("ONLINE_JUDGE") == null) {
         try { //todo try with resources
-          if (pathNum == 1) br1 = new BufferedReader(new FileReader(_1FULL_IN));
-          else if (pathNum == 2) br1 = new BufferedReader(new FileReader(_2EXP_IN));
-          else br1 = new BufferedReader(new FileReader(_3ACT_IN));
+          if (pathNum == 1) br1 = new BufferedReader(new FileReader(activePath = _1FULL_IN));
+          else if (pathNum == 2) br1 = new BufferedReader(new FileReader(activePath = _2EXP_IN));
+          else br1 = new BufferedReader(new FileReader(activePath = _3ACT_IN));
         } catch (FileNotFoundException e) {
           br1 = new BufferedReader(new InputStreamReader(System.in));
         }
@@ -96,6 +120,18 @@ class GetData {
         }
       }
       return st.nextToken();
+    }
+
+    long countLines() {
+      if (activePath.isEmpty())
+        activePath = _1FULL_IN;
+
+      try (Stream<String> stream = Files.lines(Path.of(activePath), StandardCharsets.UTF_8)) {
+        return stream.count();
+      }
+      catch( IOException e ) {
+        throw new RuntimeException(e);
+      }
     }
 
     int nextInt() {
@@ -193,6 +229,7 @@ class GetData {
       if (System.getProperty("ONLINE_JUDGE") == null && FILE_WRITE) {
         try {
           bw1 = new BufferedWriter(new FileWriter(OUTPUT_PATH));
+          bw1.flush();
         } catch (IOException e) {
           bw1 = new BufferedWriter(new OutputStreamWriter(System.out));
         }
