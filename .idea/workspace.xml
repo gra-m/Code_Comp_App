@@ -8,10 +8,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="getData">
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/Utilz.java" afterDir="false" />
+    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="IntPredicate nested enum">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/GetData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/GetData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/StringsInArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/StringsInArray.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +27,7 @@
         <option value="Zeppelin Notebook" />
         <option value="Package Object" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -249,7 +250,10 @@
       <workItem from="1682955842092" duration="352000" />
       <workItem from="1683009107019" duration="2570000" />
       <workItem from="1683012607141" duration="5568000" />
-      <workItem from="1683022185796" duration="16091000" />
+      <workItem from="1683022185796" duration="23526000" />
+      <workItem from="1683099232648" duration="24000" />
+      <workItem from="1683188494644" duration="12702000" />
+      <workItem from="1683202208715" duration="483000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit for this java playground..">
       <created>1677790778872</created>
@@ -293,7 +297,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683018296519</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="getData started">
+      <created>1683045940193</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683045940193</updated>
+    </task>
+    <task id="LOCAL-00008" summary="IntPredicate nested enum">
+      <created>1683056531650</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683056531650</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,7 +335,9 @@
     <MESSAGE value="85_4" />
     <MESSAGE value="86_" />
     <MESSAGE value="getData" />
-    <option name="LAST_COMMIT_MESSAGE" value="getData" />
+    <MESSAGE value="getData started" />
+    <MESSAGE value="IntPredicate nested enum" />
+    <option name="LAST_COMMIT_MESSAGE" value="IntPredicate nested enum" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

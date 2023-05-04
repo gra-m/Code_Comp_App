@@ -20,8 +20,8 @@ class GetData {
   static final String _3ACT_IN = "/home/kali/Documents/001_CC/00act.txt";
   static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
   static final FastWriter OUT = new FastWriter();
-  static final StringType inputStringType = StringsInArray.StringType.DECIMAL;
-static final StringType outputStringType = StringType.DOUBLE;
+  static final StringType inputStringType = StringType.NUMERIC_SP;
+static final StringType outputStringType = StringType.NUMERIC;
 static final boolean FILE_WRITE = false;
   static FastScanner IN = new FastScanner(1);
   static int fileLength =  (int) IN.countLines(); // lossy but array[long] not available
@@ -55,8 +55,8 @@ static final boolean FILE_WRITE = false;
 
     // todo define exp and fullin as eg: string / string and decimal / decimal only / suspected double ie int and . found
     OUT.println(StringsInArray.isAsExpected(inputStringType, outputStringType));
-    OUT.println(StringsInArray.defineStringType(exp, 0));
-
+    OUT.println(StringsInArray.defineStringType(fullIn, 0));
+    OUT.println(StringsInArray.defineStringType(act, 0));
 
 
 
