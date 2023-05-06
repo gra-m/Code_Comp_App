@@ -4,8 +4,6 @@ import java.util.List;
 
 public interface DataType {
       String contentDescription();
-      void writeCaseData(String[] inputExpectedActual);
-      boolean ascertainStatus();
       int getLinesPerInput();
       int getLinesPerOutput();
       DataType[] consolidateData(final String[] input, final String[] expected, final String[] actual);

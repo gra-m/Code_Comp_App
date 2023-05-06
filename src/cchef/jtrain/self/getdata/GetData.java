@@ -41,7 +41,7 @@ class GetData {
     // END of Input Data import and check.
     IN = new FastScanner(2);
     String[] exp =
-        IN.checkLinesReadStringArray(casesFromArray); // todo read string array / to lower / compare
+        IN.checkLinesReadStringArray(casesFromArray);
     IN.close();
     // END import of expected Output
     IN = new FastScanner(3);
@@ -66,11 +66,11 @@ class GetData {
 
     System.out.println(thisImportsCaseType.stringTypeDescription());
 
-    DataType test = new CodeChefDT(-1L, -1L, (GenericCaseType) thisImportsCaseType);
+    DataType test = new CodeChefDT((GenericCaseType) thisImportsCaseType);
 
     System.out.println(test);
 
-    DataType[] letsSee = test.consolidateData(fullIn, exp, act);
+    ArrayList<DataType> letsSee = (ArrayList<DataType> ) test.consolidateDataToList(fullIn, exp, act);
 
     for (DataType dt : letsSee){
       System.out.println(dt.toString());

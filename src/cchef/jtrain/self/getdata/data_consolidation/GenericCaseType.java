@@ -43,34 +43,44 @@ public class GenericCaseType implements CaseType {
         TOTAL_CASES, LINES_PER_INPUT, LINES_PER_OUTPUT, INPUT, EXPECTED, ACTUAL);
   }
 
-/**
-* 
+  /**
    * @return
-*/
-@Override
-public int getLinesPerInput() {
-  return this.LINES_PER_INPUT;
-}
+   */
+  @Override
+  public int getLinesPerInput() {
+    return this.LINES_PER_INPUT;
+  }
 
-/**
-* 
+  /**
    * @return
-*/
-@Override
-public int getLinesPerOutput() {
-  return this.LINES_PER_OUTPUT;
-}
+   */
+  @Override
+  public int getLinesPerOutput() {
+    return this.LINES_PER_OUTPUT;
+  }
 
-/**
- *
- * @return
- */
-public long getTotalCases() {
-  return this.TOTAL_CASES;
-}
+  /**
+   * @return
+   */
+  public long getTotalCases() {
+    return this.TOTAL_CASES;
+  }
 
-@Override
-public String toString() {
-  return "GenericCaseType{" + "TOTAL_CASES=" + TOTAL_CASES + ", LINES_PER_INPUT=" + LINES_PER_INPUT + ", LINES_PER_OUTPUT=" + LINES_PER_OUTPUT + ", INPUT=" + INPUT + ", EXPECTED=" + EXPECTED + ", ACTUAL=" + ACTUAL + '}';
-}
+  @Override
+  public String toString() {
+    return "GenericCaseType{"
+        + "TOTAL_CASES="
+        + TOTAL_CASES
+        + ", LINES_PER_INPUT="
+        + LINES_PER_INPUT
+        + ", LINES_PER_OUTPUT="
+        + LINES_PER_OUTPUT
+        + ", INPUT="
+        + INPUT
+        + ", EXPECTED="
+        + EXPECTED
+        + ", ACTUAL="
+        + ACTUAL
+        + '}';
+  }
 }

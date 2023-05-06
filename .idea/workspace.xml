@@ -8,16 +8,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="Apply method returning relevant IntPredicates added to StringTypes">
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/CaseType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/CodeChefDT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/DataType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/GenericCaseType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/StringType.java" afterDir="false" />
+    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="implemented case and datatypes and data consolidation within class itself.">
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/ArrayDataTypeValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/DynamicDataTypeValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/ListDataTypeValue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/GetData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/GetData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/StringsInArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/StringsInArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/Utilz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/Utilz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/CodeChefDT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/CodeChefDT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/DataType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/DataType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/GenericCaseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/GenericCaseType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,11 +88,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cchef.jtrain.self.getdata.data_consolidation" />
       <recent name="cchef.jtrain.self.getdata" />
       <recent name="cchef.jtrain.timecomplexity" />
       <recent name="cchef.jtrain.starters86" />
       <recent name="cchef.jtrain.starters86.wups" />
-      <recent name="cchef.jtrain.starters84" />
     </key>
   </component>
   <component name="RunManager" selected="Application.GetData">
@@ -264,7 +263,7 @@
       <workItem from="1683202208715" duration="1626000" />
       <workItem from="1683361004489" duration="34000" />
       <workItem from="1683361049791" duration="11000" />
-      <workItem from="1683361078845" duration="25281000" />
+      <workItem from="1683361078845" duration="39062000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit for this java playground..">
       <created>1677790778872</created>
@@ -329,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683203032201</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="implemented case and datatypes and data consolidation within class itself.">
+      <created>1683391132387</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683391132387</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +362,8 @@
     <MESSAGE value="getData started" />
     <MESSAGE value="IntPredicate nested enum" />
     <MESSAGE value="Apply method returning relevant IntPredicates added to StringTypes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Apply method returning relevant IntPredicates added to StringTypes" />
+    <MESSAGE value="implemented case and datatypes and data consolidation within class itself." />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented case and datatypes and data consolidation within class itself." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -365,13 +372,13 @@
           <properties class="java.lang.NumberFormatException" package="java.lang" />
           <option name="timeStamp" value="13" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cchef/jtrain/self/getdata/GetData.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="arrayLength" language="JAVA" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
