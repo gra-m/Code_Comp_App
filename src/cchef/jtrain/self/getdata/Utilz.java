@@ -1,8 +1,13 @@
 package cchef.jtrain.self.getdata;
 
+import cchef.jtrain.self.getdata.data_consolidation.CaseType;
+import cchef.jtrain.self.getdata.data_consolidation.CodeChefDT;
+import cchef.jtrain.self.getdata.data_consolidation.DataType;
+
 import static cchef.jtrain.self.getdata.GetData.OUT;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public final class Utilz {
 
@@ -54,4 +59,10 @@ public final class Utilz {
       for (int i = 1; i <= caseLength; i++) OUT.println(caseNum + " " + i);
     }
   }
+
+
+
+
+
+
 }

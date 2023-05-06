@@ -10,8 +10,10 @@ import java.util.List;
 import java.util.StringTokenizer;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-import cchef.jtrain.self.getdata.StringsInArray.*;
 
+import cchef.jtrain.self.getdata.data_consolidation.*;
+
+import static cchef.jtrain.self.getdata.data_consolidation.StringType.*;
 
 class GetData {
 
@@ -20,48 +22,59 @@ class GetData {
   static final String _3ACT_IN = "/home/kali/Documents/001_CC/00act.txt";
   static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
   static final FastWriter OUT = new FastWriter();
-  static final StringType inputStringType = StringType.NUMERIC_SP;
-static final StringType outputStringType = StringType.NUMERIC;
-static final boolean FILE_WRITE = false;
+  static final StringType inputStringType = NUMERIC_SP;
+  static final StringType outputStringType = NUMERIC;
+  static final boolean FILE_WRITE = false;
   static FastScanner IN = new FastScanner(1);
-  static int fileLength =  (int) IN.countLines(); // lossy but array[long] not available
+  static int fileLength = (int) IN.countLines(); // lossy but array[long] not available
   static int casesFromArray = 0;
   static int linesPerCase = 0;
-
+  static int linesPerOutput = 0;
 
   public static void main(String[] args) throws Exception {
 
-    String [] fullIn = IN.readStringArray(fileLength) ;
+    String[] fullIn = IN.readStringArray(fileLength);
     casesFromArray = Integer.parseInt(fullIn[0]);
     linesPerCase = Utilz.getCaseLength(fullIn);
 
-    //OUT.println(casesFromArray);
-    //OUT.println(linesPerCase);
     IN.close(); // todo create safe/auto close
     // END of Input Data import and check.
-
     IN = new FastScanner(2);
-    String[] exp = IN.readStringArray(casesFromArray); // todo read string array / to lower / compare
+    String[] exp =
+        IN.checkLinesReadStringArray(casesFromArray); // todo read string array / to lower / compare
     IN.close();
     // END import of expected Output
-
     IN = new FastScanner(3);
-    String[] act = IN.readStringArray(casesFromArray);
+    String[] act = IN.checkLinesReadStringArray(casesFromArray);
     IN.close();
     // END import of actual Output
-    /*
 
-     */
-
-    // todo define exp and fullin as eg: string / string and decimal / decimal only / suspected double ie int and . found
+    // double ie int and . found
     OUT.println(StringsInArray.isAsExpected(inputStringType, outputStringType));
     OUT.println(StringsInArray.defineStringType(fullIn, 0));
     OUT.println(StringsInArray.defineStringType(act, 0));
 
+    // Define CaseType from info we have:
+    CaseType thisImportsCaseType =
+        new GenericCaseType(
+            casesFromArray,
+            linesPerCase,
+            linesPerOutput,
+            StringsInArray.defineStringType(fullIn, 0),
+            StringsInArray.defineStringType(exp, 0),
+            StringsInArray.defineStringType(act, 0));
 
+    System.out.println(thisImportsCaseType.stringTypeDescription());
 
+    DataType test = new CodeChefDT(-1L, -1L, (GenericCaseType) thisImportsCaseType);
 
+    System.out.println(test);
 
+    DataType[] letsSee = test.consolidateData(fullIn, exp, act);
+
+    for (DataType dt : letsSee){
+      System.out.println(dt.toString());
+    }
 
     /*while (case_t-- > 0) {
 
@@ -94,11 +107,12 @@ static final boolean FILE_WRITE = false;
     private StringTokenizer st;
     // activePath used by countLines
     private String activePath = "";
+
     public FastScanner(int pathNum) {
       BufferedReader br1;
 
       if (System.getProperty("ONLINE_JUDGE") == null) {
-        try { //todo try with resources
+        try { // todo try with resources
           if (pathNum == 1) br1 = new BufferedReader(new FileReader(activePath = _1FULL_IN));
           else if (pathNum == 2) br1 = new BufferedReader(new FileReader(activePath = _2EXP_IN));
           else br1 = new BufferedReader(new FileReader(activePath = _3ACT_IN));
@@ -122,14 +136,26 @@ static final boolean FILE_WRITE = false;
       return st.nextToken();
     }
 
+    boolean inputVsOutput(long expected) {
+      // todo explicitly populate lines per output, it is known at return true below but is unclear
+      // how/when this happened
+      long linesInActivePathFile = countLines();
+      if (expected == linesInActivePathFile) {
+        linesPerOutput = 1;
+        return true;
+      } else
+        throw new IllegalStateException(
+            (String.format(
+                "inputVsOutput(long expected):\nLine length of activePath file %s does not match number of expected cases %s",
+                linesInActivePathFile, expected)));
+    }
+
     long countLines() {
-      if (activePath.isEmpty())
-        activePath = _1FULL_IN;
+      if (activePath.isEmpty()) activePath = _1FULL_IN;
 
       try (Stream<String> stream = Files.lines(Path.of(activePath), StandardCharsets.UTF_8)) {
         return stream.count();
-      }
-      catch( IOException e ) {
+      } catch (IOException e) {
         throw new RuntimeException(e);
       }
     }
@@ -173,6 +199,13 @@ static final boolean FILE_WRITE = false;
     String[] readStringArray(int n) {
       String[] arr = new String[n];
       for (int i = 0; i < n; i++) arr[i] = IN.nextLine().trim();
+      return arr;
+    }
+
+    String[] checkLinesReadStringArray(int expectedLines) {
+      inputVsOutput(expectedLines);
+      String[] arr = new String[expectedLines];
+      for (int i = 0; i < expectedLines; i++) arr[i] = IN.nextLine().trim();
       return arr;
     }
 
