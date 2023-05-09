@@ -2,8 +2,6 @@ package cchef.jtrain.self.code_comp.inputconsolidation;
 
 import cchef.jtrain.self.code_comp.datatypes.SourceDataInfo;
 
-import java.util.Objects;
-
 public class CT_InputExpectedActual implements CaseType {
 
   private final long TOTAL_CASES;
@@ -28,10 +26,8 @@ public class CT_InputExpectedActual implements CaseType {
     this.INPUT = INPUT;
     this.EXPECTED = EXPECTED;
     this.ACTUAL = ACTUAL;
-    if (SOURCE_DATA_INFO.isEmptyOrNull())
-      this.SOURCE_DATA_INFO = CaseType.DEFAULT_SDI_ARRAY;
-    else
-      this.SOURCE_DATA_INFO = SOURCE_DATA_INFO;
+    if (SOURCE_DATA_INFO.isEmptyOrNull()) this.SOURCE_DATA_INFO = CaseType.DEFAULT_SDI_ARRAY;
+    else this.SOURCE_DATA_INFO = SOURCE_DATA_INFO;
   }
 
   /**
@@ -57,7 +53,15 @@ public class CT_InputExpectedActual implements CaseType {
    * @return
    */
   @Override
-  public int getLinesPerInput() {
+  public long getTOTAL_CASES() {
+    return this.TOTAL_CASES;
+  }
+
+  /**
+   * @return
+   */
+  @Override
+  public int getLINES_PER_INPUT() {
     return this.LINES_PER_INPUT;
   }
 
@@ -65,20 +69,27 @@ public class CT_InputExpectedActual implements CaseType {
    * @return
    */
   @Override
-  public int getLinesPerOutput() {
+  public int getLINES_PER_OUTPUT() {
     return this.LINES_PER_OUTPUT;
   }
 
-/**
-* 
+  /**
    * @return
-*/
-@Override
-public boolean selfCheck() {
-  return false;
-}
+   */
+  @Override
+  public SourceDataInfo getSourceDataInfo() {
+    return this.SOURCE_DATA_INFO;
+  }
 
-/**
+  /**
+   * @return
+   */
+  @Override
+  public boolean selfCheck() {
+    return false;
+  }
+
+  /**
    * @return
    */
   public long getTotalCases() {

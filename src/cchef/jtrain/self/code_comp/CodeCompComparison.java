@@ -1,15 +1,14 @@
 package cchef.jtrain.self.code_comp;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import cchef.jtrain.self.code_comp.datatypes.SDIArray;
-import cchef.jtrain.self.code_comp.datatypes.SourceDataInfo;
+import cchef.jtrain.self.code_comp.getdata.GetDataAs;
+import cchef.jtrain.self.code_comp.getdata.StringFromLocalFileAuto;
 import cchef.jtrain.self.code_comp.inputconsolidation.*;
-import cchef.jtrain.self.code_comp.getdata.StringFromLocalFile;
+import cchef.jtrain.self.code_comp.getdata.StringFromLocalFileHardCoded;
 
 import static cchef.jtrain.self.code_comp.inputconsolidation.StringType.*;
 
@@ -20,14 +19,14 @@ class CodeCompComparison {
   static final StringType inputStringType = NUMERIC_SP;
   static final StringType outputStringType = NUMERIC;
   static final boolean FILE_WRITE = false;
-  static StringFromLocalFile IN;
+  static StringFromLocalFileHardCoded IN;
   static int fileLength; // not lossy int level input is max for Arrays and ArrayLists
   static int casesFromArray = 0;
   static int linesPerCase = 0;
   static int linesPerOutput = 1;
 
   public static void main(String[] args) throws Exception {
-    IN = new StringFromLocalFile(1);
+    IN = new StringFromLocalFileHardCoded(1);
     fileLength = (int) IN.countLines();
 
     String[] fullIn = IN.readStringArray(fileLength);
@@ -36,12 +35,12 @@ class CodeCompComparison {
 
     IN.close(); // todo create safe/auto close
     // END of Input Data import and check.
-    IN = new StringFromLocalFile(2);
+    IN = new StringFromLocalFileHardCoded(2);
     String[] exp = IN.checkLinesReadStringArray(casesFromArray);
     //linesPerOutput = Utilz.getOutputLength(exp);
     IN.close();
     // END import of expected Output
-    IN = new StringFromLocalFile(3);
+    IN = new StringFromLocalFileHardCoded(3);
     String[] act = IN.checkLinesReadStringArray(casesFromArray);
     IN.close();
     // END import of actual Output
@@ -60,20 +59,27 @@ class CodeCompComparison {
             StringsInArray.defineStringType(fullIn, 0),
             StringsInArray.defineStringType(exp, 0),
             StringsInArray.defineStringType(act, 0),
-            CaseType.DEFAULT_SDI_ARRAY);
+            CaseType.DEFAULT_SDI_ARRAY
+            );
 
     System.out.println(thisImportsCaseType.stringTypeDescription());
 
-    DataType test = new DTCodeChef(( CT_InputExpectedActual ) thisImportsCaseType);
+    DataType ccDataType = new DTCodeChef(( CT_InputExpectedActual ) thisImportsCaseType);
 
-    System.out.println(test);
+    System.out.println(ccDataType);
+    // Passing DTCodeChef object to GetDataAs -> StringFromLocalFile
+    GetDataAs strFromLocal = new StringFromLocalFileAuto(ccDataType);
+    DataType[] populated = strFromLocal.populate();
+    for (DataType dt : populated) System.out.println(dt.toString());
 
-    ArrayList<DataType> letsSee =
+    // Directly working on DTCodeChef object
+
+    /*ArrayList<DataType> letsSee =
         (ArrayList<DataType>) test.consolidateDataToList(fullIn, exp, act);
 
     for (DataType dt : letsSee) {
       System.out.println(dt.toString());
-    }
+    }*/
 
     /*while (case_t-- > 0) {
 

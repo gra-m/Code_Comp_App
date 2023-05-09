@@ -8,27 +8,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="tidied CodeChefDT class">
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DataTypeOutput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/SDIArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/SDI_LHMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/SourceDataInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/GetDataAs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/StringFromLocalFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/CaseType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/OutputToConsole.java" afterDir="false" />
+    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="SourceDataInfo DataTypes StringFromLocalFile replaces internal FastWriter class and widespread refactoring for encapsulation and flexibility">
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/StringFromLocalFileAuto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/GetData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/CodeCompComparison.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/StringsInArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/StringsInArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/Utilz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/Utilz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/ArrayDataTypeValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/ArrayDataTypeOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/CaseType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/CodeChefDT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/DTCodeChef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/DataType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/DataType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/DynamicDataTypeValue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/GenericCaseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/CT_InputExpectedActual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/ListDataTypeValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/ListDataTypeOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/StringType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/StringType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/CodeCompComparison.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/CodeCompComparison.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/ArrayDataTypeOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/ArrayDataTypeOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/ListDataTypeOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/ListDataTypeOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/SDIArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/SDIArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/SourceDataInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/SourceDataInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/GetDataAs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/GetDataAs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/StringFromLocalFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/StringFromLocalFileHardCoded.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/CT_InputExpectedActual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/CT_InputExpectedActual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/CaseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/CaseType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/DTCodeChef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/DTCodeChef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/DataType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/DataType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,11 +97,11 @@
       <recent name="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/spec_datatypes" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cchef.jtrain.self.code_comp.getdata" />
       <recent name="cchef.jtrain.self.getdata.data_consolidation" />
       <recent name="cchef.jtrain.self.getdata" />
       <recent name="cchef.jtrain.timecomplexity" />
       <recent name="cchef.jtrain.starters86" />
-      <recent name="cchef.jtrain.starters86.wups" />
     </key>
   </component>
   <component name="RunManager" selected="Application.CodeCompComparison">
@@ -281,7 +274,7 @@
       <workItem from="1683361049791" duration="11000" />
       <workItem from="1683361078845" duration="39440000" />
       <workItem from="1683534220882" duration="21929000" />
-      <workItem from="1683617581528" duration="8664000" />
+      <workItem from="1683617581528" duration="23249000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit for this java playground..">
       <created>1677790778872</created>
@@ -360,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683409326436</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="SourceDataInfo DataTypes StringFromLocalFile replaces internal FastWriter class and widespread refactoring for encapsulation and flexibility">
+      <created>1683630432571</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683630432571</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +389,8 @@
     <MESSAGE value="Apply method returning relevant IntPredicates added to StringTypes" />
     <MESSAGE value="implemented case and datatypes and data consolidation within class itself." />
     <MESSAGE value="tidied CodeChefDT class" />
-    <option name="LAST_COMMIT_MESSAGE" value="tidied CodeChefDT class" />
+    <MESSAGE value="SourceDataInfo DataTypes StringFromLocalFile replaces internal FastWriter class and widespread refactoring for encapsulation and flexibility" />
+    <option name="LAST_COMMIT_MESSAGE" value="SourceDataInfo DataTypes StringFromLocalFile replaces internal FastWriter class and widespread refactoring for encapsulation and flexibility" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -398,21 +399,6 @@
           <properties class="java.lang.NumberFormatException" package="java.lang" />
           <option name="timeStamp" value="13" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/DTCodeChef.java</url>
-          <line>179</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/DTCodeChef.java</url>
-          <line>157</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/StringsInArray.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

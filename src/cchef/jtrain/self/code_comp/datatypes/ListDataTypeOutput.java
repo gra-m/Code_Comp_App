@@ -12,4 +12,5 @@ public class ListDataTypeOutput implements DataTypeOutput {
             this.value = value;
       }
 
+      public List<DataType> getDataTypeArray(){return value;};
 }

@@ -3,9 +3,15 @@ package cchef.jtrain.self.code_comp.datatypes;
 import java.util.Objects;
 
 public class SDIArray implements SourceDataInfo {
-  private final String[] sourceDataInfo;
+  private static String[] sourceDataInfo;
 
-  public SDIArray(String[] sourceDataInfo) {this.sourceDataInfo = sourceDataInfo;}
+  public SDIArray(String[] sourceDataInfo) {
+        SDIArray.sourceDataInfo = sourceDataInfo;}
+
+// todo getSourceDataInfo at interface level -> experiment.
+public String[] getStringArray() {
+        return sourceDataInfo;
+}
 
 /**
 *

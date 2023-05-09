@@ -1,6 +1,9 @@
 package cchef.jtrain.self.code_comp.getdata;
 
 import cchef.jtrain.self.code_comp.datatypes.DataTypeOutput;
+import cchef.jtrain.self.code_comp.inputconsolidation.DataType;
+
+import java.io.FileNotFoundException;
 
 /**
  * A GetDataAs can fetch data from a number of data-sources dependent on the CaseType of the DataType that is passed
@@ -16,6 +19,7 @@ import cchef.jtrain.self.code_comp.datatypes.DataTypeOutput;
  */
 public interface GetDataAs {
       DataTypeOutput fetchFromDataSource();
+      DataType[] populate() throws FileNotFoundException;
 
 
 }

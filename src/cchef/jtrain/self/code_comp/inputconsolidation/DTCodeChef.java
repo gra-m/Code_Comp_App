@@ -1,12 +1,15 @@
 package cchef.jtrain.self.code_comp.inputconsolidation;
 
+import cchef.jtrain.self.code_comp.datatypes.DataTypeOutput;
+import cchef.jtrain.self.code_comp.datatypes.SourceDataInfo;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 public class DTCodeChef implements DataType {
-  private static final int EXPECTED_CC_INPUT_HEADER = 1;
+  private static final int INPUT_FILE_HEADER = 1;
   private static String[] INPUT;
   private static int inputIndex;
   private static String[] EXPECTED;
@@ -35,10 +38,10 @@ public class DTCodeChef implements DataType {
   public DTCodeChef(final CT_InputExpectedActual CASE_TYPE) {
     Objects.requireNonNull(CASE_TYPE);
     this.CASE_TYPE = CASE_TYPE;
-    int linesPerOutput = this.CASE_TYPE.getLinesPerOutput();
+    int linesPerOutput = this.CASE_TYPE.getLINES_PER_OUTPUT();
     this.CASE_INDEX = -1L;
     this.CASE_ID = -2L;
-    this.CASE_INPUT_DATA = new String[this.CASE_TYPE.getLinesPerInput()];
+    this.CASE_INPUT_DATA = new String[this.CASE_TYPE.getLINES_PER_INPUT()];
     this.EXP_OUTPUT_DATA = new String[linesPerOutput];
     this.ACT_OUTPUT_DATA = new String[linesPerOutput];
     this.status_passing = false;
@@ -72,20 +75,47 @@ public class DTCodeChef implements DataType {
    * @return
    */
   @Override
-  public int getLinesPerInput() {
-    return this.CASE_TYPE.getLinesPerInput();
+  public int getLINES_PER_INPUT() {
+    return this.CASE_TYPE.getLINES_PER_INPUT();
   }
 
   /**
    * @return
    */
   @Override
-  public int getLinesPerOutput() {
-    return this.CASE_TYPE.getLinesPerOutput();
+  public int getLINES_PER_OUTPUT() {
+    return this.CASE_TYPE.getLINES_PER_OUTPUT();
   }
 
+/**
+* 
+   * @return
+*/
+@Override
+public long getTOTAL_CASES() {
+  return this.CASE_TYPE.getTOTAL_CASES();
+}
 
-  //todo for consolidated data return array/arraylist with unique id (timestamp) potentially Map<String, DataType[]> ???
+/**
+* Used in StringFromLocalFile populate();
+   * @return
+*/
+@Override
+public int getInputFileHeaderSize() {
+  return INPUT_FILE_HEADER;
+}
+
+/**
+* 
+   * @return
+*/
+@Override
+public SourceDataInfo getSourceDataInfo() {
+  return this.CASE_TYPE.getSourceDataInfo();
+}
+
+
+//todo for consolidated data return array/arraylist with unique id (timestamp) potentially Map<String, DataType[]> ???
   /**
    * @param input
    * @param expected
@@ -99,8 +129,8 @@ public class DTCodeChef implements DataType {
     else throw new IllegalStateException("Input expected and actual do not correlate");
 
     int totalCases = (int) CASE_TYPE.getTotalCases();
-    int inDatLength = CASE_TYPE.getLinesPerInput();
-    int outDatLength = CASE_TYPE.getLinesPerOutput();
+    int inDatLength = this.getLINES_PER_INPUT();
+    int outDatLength = this.getLINES_PER_OUTPUT();
     inputIndex = 0;
     expIndex = 0;
     actIndex = 0;
@@ -155,15 +185,15 @@ public class DTCodeChef implements DataType {
   }
 
   private boolean logicCheckInputExpAct(String[] input, String[] expected, String[] actual) {
-    int total = (int) CASE_TYPE.getTotalCases();
-    int inputLines = CASE_TYPE.getLinesPerInput() * total;
-    int outputLines = CASE_TYPE.getLinesPerOutput() * total;
+    int total = (int) this.getTOTAL_CASES();
+    int inputLines = this.getLINES_PER_INPUT() * total;
+    int outputLines = this.getLINES_PER_OUTPUT() * total;
     int inputLength = removeSingleHeaderLineIfPresent(input, inputLines);
     return inputLines == inputLength && outputLines == expected.length && outputLines == actual.length;
   }
 
   private int removeSingleHeaderLineIfPresent(String[] input, int inputLines) {
-    if (input.length - inputLines == EXPECTED_CC_INPUT_HEADER) return inputLines;
+    if (input.length - inputLines == INPUT_FILE_HEADER ) return inputLines;
     else
       throw new IllegalStateException("Extra codechef headerline was not present in input array");
   }
@@ -181,9 +211,9 @@ public class DTCodeChef implements DataType {
       setStaticArrayFields(input, expected, actual);
     else throw new IllegalStateException("Input expected and actual do not correlate");
 
-    int totalCases = (int) CASE_TYPE.getTotalCases();
-    int inDatLength = CASE_TYPE.getLinesPerInput();
-    int outDatLength = CASE_TYPE.getLinesPerOutput();
+    int totalCases = (int) this.getTOTAL_CASES();
+    int inDatLength = this.getLINES_PER_INPUT();
+    int outDatLength = this.getLINES_PER_OUTPUT();
     inputIndex = 0;
     expIndex = 0;
     actIndex = 0;
@@ -207,8 +237,21 @@ public class DTCodeChef implements DataType {
     return consolidatedData;
   }
 
+/**
+* 
+   * @param
+   * @param
+   * @return
+*/
+public DataType[] consolidateData(String[][] inputArray) {
+  if (Objects.nonNull(inputArray))
+      return consolidateData(inputArray[0], inputArray[1], inputArray[2]);
+  else
+    throw new RuntimeException("@DTCodeChef consolidateData (String[][] inputArray [was null])");
+}
 
-  private boolean expectedMatchesActual(String[] expected, String[] actual) {
+
+private boolean expectedMatchesActual(String[] expected, String[] actual) {
     return Arrays.deepEquals(expected, actual);
   }
 

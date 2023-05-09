@@ -6,6 +6,7 @@ package cchef.jtrain.self.code_comp.getdata;
 // todo linked to above the ImportInstructions will allow e.g. any number of files to be imported.
 // static finals below will become dynamic
 
+import cchef.jtrain.self.code_comp.datatypes.SDIArray;
 import cchef.jtrain.self.code_comp.inputconsolidation.DataType;
 import cchef.jtrain.self.code_comp.datatypes.DataTypeOutput;
 
@@ -13,36 +14,67 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class StringFromLocalFile implements GetDataAs {
+public class StringFromLocalFileHardCoded implements GetDataAs {
+  // ORIGiNAl LiKe FastWRiter
   static final String _1FULL_IN = "/home/kali/Documents/001_CC/00fullIn.txt";
   static final String _2EXP_IN = "/home/kali/Documents/001_CC/00exp.txt";
   static final String _3ACT_IN = "/home/kali/Documents/001_CC/00act.txt";
-  static String caseTypeActiveFilePath;
-  static int linesPerOutput;
   private final BufferedReader READER;
-  private StringTokenizer tokenizer;
   private String activePath = "";
+  //SHARED
+  static int linesPerOutput;
+  private StringTokenizer tokenizer;
+  // New automated.
+  private DataType DATA_TYPE;
+  private static String caseTypeActiveFilePath;
+  private BufferedReader AutoReader;
+  private String[][] allInputData;
+
 
 
   // todo thoughts on how to make flexible
-  public StringFromLocalFile(DataType dataType) {
+  public StringFromLocalFileHardCoded(final DataType DATA_TYPE) {
     // add user interaction, where are files coming from local/web dl / web api / cloud storage == GetInput Type
     // CaseType == number of filepaths/ api calls and other details to enable creation by a.. DataType
     // DataType == self contained creation of DataType objects that can then be turned into any required report
     // add flexible data type that adjusts to file inputs.
     // number of files from filepath array
     // add filepath array to CaseType
+    this.DATA_TYPE = DATA_TYPE;
     READER = null;
   }
 
-  public StringFromLocalFile(int pathNum) {
+
+/** Given: Input is first sourcepath and so could have INPUT_FILE_HEADER
+ *
+ * @return
+ * @throws FileNotFoundException
+ */
+@Override
+  public DataType[] populate() throws FileNotFoundException {
+    if ( Objects.isNull(this.DATA_TYPE))
+      throw new IllegalStateException("@StringFromLocalFile/populate cannot populate with null DATA_TYPE");
+
+    SDIArray sdiArray =  (SDIArray ) DATA_TYPE.getSourceDataInfo();
+    String[] arrayOfPaths = sdiArray.getStringArray();
+    int headerLines = DATA_TYPE.getInputFileHeaderSize();
+    String[][] inputArray = new String[arrayOfPaths.length][];
+
+    for (String str: arrayOfPaths ) {
+      System.out.println(str);
+      caseTypeActiveFilePath = str;
+      AutoReader = new BufferedReader(new FileReader(caseTypeActiveFilePath));
+
+
+    }
+    return null;
+  }
+
+  public StringFromLocalFileHardCoded(int pathNum) {
     BufferedReader reader;
 
     if (System.getProperty("ONLINE_JUDGE") == null) {
@@ -59,6 +91,7 @@ public class StringFromLocalFile implements GetDataAs {
       reader = new BufferedReader(new InputStreamReader(System.in));
     }
     this.READER = reader;
+    this.DATA_TYPE = null;
   }
 
   private static Integer[] intArrToIntegerArr(int[] st01) throws NumberFormatException {
@@ -95,6 +128,7 @@ String next() {
     return tokenizer.nextToken();
   }
 
+  // TESTofDATA
   public boolean inputVsOutput(long expected) {
     // todo explicitly populate lines per output, it is known at time of return true below but is
     long linesInActivePathFile = countLines();
@@ -107,7 +141,7 @@ String next() {
               "inputVsOutput(long expected):\nLine length of activePath file %s does not match number of expected cases %s",
               linesInActivePathFile, expected)));
   }
-
+  //TESTofDATA
   public long countLines() {
     if (activePath.isEmpty()) activePath = _1FULL_IN;
 
@@ -117,6 +151,8 @@ String next() {
       throw new RuntimeException(e);
     }
   }
+
+
 
   public int nextInt() {
     return Integer.parseInt(next());

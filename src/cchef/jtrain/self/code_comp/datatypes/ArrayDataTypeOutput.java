@@ -10,4 +10,6 @@ public class ArrayDataTypeOutput implements DataTypeOutput {
             this.value = value;
       }
 
+      public DataType[] getDataTypeArray(){return value;};
+
 }
