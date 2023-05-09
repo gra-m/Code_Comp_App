@@ -1,11 +1,11 @@
-package cchef.jtrain.self.getdata;
+package cchef.jtrain.self.code_comp;
 
 
 import java.util.function.IntPredicate;
 
-import cchef.jtrain.self.getdata.data_consolidation.StringType;
+import cchef.jtrain.self.code_comp.inputconsolidation.StringType;
 
-import static cchef.jtrain.self.getdata.data_consolidation.StringType.*;
+import static cchef.jtrain.self.code_comp.inputconsolidation.StringType.*;
 
 public final class StringsInArray {
 private static String[] arrayFromDefineStringTypeMethod;

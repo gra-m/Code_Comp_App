@@ -8,15 +8,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="implemented case and datatypes and data consolidation within class itself.">
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/ArrayDataTypeValue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/DynamicDataTypeValue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/ListDataTypeValue.java" afterDir="false" />
+    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="tidied CodeChefDT class">
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DataTypeOutput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/SDIArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/SDI_LHMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/SourceDataInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/GetDataAs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/StringFromLocalFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/CaseType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/OutputToConsole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/GetData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/GetData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/CodeChefDT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/CodeChefDT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/DataType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/DataType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/GenericCaseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/GenericCaseType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/GetData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/CodeCompComparison.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/StringsInArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/StringsInArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/Utilz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/Utilz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/ArrayDataTypeValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/ArrayDataTypeOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/CaseType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/CodeChefDT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/DTCodeChef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/DataType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/DataType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/DynamicDataTypeValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/GenericCaseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/CT_InputExpectedActual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/ListDataTypeValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/ListDataTypeOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/getdata/data_consolidation/StringType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/StringType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +80,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "graalvm-ce-17",
+    "last_opened_file_path": "/home/kali/IdeaProjects/Code_Site_CC/src/cchef/jtrain/self/code_comp/spec_datatypes",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -87,6 +100,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/spec_datatypes" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cchef.jtrain.self.getdata.data_consolidation" />
       <recent name="cchef.jtrain.self.getdata" />
@@ -95,7 +111,20 @@
       <recent name="cchef.jtrain.starters86.wups" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GetData">
+  <component name="RunManager" selected="Application.CodeCompComparison">
+    <configuration name="CodeCompComparison" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cchef.jtrain.self.code_comp.CodeCompComparison" />
+      <module name="Code_Site_CC" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cchef.jtrain.self.code_comp.datatypes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Codechef86_3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cchef.jtrain.starters86.Codechef86_3" />
       <module name="Code_Site_CC" />
@@ -127,19 +156,6 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="cchef.jtrain.arrays.SmallestElement" />
       <module name="Code_Site_CC" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GetData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cchef.jtrain.self.getdata.GetData" />
-      <module name="Code_Site_CC" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cchef.jtrain.self.getdata.data_consolidation.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -183,7 +199,7 @@
     <list>
       <item itemvalue="Application.LOCAL_IDE_RUN" />
       <item itemvalue="Application.Current Class Run" />
-      <item itemvalue="Application.GetData" />
+      <item itemvalue="Application.CodeCompComparison" />
       <item itemvalue="Application.GiftShopCoupon_2" />
       <item itemvalue="Application.GiftShopCoupon" />
       <item itemvalue="Application.Codechef86_3" />
@@ -191,7 +207,7 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GetData" />
+        <item itemvalue="Application.CodeCompComparison" />
         <item itemvalue="Application.GiftShopCoupon_2" />
         <item itemvalue="Application.GiftShopCoupon" />
         <item itemvalue="Application.Codechef86_3_a" />
@@ -263,7 +279,9 @@
       <workItem from="1683202208715" duration="1626000" />
       <workItem from="1683361004489" duration="34000" />
       <workItem from="1683361049791" duration="11000" />
-      <workItem from="1683361078845" duration="39062000" />
+      <workItem from="1683361078845" duration="39440000" />
+      <workItem from="1683534220882" duration="21929000" />
+      <workItem from="1683617581528" duration="8664000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit for this java playground..">
       <created>1677790778872</created>
@@ -335,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683391132387</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="tidied CodeChefDT class">
+      <created>1683409326436</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683409326436</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +388,8 @@
     <MESSAGE value="IntPredicate nested enum" />
     <MESSAGE value="Apply method returning relevant IntPredicates added to StringTypes" />
     <MESSAGE value="implemented case and datatypes and data consolidation within class itself." />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented case and datatypes and data consolidation within class itself." />
+    <MESSAGE value="tidied CodeChefDT class" />
+    <option name="LAST_COMMIT_MESSAGE" value="tidied CodeChefDT class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -373,9 +399,19 @@
           <option name="timeStamp" value="13" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/cchef/jtrain/self/getdata/GetData.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="15" />
+          <url>file://$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/DTCodeChef.java</url>
+          <line>179</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/DTCodeChef.java</url>
+          <line>157</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/StringsInArray.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

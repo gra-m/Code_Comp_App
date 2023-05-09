@@ -1,11 +1,11 @@
-package cchef.jtrain.self.getdata.data_consolidation;
+package cchef.jtrain.self.code_comp.inputconsolidation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class CodeChefDT implements DataType {
+public class DTCodeChef implements DataType {
   private static final int EXPECTED_CC_INPUT_HEADER = 1;
   private static String[] INPUT;
   private static int inputIndex;
@@ -16,11 +16,12 @@ public class CodeChefDT implements DataType {
 
   private final long CASE_INDEX;
   private final long CASE_ID;
-  private final GenericCaseType CASE_TYPE;
+  private final CT_InputExpectedActual CASE_TYPE;
   private final String[] CASE_INPUT_DATA;
   private final boolean status_passing;
   private final String[] EXP_OUTPUT_DATA;
   private final String[] ACT_OUTPUT_DATA;
+
 
   /**
    * Creates a template CodeChefDT with (what should be) a fully formed CASE_TYPE for the data being
@@ -28,10 +29,10 @@ public class CodeChefDT implements DataType {
    *
    * @param CASE_TYPE Must not be null
    * @throws NullPointerException if CASE_TYPE is null
-   * @see CodeChefDT#CodeChefDT(long, long, CaseType, String[], String[], String[]) the private
+   * @see DTCodeChef#DTCodeChef(long, long, CaseType, String[], String[], String[]) the private
    *     constructor used to create Arrays of this type.
    */
-  public CodeChefDT(final GenericCaseType CASE_TYPE) {
+  public DTCodeChef(final CT_InputExpectedActual CASE_TYPE) {
     Objects.requireNonNull(CASE_TYPE);
     this.CASE_TYPE = CASE_TYPE;
     int linesPerOutput = this.CASE_TYPE.getLinesPerOutput();
@@ -40,10 +41,10 @@ public class CodeChefDT implements DataType {
     this.CASE_INPUT_DATA = new String[this.CASE_TYPE.getLinesPerInput()];
     this.EXP_OUTPUT_DATA = new String[linesPerOutput];
     this.ACT_OUTPUT_DATA = new String[linesPerOutput];
-    this.status_passing = true;
+    this.status_passing = false;
   }
 
-  private CodeChefDT(
+  private DTCodeChef(
       final long CASE_INDEX,
       final long CASE_ID,
       final CaseType CASE_TYPE,
@@ -52,14 +53,14 @@ public class CodeChefDT implements DataType {
       final String[] ACT_OUTPUT_DATA) {
     this.CASE_INDEX = CASE_INDEX;
     this.CASE_ID = CASE_ID;
-    this.CASE_TYPE = (GenericCaseType) CASE_TYPE;
+    this.CASE_TYPE = ( CT_InputExpectedActual ) CASE_TYPE;
     this.CASE_INPUT_DATA = CASE_INPUT_DATA;
     this.EXP_OUTPUT_DATA = EXP_OUTPUT_DATA;
     this.ACT_OUTPUT_DATA = ACT_OUTPUT_DATA;
     this.status_passing = expectedMatchesActual(this.EXP_OUTPUT_DATA, this.ACT_OUTPUT_DATA);
   }
 
-  /**
+/**
    * @return
    */
   @Override
@@ -83,6 +84,8 @@ public class CodeChefDT implements DataType {
     return this.CASE_TYPE.getLinesPerOutput();
   }
 
+
+  //todo for consolidated data return array/arraylist with unique id (timestamp) potentially Map<String, DataType[]> ???
   /**
    * @param input
    * @param expected
@@ -102,7 +105,7 @@ public class CodeChefDT implements DataType {
     expIndex = 0;
     actIndex = 0;
 
-    DataType[] consolidatedData = new CodeChefDT[totalCases];
+    DataType[] consolidatedData = new DTCodeChef[totalCases];
 
     for (int i = 0; i < totalCases; i++) {
       String[] inputData = new String[inDatLength];
@@ -114,7 +117,7 @@ public class CodeChefDT implements DataType {
       String[] actData = new String[outDatLength];
       getCaseActualArray(actData, outDatLength);
 
-      consolidatedData[i] = new CodeChefDT(i, (i + 1), this.CASE_TYPE, inputData, expData, actData);
+      consolidatedData[i] = new DTCodeChef(i, (i + 1), this.CASE_TYPE, inputData, expData, actData);
     }
 
     return consolidatedData;
@@ -146,9 +149,9 @@ public class CodeChefDT implements DataType {
 
   private void setStaticArrayFields(
       final String[] INPUT, final String[] EXPECTED, final String[] ACTUAL) {
-    CodeChefDT.INPUT = INPUT;
-    CodeChefDT.EXPECTED = EXPECTED;
-    CodeChefDT.ACTUAL = ACTUAL;
+    DTCodeChef.INPUT = INPUT;
+    DTCodeChef.EXPECTED = EXPECTED;
+    DTCodeChef.ACTUAL = ACTUAL;
   }
 
   private boolean logicCheckInputExpAct(String[] input, String[] expected, String[] actual) {
@@ -198,7 +201,7 @@ public class CodeChefDT implements DataType {
       getCaseActualArray(actData, outDatLength);
 
       consolidatedData.add(
-          i, new CodeChefDT(i, (i + 1), this.CASE_TYPE, inputData, expData, actData));
+          i, new DTCodeChef(i, (i + 1), this.CASE_TYPE, inputData, expData, actData));
     }
 
     return consolidatedData;

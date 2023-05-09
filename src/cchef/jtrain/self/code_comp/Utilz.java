@@ -1,13 +1,8 @@
-package cchef.jtrain.self.getdata;
+package cchef.jtrain.self.code_comp;
 
-import cchef.jtrain.self.getdata.data_consolidation.CaseType;
-import cchef.jtrain.self.getdata.data_consolidation.CodeChefDT;
-import cchef.jtrain.self.getdata.data_consolidation.DataType;
-
-import static cchef.jtrain.self.getdata.GetData.OUT;
+import static cchef.jtrain.self.code_comp.CodeCompComparison.OUT;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 public final class Utilz {
 
@@ -29,6 +24,8 @@ public final class Utilz {
     int cases = Integer.parseInt(arrayOfFullInput[0]);
     int arrayLength = arrayOfFullInput.length;
 
+    System.out.println("ArrayOfFullInput is " + arrayOfFullInput.length);
+           // fixme magic number full input is 900 not 901 here
     try {
       if ((arrayLength - 1) % cases == 0) {
         return (arrayLength - 1) / cases;

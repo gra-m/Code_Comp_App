@@ -1,4 +1,4 @@
-package cchef.jtrain.self.getdata.data_consolidation;
+package cchef.jtrain.self.code_comp.inputconsolidation;
 
 import java.util.function.IntPredicate;
 

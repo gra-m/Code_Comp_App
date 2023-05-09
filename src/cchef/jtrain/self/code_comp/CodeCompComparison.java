@@ -1,37 +1,34 @@
-package cchef.jtrain.self.getdata;
+package cchef.jtrain.self.code_comp;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.StringTokenizer;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import cchef.jtrain.self.getdata.data_consolidation.*;
+import cchef.jtrain.self.code_comp.datatypes.SDIArray;
+import cchef.jtrain.self.code_comp.datatypes.SourceDataInfo;
+import cchef.jtrain.self.code_comp.inputconsolidation.*;
+import cchef.jtrain.self.code_comp.getdata.StringFromLocalFile;
 
-import static cchef.jtrain.self.getdata.data_consolidation.StringType.*;
+import static cchef.jtrain.self.code_comp.inputconsolidation.StringType.*;
 
-class GetData {
+class CodeCompComparison {
 
-  static final String _1FULL_IN = "/home/kali/Documents/001_CC/00fullIn.txt";
-  static final String _2EXP_IN = "/home/kali/Documents/001_CC/00exp.txt";
-  static final String _3ACT_IN = "/home/kali/Documents/001_CC/00act.txt";
   static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
   static final FastWriter OUT = new FastWriter();
   static final StringType inputStringType = NUMERIC_SP;
   static final StringType outputStringType = NUMERIC;
   static final boolean FILE_WRITE = false;
-  static FastScanner IN = new FastScanner(1);
-  static int fileLength = (int) IN.countLines(); // lossy but array[long] not available
+  static StringFromLocalFile IN;
+  static int fileLength; // not lossy int level input is max for Arrays and ArrayLists
   static int casesFromArray = 0;
   static int linesPerCase = 0;
-  static int linesPerOutput = 0;
+  static int linesPerOutput = 1;
 
   public static void main(String[] args) throws Exception {
+    IN = new StringFromLocalFile(1);
+    fileLength = (int) IN.countLines();
 
     String[] fullIn = IN.readStringArray(fileLength);
     casesFromArray = Integer.parseInt(fullIn[0]);
@@ -39,12 +36,12 @@ class GetData {
 
     IN.close(); // todo create safe/auto close
     // END of Input Data import and check.
-    IN = new FastScanner(2);
-    String[] exp =
-        IN.checkLinesReadStringArray(casesFromArray);
+    IN = new StringFromLocalFile(2);
+    String[] exp = IN.checkLinesReadStringArray(casesFromArray);
+    //linesPerOutput = Utilz.getOutputLength(exp);
     IN.close();
     // END import of expected Output
-    IN = new FastScanner(3);
+    IN = new StringFromLocalFile(3);
     String[] act = IN.checkLinesReadStringArray(casesFromArray);
     IN.close();
     // END import of actual Output
@@ -56,23 +53,25 @@ class GetData {
 
     // Define CaseType from info we have:
     CaseType thisImportsCaseType =
-        new GenericCaseType(
+        new CT_InputExpectedActual(
             casesFromArray,
             linesPerCase,
             linesPerOutput,
             StringsInArray.defineStringType(fullIn, 0),
             StringsInArray.defineStringType(exp, 0),
-            StringsInArray.defineStringType(act, 0));
+            StringsInArray.defineStringType(act, 0),
+            CaseType.DEFAULT_SDI_ARRAY);
 
     System.out.println(thisImportsCaseType.stringTypeDescription());
 
-    DataType test = new CodeChefDT((GenericCaseType) thisImportsCaseType);
+    DataType test = new DTCodeChef(( CT_InputExpectedActual ) thisImportsCaseType);
 
     System.out.println(test);
 
-    ArrayList<DataType> letsSee = (ArrayList<DataType> ) test.consolidateDataToList(fullIn, exp, act);
+    ArrayList<DataType> letsSee =
+        (ArrayList<DataType>) test.consolidateDataToList(fullIn, exp, act);
 
-    for (DataType dt : letsSee){
+    for (DataType dt : letsSee) {
       System.out.println(dt.toString());
     }
 
@@ -102,7 +101,7 @@ class GetData {
     return raw.replaceAll("[^\\d\\s]", "").trim();
   }
 
-  static class FastScanner {
+  /*static class FastScanner {
     private final BufferedReader BR;
     private StringTokenizer st;
     // activePath used by countLines
@@ -137,7 +136,7 @@ class GetData {
     }
 
     boolean inputVsOutput(long expected) {
-      // todo explicitly populate lines per output, it is known at return true below but is unclear
+      // todo explicitly populate lines per output, it is known at time of return true below but is unclear
       // how/when this happened
       long linesInActivePathFile = countLines();
       if (expected == linesInActivePathFile) {
@@ -252,7 +251,7 @@ class GetData {
         e.printStackTrace();
       }
     }
-  }
+  }*/
 
   static class FastWriter {
     private final BufferedWriter BW;
