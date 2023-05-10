@@ -1,4 +1,4 @@
-package cchef.jtrain.self.code_comp.datatypes;
+package cchef.jtrain.self.code_comp.casetypes.importinfotypes;
 
 public interface SourceDataInfo {
   void sourceDataToConsole();

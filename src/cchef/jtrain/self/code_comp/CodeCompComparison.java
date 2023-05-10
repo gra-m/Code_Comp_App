@@ -5,21 +5,24 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import cchef.jtrain.self.code_comp.casetypes.CT_InputExpectedActual;
+import cchef.jtrain.self.code_comp.casetypes.CaseType;
+import cchef.jtrain.self.code_comp.casetypes.StringType;
 import cchef.jtrain.self.code_comp.getdata.GetDataAs;
 import cchef.jtrain.self.code_comp.getdata.StringFromLocalFileAuto;
-import cchef.jtrain.self.code_comp.inputconsolidation.*;
+import cchef.jtrain.self.code_comp.datatypes.*;
 import cchef.jtrain.self.code_comp.getdata.StringFromLocalFileHardCoded;
 
-import static cchef.jtrain.self.code_comp.inputconsolidation.StringType.*;
+import static cchef.jtrain.self.code_comp.casetypes.StringType.*;
 
 class CodeCompComparison {
 
   static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
   static final FastWriter OUT = new FastWriter();
-  static final StringType inputStringType = NUMERIC_SP;
-  static final StringType outputStringType = NUMERIC;
+  static final StringType expectedInputStringType = NUMERIC_SP;
+  static final StringType expectedOutputStringType = NUMERIC;
   static final boolean FILE_WRITE = false;
-  static StringFromLocalFileHardCoded IN;
+  static StringFromLocalFileHardCoded IN;   // this was FastScanner
   static int fileLength; // not lossy int level input is max for Arrays and ArrayLists
   static int casesFromArray = 0;
   static int linesPerCase = 0;
@@ -46,9 +49,9 @@ class CodeCompComparison {
     // END import of actual Output
 
     // double ie int and . found
-    OUT.println(StringsInArray.isAsExpected(inputStringType, outputStringType));
-    OUT.println(StringsInArray.defineStringType(fullIn, 0));
-    OUT.println(StringsInArray.defineStringType(act, 0));
+    OUT.println(StringTypeDefineAndCheck.isAsExpected(expectedInputStringType, expectedOutputStringType));
+    OUT.println(StringTypeDefineAndCheck.defineStringType(fullIn, 0));
+    OUT.println(StringTypeDefineAndCheck.defineStringType(act, 0));
 
     // Define CaseType from info we have:
     CaseType thisImportsCaseType =
@@ -56,9 +59,9 @@ class CodeCompComparison {
             casesFromArray,
             linesPerCase,
             linesPerOutput,
-            StringsInArray.defineStringType(fullIn, 0),
-            StringsInArray.defineStringType(exp, 0),
-            StringsInArray.defineStringType(act, 0),
+            StringTypeDefineAndCheck.defineStringType(fullIn, 0),
+            StringTypeDefineAndCheck.defineStringType(exp, 0),
+            StringTypeDefineAndCheck.defineStringType(act, 0),
             CaseType.DEFAULT_SDI_ARRAY
             );
 
@@ -107,157 +110,6 @@ class CodeCompComparison {
     return raw.replaceAll("[^\\d\\s]", "").trim();
   }
 
-  /*static class FastScanner {
-    private final BufferedReader BR;
-    private StringTokenizer st;
-    // activePath used by countLines
-    private String activePath = "";
-
-    public FastScanner(int pathNum) {
-      BufferedReader br1;
-
-      if (System.getProperty("ONLINE_JUDGE") == null) {
-        try { // todo try with resources
-          if (pathNum == 1) br1 = new BufferedReader(new FileReader(activePath = _1FULL_IN));
-          else if (pathNum == 2) br1 = new BufferedReader(new FileReader(activePath = _2EXP_IN));
-          else br1 = new BufferedReader(new FileReader(activePath = _3ACT_IN));
-        } catch (FileNotFoundException e) {
-          br1 = new BufferedReader(new InputStreamReader(System.in));
-        }
-      } else {
-        br1 = new BufferedReader(new InputStreamReader(System.in));
-      }
-      this.BR = br1;
-    }
-
-    String next() {
-      while (st == null || !st.hasMoreElements()) {
-        try {
-          st = new StringTokenizer(BR.readLine());
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-      }
-      return st.nextToken();
-    }
-
-    boolean inputVsOutput(long expected) {
-      // todo explicitly populate lines per output, it is known at time of return true below but is unclear
-      // how/when this happened
-      long linesInActivePathFile = countLines();
-      if (expected == linesInActivePathFile) {
-        linesPerOutput = 1;
-        return true;
-      } else
-        throw new IllegalStateException(
-            (String.format(
-                "inputVsOutput(long expected):\nLine length of activePath file %s does not match number of expected cases %s",
-                linesInActivePathFile, expected)));
-    }
-
-    long countLines() {
-      if (activePath.isEmpty()) activePath = _1FULL_IN;
-
-      try (Stream<String> stream = Files.lines(Path.of(activePath), StandardCharsets.UTF_8)) {
-        return stream.count();
-      } catch (IOException e) {
-        throw new RuntimeException(e);
-      }
-    }
-
-    int nextInt() {
-      return Integer.parseInt(next());
-    }
-
-    long nextLong() {
-      return Long.parseLong(next());
-    }
-
-    double nextDouble() {
-      return Double.parseDouble(next());
-    }
-
-    List<Integer> readIntList(int n) {
-      List<Integer> arr = new ArrayList<>();
-      for (int i = 0; i < n; i++) arr.add(IN.nextInt());
-      return arr;
-    }
-
-    List<Long> readLongList(int n) {
-      List<Long> arr = new ArrayList<>();
-      for (int i = 0; i < n; i++) arr.add(IN.nextLong());
-      return arr;
-    }
-
-    int[] readIntArr(int n) {
-      int[] arr = new int[n];
-      for (int i = 0; i < n; i++) arr[i] = IN.nextInt();
-      return arr;
-    }
-
-    Integer[] readIntegerArray(int n) {
-      int[] arr = new int[n];
-      for (int i = 0; i < n; i++) arr[i] = IN.nextInt();
-      return intArrToIntegerArr(arr);
-    }
-
-    String[] readStringArray(int n) {
-      String[] arr = new String[n];
-      for (int i = 0; i < n; i++) arr[i] = IN.nextLine().trim();
-      return arr;
-    }
-
-    String[] checkLinesReadStringArray(int expectedLines) {
-      inputVsOutput(expectedLines);
-      String[] arr = new String[expectedLines];
-      for (int i = 0; i < expectedLines; i++) arr[i] = IN.nextLine().trim();
-      return arr;
-    }
-
-    long[] readLongArr(int n) {
-      long[] arr = new long[n];
-      for (int i = 0; i < n; i++) arr[i] = IN.nextLong();
-      return arr;
-    }
-
-    String nextLine() {
-      String str = "";
-      try {
-        str = BR.readLine();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-      return str;
-    }
-
-    String cleanDigitsSpaces() {
-      String str = "";
-      try {
-        str = cleanString(BR.readLine().trim());
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-      return str;
-    }
-
-    String[] nextLine_A(int n) {
-      String[] arr = new String[n];
-      try {
-        return BR.readLine().trim().split("\\s+");
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-      return arr;
-    }
-
-    void close() {
-      try {
-        BR.close();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-    }
-  }*/
 
   static class FastWriter {
     private final BufferedWriter BW;

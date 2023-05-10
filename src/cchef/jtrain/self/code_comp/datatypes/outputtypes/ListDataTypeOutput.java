@@ -1,7 +1,7 @@
-package cchef.jtrain.self.code_comp.datatypes;
+package cchef.jtrain.self.code_comp.datatypes.outputtypes;
 
 
-import cchef.jtrain.self.code_comp.inputconsolidation.DataType;
+import cchef.jtrain.self.code_comp.datatypes.DataType;
 
 import java.util.List;
 

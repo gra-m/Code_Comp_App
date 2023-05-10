@@ -1,6 +1,6 @@
-package cchef.jtrain.self.code_comp.inputconsolidation;
+package cchef.jtrain.self.code_comp.datatypes;
 
-import cchef.jtrain.self.code_comp.datatypes.SourceDataInfo;
+import cchef.jtrain.self.code_comp.casetypes.importinfotypes.SourceDataInfo;
 
 import java.util.List;
 

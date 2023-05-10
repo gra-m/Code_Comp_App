@@ -6,9 +6,9 @@ package cchef.jtrain.self.code_comp.getdata;
 // todo linked to above the ImportInstructions will allow e.g. any number of files to be imported.
 // static finals below will become dynamic
 
-import cchef.jtrain.self.code_comp.datatypes.SDIArray;
-import cchef.jtrain.self.code_comp.inputconsolidation.DataType;
-import cchef.jtrain.self.code_comp.datatypes.DataTypeOutput;
+import cchef.jtrain.self.code_comp.casetypes.importinfotypes.SDIArray;
+import cchef.jtrain.self.code_comp.datatypes.DataType;
+import cchef.jtrain.self.code_comp.datatypes.outputtypes.DataTypeOutput;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

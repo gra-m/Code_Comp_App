@@ -1,7 +1,7 @@
-package cchef.jtrain.self.code_comp.inputconsolidation;
+package cchef.jtrain.self.code_comp.casetypes;
 
-import cchef.jtrain.self.code_comp.datatypes.SDIArray;
-import cchef.jtrain.self.code_comp.datatypes.SourceDataInfo;
+import cchef.jtrain.self.code_comp.casetypes.importinfotypes.SDIArray;
+import cchef.jtrain.self.code_comp.casetypes.importinfotypes.SourceDataInfo;
 
 public interface CaseType {
        SDIArray DEFAULT_SDI_ARRAY = new SDIArray(new String[] {"/home/kali/Documents/001_CC/00fullIn.txt",

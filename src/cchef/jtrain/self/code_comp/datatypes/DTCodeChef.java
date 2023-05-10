@@ -1,7 +1,8 @@
-package cchef.jtrain.self.code_comp.inputconsolidation;
+package cchef.jtrain.self.code_comp.datatypes;
 
-import cchef.jtrain.self.code_comp.datatypes.DataTypeOutput;
-import cchef.jtrain.self.code_comp.datatypes.SourceDataInfo;
+import cchef.jtrain.self.code_comp.casetypes.CT_InputExpectedActual;
+import cchef.jtrain.self.code_comp.casetypes.CaseType;
+import cchef.jtrain.self.code_comp.casetypes.importinfotypes.SourceDataInfo;
 
 import java.util.ArrayList;
 import java.util.Arrays;

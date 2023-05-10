@@ -3,14 +3,14 @@ package cchef.jtrain.self.code_comp;
 
 import java.util.function.IntPredicate;
 
-import cchef.jtrain.self.code_comp.inputconsolidation.StringType;
+import cchef.jtrain.self.code_comp.casetypes.StringType;
 
-import static cchef.jtrain.self.code_comp.inputconsolidation.StringType.*;
+import static cchef.jtrain.self.code_comp.casetypes.StringType.*;
 
-public final class StringsInArray {
+public final class StringTypeDefineAndCheck {
 private static String[] arrayFromDefineStringTypeMethod;
 
-private StringsInArray() {}
+private StringTypeDefineAndCheck() {}
 
   public static boolean isAsExpected(StringType expectedType, StringType actualType){
 

@@ -1,7 +1,7 @@
-package cchef.jtrain.self.code_comp.datatypes;
+package cchef.jtrain.self.code_comp.datatypes.outputtypes;
 
 
-import cchef.jtrain.self.code_comp.inputconsolidation.DataType;
+import cchef.jtrain.self.code_comp.datatypes.DataType;
 
 public class ArrayDataTypeOutput implements DataTypeOutput {
       private DataType[] value;

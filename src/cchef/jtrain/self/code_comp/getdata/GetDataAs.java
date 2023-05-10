@@ -1,7 +1,7 @@
 package cchef.jtrain.self.code_comp.getdata;
 
-import cchef.jtrain.self.code_comp.datatypes.DataTypeOutput;
-import cchef.jtrain.self.code_comp.inputconsolidation.DataType;
+import cchef.jtrain.self.code_comp.datatypes.outputtypes.DataTypeOutput;
+import cchef.jtrain.self.code_comp.datatypes.DataType;
 
 import java.io.FileNotFoundException;
 

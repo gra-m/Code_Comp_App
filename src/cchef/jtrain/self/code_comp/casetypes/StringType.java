@@ -1,4 +1,4 @@
-package cchef.jtrain.self.code_comp.inputconsolidation;
+package cchef.jtrain.self.code_comp.casetypes;
 
 import java.util.function.IntPredicate;
 

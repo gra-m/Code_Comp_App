@@ -6,9 +6,9 @@ package cchef.jtrain.self.code_comp.getdata;
 // todo linked to above the ImportInstructions will allow e.g. any number of files to be imported.
 // static finals below will become dynamic
 
-import cchef.jtrain.self.code_comp.datatypes.DataTypeOutput;
-import cchef.jtrain.self.code_comp.datatypes.SDIArray;
-import cchef.jtrain.self.code_comp.inputconsolidation.DataType;
+import cchef.jtrain.self.code_comp.datatypes.outputtypes.DataTypeOutput;
+import cchef.jtrain.self.code_comp.casetypes.importinfotypes.SDIArray;
+import cchef.jtrain.self.code_comp.datatypes.DataType;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -49,13 +49,12 @@ public class StringFromLocalFileAuto implements GetDataAs {
  * @throws FileNotFoundException
  */
 @Override
-  public DataType[] populate() throws FileNotFoundException {
+  public DataType[] populate() {
     if ( Objects.isNull(this.DATA_TYPE))
       throw new IllegalStateException("@StringFromLocalFile/populate cannot populate with null DATA_TYPE");
 
     SDIArray sdiArray =  (SDIArray ) DATA_TYPE.getSourceDataInfo();
     String[] arrayOfPaths = sdiArray.getStringArray();
-    int headerLines = this.DATA_TYPE.getInputFileHeaderSize();
     int fileLength = 0;
 
     String[][] inputArray = new String[arrayOfPaths.length][];
@@ -64,7 +63,8 @@ public class StringFromLocalFileAuto implements GetDataAs {
     for (int i = 0; i < arrayOfPaths.length; i++) {
       System.out.println(arrayOfPaths[i]);
       activePath = arrayOfPaths[i];
-      autoReader = new BufferedReader(new FileReader(activePath));
+      try (BufferedReader reader = new BufferedReader(new FileReader(activePath))) {
+        autoReader = reader;
       if (i == 0) {
         fileLength = (int) this.countLines();
         current = this.readStringArray(fileLength);
@@ -74,6 +74,13 @@ public class StringFromLocalFileAuto implements GetDataAs {
 
       inputArray[i] = current;
 
+    }
+      catch( FileNotFoundException e ) {
+        throw new RuntimeException(String.format("@StringFromFileAuto.populate() file %s was not found", activePath), e);
+      }
+      catch(IOException e) {
+        throw new RuntimeException(String.format("@StringFromFileAuto.populate() file %s was found but another IOException occurred", activePath), e);
+      }
     }
     return this.DATA_TYPE.consolidateData(inputArray);
   }
@@ -137,42 +144,6 @@ String next() {
   
   
 
-  public int nextInt() {
-    return Integer.parseInt(next());
-  }
-
-  public long nextLong() {
-    return Long.parseLong(next());
-  }
-
-  public double nextDouble() {
-    return Double.parseDouble(next());
-  }
-
-  public List<Integer> readIntList(int n) {
-    List<Integer> arr = new ArrayList<>();
-    for (int i = 0; i < n; i++) arr.add(this.nextInt());
-    return arr;
-  }
-
-  public List<Long> readLongList(int n) {
-    List<Long> arr = new ArrayList<>();
-    for (int i = 0; i < n; i++) arr.add(this.nextLong());
-    return arr;
-  }
-
-  public int[] readIntArr(int n) {
-    int[] arr = new int[n];
-    for (int i = 0; i < n; i++) arr[i] = this.nextInt();
-    return arr;
-  }
-
-  public Integer[] readIntegerArray(int n) {
-    int[] arr = new int[n];
-    for (int i = 0; i < n; i++) arr[i] = this.nextInt();
-    return intArrToIntegerArr(arr);
-  }
-
   public String[] readStringArray(int n) {
     String[] arr = new String[n];
     for (int i = 0; i < n; i++) arr[i] = this.nextLine().trim();
@@ -187,11 +158,6 @@ String next() {
     return arr;
   }
 
-  public long[] readLongArr(int n) {
-    long[] arr = new long[n];
-    for (int i = 0; i < n; i++) arr[i] = this.nextLong();
-    return arr;
-  }
 
   public String nextLine() {
     String str = "";
