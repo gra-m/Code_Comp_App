@@ -49,8 +49,9 @@ public class CT_InputExpectedActual implements CaseType {
         TOTAL_CASES, LINES_PER_INPUT, LINES_PER_OUTPUT, INPUT, EXPECTED, ACTUAL);
   }
 
-  /**
-   * @return
+  /** Returns total cases for this CaseType == CTInputExpectedActual
+   *
+   * @return long, total cases for this CaseType CTInputExpectedActual
    */
   @Override
   public long getTOTAL_CASES() {
@@ -87,13 +88,6 @@ public class CT_InputExpectedActual implements CaseType {
   @Override
   public boolean selfCheck() {
     return false;
-  }
-
-  /**
-   * @return
-   */
-  public long getTotalCases() {
-    return this.TOTAL_CASES;
   }
 
   @Override

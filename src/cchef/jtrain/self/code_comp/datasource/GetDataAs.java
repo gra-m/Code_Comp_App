@@ -1,9 +1,7 @@
-package cchef.jtrain.self.code_comp.getdata;
+package cchef.jtrain.self.code_comp.datasource;
 
-import cchef.jtrain.self.code_comp.datatypes.outputtypes.DataTypeOutput;
-import cchef.jtrain.self.code_comp.datatypes.DataType;
-
-import java.io.FileNotFoundException;
+import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
+import cchef.jtrain.self.code_comp.outputdata.DataSnapshot;
 
 /**
  * A GetDataAs can fetch data from a number of data-sources dependent on the CaseType of the DataType that is passed
@@ -18,8 +16,9 @@ import java.io.FileNotFoundException;
  * </p>
  */
 public interface GetDataAs {
-      DataTypeOutput fetchFromDataSource();
-      DataType[] populate() throws FileNotFoundException;
+      DTOutput getOnTheFlyData(boolean arrayDto);
+      DataSnapshot createDataSnapshot(boolean normal);
+
 
 
 }

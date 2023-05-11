@@ -8,25 +8,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="Very untidy proof of concept for automated DataType population.">
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/OuputDataAs.java" afterDir="false" />
+    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="Try with resources in StringFromLocalFileAuto renaming and packaging">
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DataTypeTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/Auditable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/DataSnapshot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/NonAuditable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/CodeCompComparison.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/CodeCompComparison.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/StringsInArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/StringTypeDefineAndCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/ArrayDataTypeOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/outputtypes/ArrayDataTypeOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DataTypeOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/outputtypes/DataTypeOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/ListDataTypeOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/outputtypes/ListDataTypeOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/SDIArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/importinfotypes/SDIArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/SDI_LHMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/importinfotypes/SDI_LHMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/SourceDataInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/importinfotypes/SourceDataInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/GetDataAs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/GetDataAs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/StringFromLocalFileAuto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/StringFromLocalFileAuto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/StringFromLocalFileHardCoded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/StringFromLocalFileHardCoded.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/CT_InputExpectedActual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/CT_InputExpectedActual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/CaseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/CaseType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/DTCodeChef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DTCodeChef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/DataType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DataType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/inputconsolidation/StringType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/StringType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/CT_InputExpectedActual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/CT_InputExpectedActual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/CaseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/CaseType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DTCodeChef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DT_CC_Template.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DataType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/outputtypes/ArrayDataTypeOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/outputtypes/ArrayOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/outputtypes/DataTypeOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/outputtypes/DTOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/outputtypes/ListDataTypeOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/outputtypes/ListOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/GetDataAs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datasource/GetDataAs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/StringFromLocalFileAuto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datasource/StringFromLocalFileAuto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/getdata/StringFromLocalFileHardCoded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datasource/StringFromLocalFileHardCoded.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +40,8 @@
         <option value="Zeppelin Notebook" />
         <option value="Package Object" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -280,7 +278,8 @@
       <workItem from="1683361078845" duration="39440000" />
       <workItem from="1683534220882" duration="21929000" />
       <workItem from="1683617581528" duration="23971000" />
-      <workItem from="1683708426218" duration="4634000" />
+      <workItem from="1683708426218" duration="13452000" />
+      <workItem from="1683781035035" duration="30914000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit for this java playground..">
       <created>1677790778872</created>
@@ -373,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683655072319</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Try with resources in StringFromLocalFileAuto renaming and packaging">
+      <created>1683725105680</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683725105680</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +410,8 @@
     <MESSAGE value="tidied CodeChefDT class" />
     <MESSAGE value="SourceDataInfo DataTypes StringFromLocalFile replaces internal FastWriter class and widespread refactoring for encapsulation and flexibility" />
     <MESSAGE value="Very untidy proof of concept for automated DataType population." />
-    <option name="LAST_COMMIT_MESSAGE" value="Very untidy proof of concept for automated DataType population." />
+    <MESSAGE value="Try with resources in StringFromLocalFileAuto renaming and packaging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Try with resources in StringFromLocalFileAuto renaming and packaging" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

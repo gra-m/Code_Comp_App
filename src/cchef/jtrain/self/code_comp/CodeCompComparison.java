@@ -8,10 +8,12 @@ import java.util.stream.Stream;
 import cchef.jtrain.self.code_comp.casetypes.CT_InputExpectedActual;
 import cchef.jtrain.self.code_comp.casetypes.CaseType;
 import cchef.jtrain.self.code_comp.casetypes.StringType;
-import cchef.jtrain.self.code_comp.getdata.GetDataAs;
-import cchef.jtrain.self.code_comp.getdata.StringFromLocalFileAuto;
+import cchef.jtrain.self.code_comp.datatypes.outputtypes.ArrayOutput;
+import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
+import cchef.jtrain.self.code_comp.datasource.GetDataAs;
+import cchef.jtrain.self.code_comp.datasource.StringFromLocalFileAuto;
 import cchef.jtrain.self.code_comp.datatypes.*;
-import cchef.jtrain.self.code_comp.getdata.StringFromLocalFileHardCoded;
+import cchef.jtrain.self.code_comp.datasource.StringFromLocalFileHardCoded;
 
 import static cchef.jtrain.self.code_comp.casetypes.StringType.*;
 
@@ -67,30 +69,22 @@ class CodeCompComparison {
 
     System.out.println(thisImportsCaseType.stringTypeDescription());
 
-    DataType ccDataType = new DTCodeChef(( CT_InputExpectedActual ) thisImportsCaseType);
+    DataTypeTemplate ccDataType = new DT_CC_Template(( CT_InputExpectedActual ) thisImportsCaseType);
 
     System.out.println(ccDataType);
     // Passing DTCodeChef object to GetDataAs -> StringFromLocalFile
     GetDataAs strFromLocal = new StringFromLocalFileAuto(ccDataType);
-    DataType[] populated = strFromLocal.populate();
-    for (DataType dt : populated) System.out.println(dt.toString());
+    DTOutput populated = strFromLocal.getOnTheFlyData(true);
+    ArrayOutput listPopulated;
+    if ( populated instanceof ArrayOutput ) {
+      listPopulated = (ArrayOutput) populated;
 
-    // Directly working on DTCodeChef object
+      DataTypeTemplate[] arrayList = listPopulated.getDataTypeArray();
 
-    /*ArrayList<DataType> letsSee =
-        (ArrayList<DataType>) test.consolidateDataToList(fullIn, exp, act);
 
-    for (DataType dt : letsSee) {
-      System.out.println(dt.toString());
-    }*/
+      for ( DataTypeTemplate dt : arrayList) System.out.println(dt.toString());
 
-    /*while (case_t-- > 0) {
-
-      int caseNum = count - case_t;
-      OUT.println(caseNum + " " + 1);
-      OUT.println(caseNum + " " + 2);
-
-    }*/
+    } else System.out.println("it failed");
 
     IN.close();
     OUT.close();
