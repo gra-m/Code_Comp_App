@@ -25,5 +25,7 @@ public interface DataTypeTemplate {
 
   DTOutput consolidateDataToArray(final String[][] inputArray, final boolean asArray);
 
-  void addNonAuditableSnapshot(final String[][] inputArray, final boolean asArray);
+  void addNonAuditableSnapshot(final String[][] inputArray, String userTimeZone, final boolean asArray);
+// poss temp
+void printSnapshots();
 }

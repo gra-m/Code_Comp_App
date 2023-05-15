@@ -11,6 +11,16 @@ public final class Utilz {
   public static int checkStrings(String[] strArray) {
     return 1;
   }
+
+/** Created to emulate the process of retrieving user timezone NOT
+ * from session information but from user account info.
+ *
+ * @return
+ */
+public static String getUserTimeZone() {
+  return "UTC+2";
+
+  }
   
 
 /**

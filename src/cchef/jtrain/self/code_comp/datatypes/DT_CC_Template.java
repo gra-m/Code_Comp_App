@@ -7,8 +7,9 @@ import cchef.jtrain.self.code_comp.datatypes.outputtypes.ArrayOutput;
 import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
 import cchef.jtrain.self.code_comp.datatypes.outputtypes.ListOutput;
 import cchef.jtrain.self.code_comp.outputdata.DataSnapshot;
+import cchef.jtrain.self.code_comp.outputdata.NonAuditable;
 
-import java.sql.Timestamp;
+import java.time.ZonedDateTime;
 import java.util.*;
 
 public class DT_CC_Template implements DataTypeTemplate {
@@ -30,7 +31,8 @@ public class DT_CC_Template implements DataTypeTemplate {
   private final String[] CASE_ACT_OUTPUT_DATA;
 
   private final boolean TEMPLATE; // todo complete like null check on methods if false exit method (report dts are not templates)
-  private LinkedHashMap<Timestamp, DataSnapshot> snapshots;
+
+private LinkedHashMap<ZonedDateTime, DataSnapshot> snapshots = new LinkedHashMap<>();
 
   /**
    * WIP Creates a TEMPLATE [true] DT_CC_Template with (what should be) a fully formed CASE_TYPE for
@@ -122,17 +124,36 @@ public class DT_CC_Template implements DataTypeTemplate {
   }
 
 /**
-*
-   * @param inputArray
-   * @param asArray
-  */
+ *
+ *  @param inputArray
+ *
+ * @param userTimeZone
+ * @param asArray
+ */
 @Override
-public void addNonAuditableSnapshot(String[][] inputArray, boolean asArray) {
+public void addNonAuditableSnapshot(String[][] inputArray, String userTimeZone, boolean asArray) {
   if(this.isTEMPLATE()) {
+    DTOutput dtOutput = consolidateDataToArray(inputArray, asArray);
+    NonAuditable nonAuditableSnap = new NonAuditable(dtOutput, userTimeZone);
+    this.snapshots.put(nonAuditableSnap.getCREATED(), nonAuditableSnap);
+
+    printSnapshots();
 
 
   }
   else throw new IllegalStateException("Cannot create snapshot with non-template DataType");
+}
+
+/**
+ * Takes the current snapshots LinkedHashMap<ZoneDateTime, Snapshot> and prints to console.
+*
+  */
+@Override
+public void printSnapshots() {
+  for(Map.Entry<ZonedDateTime, DataSnapshot> entry : this.snapshots.entrySet()) {
+      System.out.println(entry.getKey() + " " + entry.getValue().getInfo());
+  }
+
 }
 
 

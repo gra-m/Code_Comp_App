@@ -29,13 +29,19 @@ public class Auditable implements DataSnapshot {
     return UTC_OFFSET;
   }
 
-  public ZonedDateTime getCREATED() {
+/**
+* 
+   * @return
+*/
+@Override
+public DTOutput getDT_OUTPUT() {
+  return DTT_OUTPUT;
+}
+
+public ZonedDateTime getCREATED() {
     return CREATED;
   }
 
-  public DTOutput getDTT_OUTPUT() {
-    return DTT_OUTPUT;
-  }
   // possibility for enum of reports available for DTOutput.
 
   public String[][] getSNAPSHOT_ORIGINAL_DATA() {

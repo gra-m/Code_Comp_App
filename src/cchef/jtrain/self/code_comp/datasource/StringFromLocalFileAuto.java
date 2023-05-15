@@ -6,7 +6,6 @@ package cchef.jtrain.self.code_comp.datasource;
 import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
 import cchef.jtrain.self.code_comp.casetypes.importinfotypes.SDIArray;
 import cchef.jtrain.self.code_comp.datatypes.DataTypeTemplate;
-import cchef.jtrain.self.code_comp.outputdata.DataSnapshot;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -16,7 +15,9 @@ import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class StringFromLocalFileAuto implements GetDataAs {
+import static cchef.jtrain.self.code_comp.Utilz.getUserTimeZone;
+
+public class StringFromLocalFileAuto implements CreateData {
   // SHARED
   static int linesPerOutput;
   private static String activePath = "";
@@ -25,7 +26,7 @@ public class StringFromLocalFileAuto implements GetDataAs {
   private BufferedReader autoReader;
   private String[][] allInputData;
 
-  // todo thoughts on how to make flexible
+  // todo thoughts on how to make flexible test == variable number of input arrays
   public StringFromLocalFileAuto(final DataTypeTemplate DATA_TYPE_TEMPLATE) {
 
     this.DATA_TYPE_TEMPLATE = DATA_TYPE_TEMPLATE;
@@ -49,7 +50,7 @@ public class StringFromLocalFileAuto implements GetDataAs {
  * @return
  */
 @Override
-public void createNonAuditableSnapshot(final boolean ARRAY_DTO) {
+public void createNonAuditableSnapshot(boolean arrayDto) {
   // todo create checking method for this
   if (Objects.isNull(this.DATA_TYPE_TEMPLATE) || !this.DATA_TYPE_TEMPLATE.isTEMPLATE())
     throw new IllegalStateException(
@@ -61,6 +62,9 @@ public void createNonAuditableSnapshot(final boolean ARRAY_DTO) {
   // todo add java docs for process below
   String[] sources = getSources();
   String[][] inputArray = getInputDataFromSource(sources);
+  String userTimeZone = getUserTimeZone();
+  this.DATA_TYPE_TEMPLATE.addNonAuditableSnapshot(inputArray, userTimeZone, arrayDto);
+
 }
 
 /**
@@ -68,7 +72,7 @@ public void createNonAuditableSnapshot(final boolean ARRAY_DTO) {
    * @return
 */
 @Override
-public void createAuditableSnapshot(final boolean ARRAY_DTO) {
+public void createAuditableSnapshot(final boolean arrayDto) {
   if (Objects.isNull(this.DATA_TYPE_TEMPLATE) || !this.DATA_TYPE_TEMPLATE.isTEMPLATE())
     throw new IllegalStateException(
         "@StringFromLocalFile/createAuditableSnapshot() cannot create snapshot with null DATA_TYPE");
@@ -81,14 +85,24 @@ public void createAuditableSnapshot(final boolean ARRAY_DTO) {
 
 }
 
+/**
+ * Used to print Snapshot info temporarily, this will probably return String.format
+ * in the future
+  */
+@Override
+public void printSnapshotInfo() {
+  this.DATA_TYPE_TEMPLATE.printSnapshots();
+
+}
+
 
 /**
  *
- * @param ARRAY_DTO
+ * @param arrayDto
  * @return
  */
 @Override
-public DTOutput getOnTheFlyData(final boolean ARRAY_DTO) {
+public DTOutput getOnTheFlyData(final boolean arrayDto) {
   if (Objects.isNull(this.DATA_TYPE_TEMPLATE) || !this.DATA_TYPE_TEMPLATE.isTEMPLATE())
     throw new IllegalStateException(
         "@StringFromLocalFile/getOnTheFlyData() cannot getOnTheFlyData with null DATA_TYPE");
@@ -100,7 +114,7 @@ public DTOutput getOnTheFlyData(final boolean ARRAY_DTO) {
   String[] sources = getSources();
   String[][] inputArray = getInputDataFromSource(sources);
 
-  return this.DATA_TYPE_TEMPLATE.consolidateDataToArray(inputArray, ARRAY_DTO);
+  return this.DATA_TYPE_TEMPLATE.consolidateDataToArray(inputArray, arrayDto);
 }
 
 

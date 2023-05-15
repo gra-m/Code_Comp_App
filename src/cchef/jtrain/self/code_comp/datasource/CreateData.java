@@ -1,7 +1,6 @@
 package cchef.jtrain.self.code_comp.datasource;
 
 import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
-import cchef.jtrain.self.code_comp.outputdata.DataSnapshot;
 
 /**
  * A GetDataAs can fetch data from a number of data-sources dependent on the CaseType of the DataType that is passed
@@ -15,10 +14,12 @@ import cchef.jtrain.self.code_comp.outputdata.DataSnapshot;
  * pass it to the DataType instance in order to create and return a DataType collection.
  * </p>
  */
-public interface GetDataAs {
-      DTOutput getOnTheFlyData(final boolean ARRAY_DTO);
-      void createNonAuditableSnapshot(final boolean ARRAY_DTO);
-      void createAuditableSnapshot(final boolean ARRAY_DTO);
+public interface CreateData {
+      DTOutput getOnTheFlyData(boolean arrayDto);
+      void createNonAuditableSnapshot(boolean arrayDto);
+      void createAuditableSnapshot(boolean arrayDto);
+      // todo temp as void, will return string rather than console print calls on printSnapshots in DataTypeTemplate
+      void printSnapshotInfo();
 
 
 

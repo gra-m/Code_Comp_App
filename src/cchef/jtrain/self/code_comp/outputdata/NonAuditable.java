@@ -16,22 +16,25 @@ private final ZonedDateTime CREATED;
 private final DTOutput DT_OUTPUT;
 // Enum of report types??
 
-public NonAuditable(final DTOutput DT_OUTPUT, final String UTC_OFFSET) {
-      this.UTC_OFFSET = "UTC+2";
+public NonAuditable(DTOutput dtOutput, String UtcOffset) {
+      this.UTC_OFFSET = UtcOffset;
       this.CREATED = Instant.now().atZone(ZoneId.of(UTC_OFFSET)); // if offset were dynamic
-      this.DT_OUTPUT = DT_OUTPUT;
+      this.DT_OUTPUT = dtOutput;
 }
 
 public String getUTC_OFFSET() {
       return UTC_OFFSET;
 }
 
+@Override
 public ZonedDateTime getCREATED() {
       return CREATED;
 }
 
+@Override
 public DTOutput getDT_OUTPUT() {
       return DT_OUTPUT;
 }
+
 
 }

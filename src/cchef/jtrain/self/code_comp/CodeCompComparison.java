@@ -10,7 +10,7 @@ import cchef.jtrain.self.code_comp.casetypes.CaseType;
 import cchef.jtrain.self.code_comp.casetypes.StringType;
 import cchef.jtrain.self.code_comp.datatypes.outputtypes.ArrayOutput;
 import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
-import cchef.jtrain.self.code_comp.datasource.GetDataAs;
+import cchef.jtrain.self.code_comp.datasource.CreateData;
 import cchef.jtrain.self.code_comp.datasource.StringFromLocalFileAuto;
 import cchef.jtrain.self.code_comp.datatypes.*;
 import cchef.jtrain.self.code_comp.datasource.StringFromLocalFileHardCoded;
@@ -75,7 +75,7 @@ class CodeCompComparison {
     System.out.println(ccDataType);
 
     // Passing DTCodeChef object to GetDataAs -> StringFromLocalFile
-    GetDataAs strFromLocal = new StringFromLocalFileAuto(ccDataType);
+    CreateData strFromLocal = new StringFromLocalFileAuto(ccDataType);
     DTOutput populated = strFromLocal.getOnTheFlyData(true);
     ArrayOutput listPopulated;
     if ( populated instanceof ArrayOutput ) {
@@ -87,6 +87,9 @@ class CodeCompComparison {
       for ( DataTypeTemplate dt : arrayList) System.out.println(dt.toString());
 
     } else System.out.println("it failed");
+
+    // Test non auditable creation array:
+    strFromLocal.createNonAuditableSnapshot(true);
 
     IN.close();
     OUT.close();
