@@ -13,13 +13,13 @@ import java.time.ZonedDateTime;
 public class NonAuditable implements DataSnapshot{
 private final String UTC_OFFSET;
 private final ZonedDateTime CREATED;
-private final DTOutput DTT_OUTPUT;
+private final DTOutput DT_OUTPUT;
 // Enum of report types??
 
-public NonAuditable(final DTOutput DTT_OUTPUT) {
+public NonAuditable(final DTOutput DT_OUTPUT, final String UTC_OFFSET) {
       this.UTC_OFFSET = "UTC+2";
       this.CREATED = Instant.now().atZone(ZoneId.of(UTC_OFFSET)); // if offset were dynamic
-      this.DTT_OUTPUT = DTT_OUTPUT;
+      this.DT_OUTPUT = DT_OUTPUT;
 }
 
 public String getUTC_OFFSET() {
@@ -30,8 +30,8 @@ public ZonedDateTime getCREATED() {
       return CREATED;
 }
 
-public DTOutput getDTT_OUTPUT() {
-      return DTT_OUTPUT;
+public DTOutput getDT_OUTPUT() {
+      return DT_OUTPUT;
 }
 
 }

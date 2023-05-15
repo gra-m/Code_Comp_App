@@ -16,8 +16,9 @@ import cchef.jtrain.self.code_comp.outputdata.DataSnapshot;
  * </p>
  */
 public interface GetDataAs {
-      DTOutput getOnTheFlyData(boolean arrayDto);
-      DataSnapshot createDataSnapshot(boolean normal);
+      DTOutput getOnTheFlyData(final boolean ARRAY_DTO);
+      void createNonAuditableSnapshot(final boolean ARRAY_DTO);
+      void createAuditableSnapshot(final boolean ARRAY_DTO);
 
 
 

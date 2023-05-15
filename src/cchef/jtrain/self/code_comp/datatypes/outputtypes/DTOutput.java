@@ -1,8 +1,7 @@
 package cchef.jtrain.self.code_comp.datatypes.outputtypes;
 
-import cchef.jtrain.self.code_comp.datatypes.DT_CC_Template;
 import cchef.jtrain.self.code_comp.datatypes.DataTypeTemplate;
-
+// todo move to maven and upgrade to 16+ swap classes for records where better.
 /**
  * DTOutput is a container for more flexible return types for on-the-fly reporting linked to consolidate
  * data.

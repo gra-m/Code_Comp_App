@@ -50,17 +50,18 @@ class CodeCompComparison {
     IN.close();
     // END import of actual Output
 
-    // double ie int and . found
+    //Checking before CT confirmed
     OUT.println(StringTypeDefineAndCheck.isAsExpected(expectedInputStringType, expectedOutputStringType));
     OUT.println(StringTypeDefineAndCheck.defineStringType(fullIn, 0));
     OUT.println(StringTypeDefineAndCheck.defineStringType(act, 0));
 
     // Define CaseType from info we have:
-    CaseType thisImportsCaseType =
+    CT_InputExpectedActual thisImportsCaseType =
         new CT_InputExpectedActual(
             casesFromArray,
             linesPerCase,
             linesPerOutput,
+            //These could be enum after check
             StringTypeDefineAndCheck.defineStringType(fullIn, 0),
             StringTypeDefineAndCheck.defineStringType(exp, 0),
             StringTypeDefineAndCheck.defineStringType(act, 0),
@@ -69,9 +70,10 @@ class CodeCompComparison {
 
     System.out.println(thisImportsCaseType.stringTypeDescription());
 
-    DataTypeTemplate ccDataType = new DT_CC_Template(( CT_InputExpectedActual ) thisImportsCaseType);
+    DataTypeTemplate ccDataType = new DT_CC_Template(thisImportsCaseType);
 
     System.out.println(ccDataType);
+
     // Passing DTCodeChef object to GetDataAs -> StringFromLocalFile
     GetDataAs strFromLocal = new StringFromLocalFileAuto(ccDataType);
     DTOutput populated = strFromLocal.getOnTheFlyData(true);

@@ -29,7 +29,7 @@ public class DT_CC_Template implements DataTypeTemplate {
   private final String[] CASE_EXP_OUTPUT_DATA;
   private final String[] CASE_ACT_OUTPUT_DATA;
 
-  private final boolean TEMPLATE; // todo complete like null check on methods if false exit method
+  private final boolean TEMPLATE; // todo complete like null check on methods if false exit method (report dts are not templates)
   private LinkedHashMap<Timestamp, DataSnapshot> snapshots;
 
   /**
@@ -110,9 +110,9 @@ public class DT_CC_Template implements DataTypeTemplate {
    * @param
    * @return
    */
-  public DTOutput consolidateDataToArray(String[][] inputArray, boolean arrayOutput) {
+  public DTOutput consolidateDataToArray(String[][] inputArray, boolean asArray) {
     if (Objects.nonNull(inputArray)) {
-      if (arrayOutput)
+      if ( asArray )
         return new ArrayOutput(consolidateDataToArray(inputArray[0], inputArray[1], inputArray[2]));
       else
         return new ListOutput(consolidateDataToList(inputArray[0], inputArray[1], inputArray[2]));
@@ -121,15 +121,22 @@ public class DT_CC_Template implements DataTypeTemplate {
           "@DTCodeChef consolidateData(String[][] inputArray [was null], arrayOutput)");
   }
 
-  /** */
-  @Override
-  public void createSnapshot_N() {}
+/**
+*
+   * @param inputArray
+   * @param asArray
+  */
+@Override
+public void addNonAuditableSnapshot(String[][] inputArray, boolean asArray) {
+  if(this.isTEMPLATE()) {
 
-  /** */
-  @Override
-  public void createSnapshot_A() {}
 
-  /**
+  }
+  else throw new IllegalStateException("Cannot create snapshot with non-template DataType");
+}
+
+
+/**
    * Takes the input requirements of this DataTypeTemplate and retrieves the data instructions held
    * within this DataTypeTemplate and consolidates them into a DataTypeTemplate[] within which each
    * newly created DataTypeTemplate contains the data for a single CodeChef case. Expected and

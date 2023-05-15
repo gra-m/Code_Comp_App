@@ -1,10 +1,7 @@
 package cchef.jtrain.self.code_comp.datasource;
 
 // todo encapsulate with only public interface methods
-// todo create final constant ImportInstructions class to be held by DataType classes that is
 // populated with details of use eg. here passes file paths
-// todo linked to above the ImportInstructions will allow e.g. any number of files to be imported.
-// static finals below will become dynamic
 
 import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
 import cchef.jtrain.self.code_comp.casetypes.importinfotypes.SDIArray;
@@ -26,7 +23,6 @@ public class StringFromLocalFileAuto implements GetDataAs {
   // New automated.
   private final DataTypeTemplate DATA_TYPE_TEMPLATE;
   private BufferedReader autoReader;
-  private StringTokenizer tokenizer;
   private String[][] allInputData;
 
   // todo thoughts on how to make flexible
@@ -48,28 +44,67 @@ public class StringFromLocalFileAuto implements GetDataAs {
     return raw.replaceAll("[^\\d\\s]", "").trim();
   }
 
+/**
+ *
+ * @return
+ */
+@Override
+public void createNonAuditableSnapshot(final boolean ARRAY_DTO) {
+  // todo create checking method for this
+  if (Objects.isNull(this.DATA_TYPE_TEMPLATE) || !this.DATA_TYPE_TEMPLATE.isTEMPLATE())
+    throw new IllegalStateException(
+        "@StringFromLocalFile/createNonAuditableSnapshot() cannot create snapshot with null DATA_TYPE");
+  else if(!this.DATA_TYPE_TEMPLATE.isTEMPLATE()){
+    throw new IllegalStateException(
+        "@StringFromLocalFile/createNonAuditableSnapshot() cannot create snapshot with non-template DATA_TYPE");
+  }
+  // todo add java docs for process below
+  String[] sources = getSources();
+  String[][] inputArray = getInputDataFromSource(sources);
+}
+
+/**
+* 
+   * @return
+*/
+@Override
+public void createAuditableSnapshot(final boolean ARRAY_DTO) {
+  if (Objects.isNull(this.DATA_TYPE_TEMPLATE) || !this.DATA_TYPE_TEMPLATE.isTEMPLATE())
+    throw new IllegalStateException(
+        "@StringFromLocalFile/createAuditableSnapshot() cannot create snapshot with null DATA_TYPE");
+  else if(!this.DATA_TYPE_TEMPLATE.isTEMPLATE()){
+    throw new IllegalStateException(
+        "@StringFromLocalFile/createAuditableSnapshot() cannot create snapshot with non-template DATA_TYPE");
+  }
+  String[] sources = getSources();
+  String[][] inputArray = getInputDataFromSource(sources);
+
+}
 
 
 /**
  *
- * @param normal
+ * @param ARRAY_DTO
  * @return
  */
 @Override
-public DataSnapshot createDataSnapshot(boolean normal) {
-  if (normal)
-    return createNonAuditableSnapshot();
-  else
-    return null;
+public DTOutput getOnTheFlyData(final boolean ARRAY_DTO) {
+  if (Objects.isNull(this.DATA_TYPE_TEMPLATE) || !this.DATA_TYPE_TEMPLATE.isTEMPLATE())
+    throw new IllegalStateException(
+        "@StringFromLocalFile/getOnTheFlyData() cannot getOnTheFlyData with null DATA_TYPE");
+  else if(!this.DATA_TYPE_TEMPLATE.isTEMPLATE()){
+    throw new IllegalStateException(
+        "@StringFromLocalFile/getOnTheFlyData() cannot getOnTheFlyData with non-template DATA_TYPE");
+  }
+
+  String[] sources = getSources();
+  String[][] inputArray = getInputDataFromSource(sources);
+
+  return this.DATA_TYPE_TEMPLATE.consolidateDataToArray(inputArray, ARRAY_DTO);
 }
 
 
-private DataSnapshot createNonAuditableSnapshot() {
-  return null;
-}
-
-
-/** Will be removed, kept for current run testing
+/** Replaced below, Will be removed, kept for current run testing
    *
    *
    * @return
@@ -77,7 +112,7 @@ private DataSnapshot createNonAuditableSnapshot() {
   public DataTypeTemplate[] getOnTheFlyData() {
     if (Objects.isNull(this.DATA_TYPE_TEMPLATE) || this.DATA_TYPE_TEMPLATE.isTEMPLATE())
       throw new IllegalStateException(
-          "@StringFromLocalFile/populate() cannot populate with null or non-template DATA_TYPE");
+          "@StringFromLocalFile/getOnTheFlyData() cannot populate with null or non-template DATA_TYPE");
 
     String[] sources = getSources();
     String[][] inputArray = getInputDataFromSource(sources);
@@ -88,25 +123,10 @@ private DataSnapshot createNonAuditableSnapshot() {
 
   }
 
-/**
-* 
-   * @param arrayDto
-   * @return
-*/
-@Override
-public DTOutput getOnTheFlyData(boolean arrayDto) {
-  if (Objects.isNull(this.DATA_TYPE_TEMPLATE))
-    throw new IllegalStateException(
-        "@StringFromLocalFile/populate() cannot populate with null DATA_TYPE");
-
-  String[] sources = getSources();
-  String[][] inputArray = getInputDataFromSource(sources);
-
-  return this.DATA_TYPE_TEMPLATE.consolidateDataToArray(inputArray, arrayDto);
-}
 
 
 
+// todo CheckSources interface
 private String[] getSources() {
     Object sourceDataInfoType = DATA_TYPE_TEMPLATE.getSourceDataInfo();
 
@@ -120,6 +140,12 @@ private String[] getSources() {
               sourceDataInfoType.getClass()));
   }
 
+
+
+
+
+
+       // todo this is universal type 'test' add to CheckSources interface?
   private String[][] getInputDataFromSource(String[] arrayOfPaths) {
 
     int fileLength;

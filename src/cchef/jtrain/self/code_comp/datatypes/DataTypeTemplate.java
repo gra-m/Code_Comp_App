@@ -17,17 +17,13 @@ public interface DataTypeTemplate {
 
   SourceDataInfo getSourceDataInfo();
 
-  DataTypeTemplate[] consolidateDataToArray(final String[] input, final String[] expected, final String[] actual);
+  DataTypeTemplate[] consolidateDataToArray(
+      final String[] input, final String[] expected, final String[] actual);
 
   List<DataTypeTemplate> consolidateDataToList(
       final String[] input, final String[] expected, final String[] actual);
 
-  DTOutput consolidateDataToArray(final String[][] inputArray, boolean arrayOutput);
+  DTOutput consolidateDataToArray(final String[][] inputArray, final boolean asArray);
 
-  // creates DataSnapshot[I] object timestamp/DTOutput/DataTypeTemplate [Template only]
-  void createSnapshot_N();
-
-  // creates DataSnapshot[I] obj timestamp/DTOutput/DataTypeTemplate [Template + original data]
-  void createSnapshot_A();
-
+  void addNonAuditableSnapshot(final String[][] inputArray, final boolean asArray);
 }
