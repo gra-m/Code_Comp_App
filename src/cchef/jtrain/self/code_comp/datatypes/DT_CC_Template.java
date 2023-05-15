@@ -12,6 +12,13 @@ import cchef.jtrain.self.code_comp.outputdata.NonAuditable;
 import java.time.ZonedDateTime;
 import java.util.*;
 
+/**
+ * Given data that matches this DataType Template, that is data that originates from the CodeChef challenges input,
+ * expected, output file downloads, this class consolidates each case into a non-template version of itself that can
+ * be instantly returned as a list or array or held as a snapshot for further processing and reporting.
+ * Action taken during consolidation: Does actual output match expected output for every given case: STATUS_PASSING
+ * */
+
 public class DT_CC_Template implements DataTypeTemplate {
   private static final int INPUT_FILE_HEADER = 1; // the number of lines of header
   private static String[] INPUT_DATA;
@@ -48,10 +55,10 @@ private LinkedHashMap<ZonedDateTime, DataSnapshot> snapshots = new LinkedHashMap
   public DT_CC_Template(final CT_InputExpectedActual CASE_TYPE) {
     Objects.requireNonNull(CASE_TYPE);
     this.CASE_TYPE = CASE_TYPE;
-    int linesPerOutput = this.CASE_TYPE.getLINES_PER_OUTPUT();
+    int linesPerOutput = this.CASE_TYPE.getLINES_PER_CASE_OUTPUT();
     this.CASE_INDEX = -1L;
     this.CASE_ID = -2L;
-    this.CASE_INPUT_DATA = new String[this.CASE_TYPE.getLINES_PER_INPUT()];
+    this.CASE_INPUT_DATA = new String[this.CASE_TYPE.getLINES_PER_CASE_INPUT()];
     this.CASE_EXP_OUTPUT_DATA = new String[linesPerOutput];
     this.CASE_ACT_OUTPUT_DATA = new String[linesPerOutput];
     this.STATUS_PASSING = false;
@@ -234,8 +241,8 @@ public void printSnapshots() {
     else throw new IllegalStateException("Input expected and actual do not correlate");
 
     int totalCases = (int) this.CASE_TYPE.getTOTAL_CASES();
-    int inDatLength = this.CASE_TYPE.getLINES_PER_INPUT();
-    int outDatLength = this.CASE_TYPE.getLINES_PER_OUTPUT();
+    int inDatLength = this.CASE_TYPE.getLINES_PER_CASE_INPUT();
+    int outDatLength = this.CASE_TYPE.getLINES_PER_CASE_OUTPUT();
     inputIndex = 0;
     expIndex = 0;
     actIndex = 0;
@@ -353,7 +360,7 @@ public void printSnapshots() {
    */
   @Override
   public int getLINES_PER_INPUT() {
-    return this.CASE_TYPE.getLINES_PER_INPUT();
+    return this.CASE_TYPE.getLINES_PER_CASE_INPUT();
   }
 
   /**
@@ -363,7 +370,7 @@ public void printSnapshots() {
    */
   @Override
   public int getLINES_PER_OUTPUT() {
-    return this.CASE_TYPE.getLINES_PER_OUTPUT();
+    return this.CASE_TYPE.getLINES_PER_CASE_OUTPUT();
   }
 
   /**

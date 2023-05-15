@@ -8,7 +8,6 @@ public class SDIArray implements SourceDataInfo {
   public SDIArray(String[] sourceDataInfo) {
         SDIArray.sourceDataInfo = sourceDataInfo;}
 
-// todo getSourceDataInfo at interface level -> experiment.
 public String[] getStringArray() {
         return sourceDataInfo;
 }

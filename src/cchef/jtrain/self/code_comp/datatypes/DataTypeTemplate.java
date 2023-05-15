@@ -5,6 +5,13 @@ import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
 
 import java.util.List;
 
+/**
+ * Objects Derived from this interface are used by different data
+ * Given source data info SourceDataInfo [Data addresses] a CaseType [Definition of source data] Data can be checked for
+ * consistency against its CaseType by a DataTypeTemplate and then data may be consolidated as desired into an array
+ * or list [DTOutput] of DataTypeTemplate objects in a way that is defined by the business logic of any given DataTemplate.
+ */
+
 public interface DataTypeTemplate {
 
   int getLINES_PER_INPUT();
@@ -15,7 +22,11 @@ public interface DataTypeTemplate {
 
   boolean isTEMPLATE();
 
-  SourceDataInfo getSourceDataInfo();
+/**
+ *
+  * @return
+ */
+SourceDataInfo getSourceDataInfo();
 
   DataTypeTemplate[] consolidateDataToArray(
       final String[] input, final String[] expected, final String[] actual);

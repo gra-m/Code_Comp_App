@@ -10,7 +10,7 @@ import cchef.jtrain.self.code_comp.casetypes.CaseType;
 import cchef.jtrain.self.code_comp.casetypes.StringType;
 import cchef.jtrain.self.code_comp.datatypes.outputtypes.ArrayOutput;
 import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
-import cchef.jtrain.self.code_comp.datasource.CreateData;
+import cchef.jtrain.self.code_comp.datasource.DataSourceDriver;
 import cchef.jtrain.self.code_comp.datasource.StringFromLocalFileAuto;
 import cchef.jtrain.self.code_comp.datatypes.*;
 import cchef.jtrain.self.code_comp.datasource.StringFromLocalFileHardCoded;
@@ -68,14 +68,14 @@ class CodeCompComparison {
             CaseType.DEFAULT_SDI_ARRAY
             );
 
-    System.out.println(thisImportsCaseType.stringTypeDescription());
+    System.out.println(thisImportsCaseType.caseTypeDescription());
 
     DataTypeTemplate ccDataType = new DT_CC_Template(thisImportsCaseType);
 
     System.out.println(ccDataType);
 
     // Passing DTCodeChef object to GetDataAs -> StringFromLocalFile
-    CreateData strFromLocal = new StringFromLocalFileAuto(ccDataType);
+    DataSourceDriver strFromLocal = new StringFromLocalFileAuto(ccDataType);
     DTOutput populated = strFromLocal.getOnTheFlyData(true);
     ArrayOutput listPopulated;
     if ( populated instanceof ArrayOutput ) {

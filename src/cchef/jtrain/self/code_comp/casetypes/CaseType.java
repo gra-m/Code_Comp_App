@@ -4,13 +4,23 @@ import cchef.jtrain.self.code_comp.casetypes.importinfotypes.SDIArray;
 import cchef.jtrain.self.code_comp.casetypes.importinfotypes.SourceDataInfo;
 
 /**
- * A container for a SourceDataInfo object and information on units of data (cases) such as how many lines/calls per
- * input and output and the total number of cases to be imported.
+ * A container for a SourceDataInfo object (needed to retrieve data) and instructions on how to interpret retrieved
+ * data that enables a DataType object to consolidate that information into the units of data that are desired.
+ *
+ * It is envisaged that CaseTypes will be ascertained automatically, based on retrieving String data and running contents
+ * through type recognition logic.
+ *
+ * A CaseType like InputExpectedActual represents a Type from which many instances with different parameters can exist.
+ * For example TotalCases lines per input and lines per output can differ from query to query
+ *
+ * @see StringType
  */
 public interface CaseType {
 
 /**
- * The original reason for this application was the import of these files so they are represented here for ease of use.
+ * The original reason for this application was the import of these files, represented here for ease of use though
+ * this should be moved to SourceDataInfo as that is where this type of data originates and is stored.
+ * todo move default to SourceDataInfo Interface.
  */
 SDIArray DEFAULT_SDI_ARRAY =
       new SDIArray(
@@ -22,11 +32,11 @@ SDIArray DEFAULT_SDI_ARRAY =
 
   StringType[] getStringTypeArray();
 
-  String stringTypeDescription();
+  String caseTypeDescription();
 
-  int getLINES_PER_INPUT();
+  int getLINES_PER_CASE_INPUT();
 
-  int getLINES_PER_OUTPUT();
+  int getLINES_PER_CASE_OUTPUT();
 
   long getTOTAL_CASES();
 

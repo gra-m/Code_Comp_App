@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 
 import static cchef.jtrain.self.code_comp.Utilz.getUserTimeZone;
 
-public class StringFromLocalFileAuto implements CreateData {
+public class StringFromLocalFileAuto implements DataSourceDriver {
   // SHARED
   static int linesPerOutput;
   private static String activePath = "";
@@ -26,7 +26,6 @@ public class StringFromLocalFileAuto implements CreateData {
   private BufferedReader autoReader;
   private String[][] allInputData;
 
-  // todo thoughts on how to make flexible test == variable number of input arrays
   public StringFromLocalFileAuto(final DataTypeTemplate DATA_TYPE_TEMPLATE) {
 
     this.DATA_TYPE_TEMPLATE = DATA_TYPE_TEMPLATE;

@@ -3,8 +3,13 @@ package cchef.jtrain.self.code_comp.datasource;
 import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
 
 /**
- * A GetDataAs can fetch data from a number of data-sources dependent on the CaseType of the DataType that is passed
- * to it.
+ * A DataSourceDriver can fetch data from a number of data-sources dependent on the CaseType of the DataType that is passed
+ * to it. Each DataSourceDriver will interact with DataTypeTemplates to obtain the data for that DataType in its own specific
+ * way. Given data availability each type of DataSourceDriver should be able to interact with any DataTypeTemplate.
+ * /fixme this is just extra notes for now.
+ * StringFromLocalFile  -> Local file source info == SDI |-> File String types -> CaseType  |-> Data processing -> Data Template |-> Reporting -> Report Type
+ * IntegerFromLocalFile
+ * JsonFromWebAPI       -> URLs and keys == SDI |-> File String types [after localising?]
  *
  * <p>
  * The end goal is the creation of a 'collection' of DataTypes from which the necessary reports can then be made.
@@ -14,7 +19,7 @@ import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
  * pass it to the DataType instance in order to create and return a DataType collection.
  * </p>
  */
-public interface CreateData {
+public interface DataSourceDriver {
       DTOutput getOnTheFlyData(boolean arrayDto);
       void createNonAuditableSnapshot(boolean arrayDto);
       void createAuditableSnapshot(boolean arrayDto);

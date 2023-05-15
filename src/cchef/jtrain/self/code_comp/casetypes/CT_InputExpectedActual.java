@@ -2,87 +2,100 @@ package cchef.jtrain.self.code_comp.casetypes;
 
 import cchef.jtrain.self.code_comp.casetypes.importinfotypes.SourceDataInfo;
 
+/**
+ * A case type where three sources of input data in two forms 1[input] input 2[output] expected and actual are defined.
+ * The number of lines per input and output and the number of cases should relate correctly. The stringtypes of the
+ * input expected and actual files for this case-type can be ascertained by the checking algorithm.
+ *
+ *
+ */
 public class CT_InputExpectedActual implements CaseType {
 
   private final long TOTAL_CASES;
-  private final int LINES_PER_INPUT;
-  private final int LINES_PER_OUTPUT;
-  private final StringType INPUT;
-  private final StringType EXPECTED;
-  private final StringType ACTUAL;
+  private final int LINES_PER_CASE_INPUT;
+  private final int LINES_PER_CASE_OUTPUT;
+  private final StringType INPUT_ST;
+  private final StringType EXPECTED_ST;
+  private final StringType ACTUAL_ST;
   private final SourceDataInfo SOURCE_DATA_INFO;
 
   public CT_InputExpectedActual(
       final long TOTAL_CASES,
-      final int LINES_PER_INPUT,
-      final int LINES_PER_OUTPUT,
-      final StringType INPUT,
-      final StringType EXPECTED,
-      final StringType ACTUAL,
+      final int LINES_PER_CASE_INPUT,
+      final int LINES_PER_CASE_OUTPUT,
+      final StringType INPUT_ST,
+      final StringType EXPECTED_ST,
+      final StringType ACTUAL_ST,
       final SourceDataInfo SOURCE_DATA_INFO) {
     this.TOTAL_CASES = TOTAL_CASES;
-    this.LINES_PER_INPUT = LINES_PER_INPUT;
-    this.LINES_PER_OUTPUT = LINES_PER_OUTPUT;
-    this.INPUT = INPUT;
-    this.EXPECTED = EXPECTED;
-    this.ACTUAL = ACTUAL;
+    this.LINES_PER_CASE_INPUT = LINES_PER_CASE_INPUT;
+    this.LINES_PER_CASE_OUTPUT = LINES_PER_CASE_OUTPUT;
+    this.INPUT_ST = INPUT_ST;
+    this.EXPECTED_ST = EXPECTED_ST;
+    this.ACTUAL_ST = ACTUAL_ST;
     if (SOURCE_DATA_INFO.isEmptyOrNull()) this.SOURCE_DATA_INFO = CaseType.DEFAULT_SDI_ARRAY;
     else this.SOURCE_DATA_INFO = SOURCE_DATA_INFO;
   }
 
-  /**
-   * @return
+  /**  Returns an array of this CaseTypes StringTypes
+   * @return INPUT_ST, EXPECTED_ST, ACTUAL_ST being for example Numeric NumericSpace or NumericOtherSeparator
    */
   @Override
   public StringType[] getStringTypeArray() {
-    return new StringType[] {INPUT, EXPECTED, ACTUAL};
+    return new StringType[] {INPUT_ST, EXPECTED_ST, ACTUAL_ST};
   }
 
   /**
    * @return
    */
   @Override
-  public String stringTypeDescription() {
+  public String caseTypeDescription() {
     return String.format(
         "There are %d cases in total, inputs are %d line/s per case, output is %d line/s per case\n"
-            + "Input is %S, expected and actual outputs are %S && %S",
-        TOTAL_CASES, LINES_PER_INPUT, LINES_PER_OUTPUT, INPUT, EXPECTED, ACTUAL);
+            + "Input is %S, expected and actual are %S && %S",
+        TOTAL_CASES, LINES_PER_CASE_INPUT, LINES_PER_CASE_OUTPUT, INPUT_ST, EXPECTED_ST, ACTUAL_ST);
   }
 
-  /** Returns total cases for this CaseType == CTInputExpectedActual
+  /** Returns total cases for this CaseType this info will have been confirmed through testing or will be confirmed
+   * against actual data.
    *
-   * @return long, total cases for this CaseType CTInputExpectedActual
+   * @return long, total cases for this CaseType
    */
   @Override
   public long getTOTAL_CASES() {
     return this.TOTAL_CASES;
   }
 
-  /**
+  /**Input and output lines in source files can differ any headers within files are handled within DataTypes
+   * This is a confirmed or to be confirmed count of lines for this particular instance of this case type.
    * @return
    */
   @Override
-  public int getLINES_PER_INPUT() {
-    return this.LINES_PER_INPUT;
+  public int getLINES_PER_CASE_INPUT() {
+    return this.LINES_PER_CASE_INPUT;
   }
 
-  /**
+  /**Input and output lines in source files can differ any headers within files are handled within DataTypes
+   * This is a confirmed or to be confirmed count of lines for this particular instance of this case type.
    * @return
    */
   @Override
-  public int getLINES_PER_OUTPUT() {
-    return this.LINES_PER_OUTPUT;
+  public int getLINES_PER_CASE_OUTPUT() {
+    return this.LINES_PER_CASE_OUTPUT;
   }
 
-  /**
-   * @return
+  /** SourceData is required by DataSource Drivers, and so is made available here, without making the SDI externally
+   * available, though.. it is final.
+   * @return SourceDataInfo is either SDIArray or SDI_LHMap
+   * @See SDI_LHMap
+   * @See SDIArray
    */
   @Override
   public SourceDataInfo getSourceDataInfo() {
     return this.SOURCE_DATA_INFO;
   }
 
-  /**
+  /** Not yet implemented, data checking may be consolidated, current @15/05/23 is not neatly implemented. todo
    * @return
    */
   @Override
@@ -96,15 +109,15 @@ public class CT_InputExpectedActual implements CaseType {
         + "TOTAL_CASES="
         + TOTAL_CASES
         + ", LINES_PER_INPUT="
-        + LINES_PER_INPUT
+        + LINES_PER_CASE_INPUT
         + ", LINES_PER_OUTPUT="
-        + LINES_PER_OUTPUT
+        + LINES_PER_CASE_OUTPUT
         + ", INPUT="
-        + INPUT
+        + INPUT_ST
         + ", EXPECTED="
-        + EXPECTED
+        + EXPECTED_ST
         + ", ACTUAL="
-        + ACTUAL
+        + ACTUAL_ST
         + '}';
   }
 }

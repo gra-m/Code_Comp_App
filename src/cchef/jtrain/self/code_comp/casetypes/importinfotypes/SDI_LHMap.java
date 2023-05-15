@@ -3,6 +3,10 @@ package cchef.jtrain.self.code_comp.casetypes.importinfotypes;
 import java.util.LinkedHashMap;
 import java.util.Objects;
 
+
+/**
+ * For when source data information is more complex than a few local file paths
+ */
 public class SDI_LHMap implements SourceDataInfo {
   private final LinkedHashMap<String, String> sourceDataInfo;
 
