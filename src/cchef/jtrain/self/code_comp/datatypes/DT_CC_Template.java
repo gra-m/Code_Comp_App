@@ -13,12 +13,12 @@ import java.time.ZonedDateTime;
 import java.util.*;
 
 /**
- * Given data that matches this DataType Template, that is data that originates from the CodeChef challenges input,
- * expected, output file downloads, this class consolidates each case into a non-template version of itself that can
- * be instantly returned as a list or array or held as a snapshot for further processing and reporting.
- * Action taken during consolidation: Does actual output match expected output for every given case: STATUS_PASSING
- * */
-
+ * Given data that matches this DataType Template, that is data that originates from the CodeChef
+ * challenges input, expected, output file downloads, this class consolidates each case into a
+ * non-template version of itself that can be instantly returned as a list or array or held as a
+ * snapshot for further processing and reporting. Action taken during consolidation: Does actual
+ * output match expected output for every given case: STATUS_PASSING
+ */
 public class DT_CC_Template implements DataTypeTemplate {
   private static final int INPUT_FILE_HEADER = 1; // the number of lines of header
   private static String[] INPUT_DATA;
@@ -37,9 +37,11 @@ public class DT_CC_Template implements DataTypeTemplate {
   private final String[] CASE_EXP_OUTPUT_DATA;
   private final String[] CASE_ACT_OUTPUT_DATA;
 
-  private final boolean TEMPLATE; // todo complete like null check on methods if false exit method (report dts are not templates)
+  private final boolean
+      TEMPLATE; // todo complete like null check on methods if false exit method (report dts are not
+                // templates)
 
-private LinkedHashMap<ZonedDateTime, DataSnapshot> snapshots = new LinkedHashMap<>();
+  private final LinkedHashMap<ZonedDateTime, DataSnapshot> snapshots = new LinkedHashMap<>();
 
   /**
    * WIP Creates a TEMPLATE [true] DT_CC_Template with (what should be) a fully formed CASE_TYPE for
@@ -101,17 +103,23 @@ private LinkedHashMap<ZonedDateTime, DataSnapshot> snapshots = new LinkedHashMap
    */
   @Override
   public SourceDataInfo getSourceDataInfo() {
+    if (this.isTEMPLATE()) {
     return this.CASE_TYPE.getSourceDataInfo();
+    } else throw new IllegalStateException("Cannot retrieve SourceDataInfo for non-template DataType");
   }
+
   /**
    * @param inputArray
    * @return
    */
   private DataTypeTemplate[] consolidateDataToArray(String[][] inputArray) {
-    if (Objects.nonNull(inputArray)) {
-      return consolidateDataToArray(inputArray[0], inputArray[1], inputArray[2]);
-    } else
-      throw new RuntimeException("@DTCodeChef consolidateData(String[][] inputArray [was null])");
+    if (this.isTEMPLATE()) {
+
+      if (Objects.nonNull(inputArray)) {
+        return consolidateDataToArray(inputArray[0], inputArray[1], inputArray[2]);
+      } else
+        throw new RuntimeException("@DTCodeChef consolidateData(String[][] inputArray [was null])");
+  } else throw new IllegalStateException("Cannot consolidateDataToArray for non-template DataType");
   }
 
   /**
@@ -120,51 +128,48 @@ private LinkedHashMap<ZonedDateTime, DataSnapshot> snapshots = new LinkedHashMap
    * @return
    */
   public DTOutput consolidateDataToArray(String[][] inputArray, boolean asArray) {
+    if (this.isTEMPLATE()) {
     if (Objects.nonNull(inputArray)) {
-      if ( asArray )
+      if (asArray)
         return new ArrayOutput(consolidateDataToArray(inputArray[0], inputArray[1], inputArray[2]));
       else
         return new ListOutput(consolidateDataToList(inputArray[0], inputArray[1], inputArray[2]));
     } else
       throw new RuntimeException(
           "@DTCodeChef consolidateData(String[][] inputArray [was null], arrayOutput)");
-  }
-
-/**
- *
- *  @param inputArray
- *
- * @param userTimeZone
- * @param asArray
- */
-@Override
-public void addNonAuditableSnapshot(String[][] inputArray, String userTimeZone, boolean asArray) {
-  if(this.isTEMPLATE()) {
-    DTOutput dtOutput = consolidateDataToArray(inputArray, asArray);
-    NonAuditable nonAuditableSnap = new NonAuditable(dtOutput, userTimeZone);
-    this.snapshots.put(nonAuditableSnap.getCREATED(), nonAuditableSnap);
-
-    printSnapshots();
-
+  } else throw new IllegalStateException("Cannot consolidateDataToArray(String[][] inputArray, boolean asArray) with non-template DataType");
 
   }
-  else throw new IllegalStateException("Cannot create snapshot with non-template DataType");
-}
 
-/**
- * Takes the current snapshots LinkedHashMap<ZoneDateTime, Snapshot> and prints to console.
-*
-  */
-@Override
-public void printSnapshots() {
-  for(Map.Entry<ZonedDateTime, DataSnapshot> entry : this.snapshots.entrySet()) {
+  /**
+   * @param inputArray
+   * @param userTimeZone
+   * @param asArray
+   */
+  @Override
+  public void addNonAuditableSnapshot(String[][] inputArray, String userTimeZone, boolean asArray) {
+    if (this.isTEMPLATE()) {
+      DTOutput dtOutput = consolidateDataToArray(inputArray, asArray);
+      NonAuditable nonAuditableSnap = new NonAuditable(dtOutput, userTimeZone);
+      this.snapshots.put(nonAuditableSnap.getCREATED(), nonAuditableSnap);
+
+      printSnapshots();
+
+    } else throw new IllegalStateException("Cannot create snapshot with non-template DataType");
+  }
+
+  /** Takes the current snapshots LinkedHashMap<ZoneDateTime, Snapshot> and prints to console. */
+  @Override
+  public void printSnapshots() {
+    if (isTEMPLATE()) {
+    for (Map.Entry<ZonedDateTime, DataSnapshot> entry : this.snapshots.entrySet()) {
       System.out.println(entry.getKey() + " " + entry.getValue().getInfo());
+    }
+  } else throw new IllegalStateException("Cannot consolidateDataToArray for non-template DataType");
+
   }
 
-}
-
-
-/**
+  /**
    * Takes the input requirements of this DataTypeTemplate and retrieves the data instructions held
    * within this DataTypeTemplate and consolidates them into a DataTypeTemplate[] within which each
    * newly created DataTypeTemplate contains the data for a single CodeChef case. Expected and
@@ -187,9 +192,11 @@ public void printSnapshots() {
    *     and whether it is passing ** @See List<DataTypeTemplate> consolidateDataToList(String[]
    *     input, String[] expected, String[] actual)
    */
-  @Override
-  public DataTypeTemplate[] consolidateDataToArray(
+  private DataTypeTemplate[] consolidateDataToArray(
       String[] input, String[] expected, String[] actual) {
+
+    if (isTEMPLATE()) {
+
     if (logicCheckInputExpAct(input, expected, actual))
       setStaticArrayFields(input, expected, actual);
     else throw new IllegalStateException("Input expected and actual do not correlate");
@@ -205,13 +212,13 @@ public void printSnapshots() {
 
     for (int i = 0; i < totalCases; i++) {
       String[] inputData = new String[inDatLength];
-      getCaseInputArray(inputData, inDatLength);
+      populateCaseInputArray(inputData, inDatLength);
 
       String[] expData = new String[outDatLength];
-      getCaseExpectedArray(expData, outDatLength);
+      populateCaseExpectedArray(expData, outDatLength);
 
       String[] actData = new String[outDatLength];
-      getCaseActualArray(actData, outDatLength);
+      populateCaseActualArray(actData, outDatLength);
 
       consolidatedData[i] =
           new DT_CC_Template(
@@ -225,6 +232,8 @@ public void printSnapshots() {
     }
 
     return consolidatedData;
+
+  } else throw new IllegalStateException("Cannot consolidateDataToArray for non-template DataType");
   }
 
   /**
@@ -233,9 +242,12 @@ public void printSnapshots() {
    * @param actual
    * @return
    */
-  @Override
-  public List<DataTypeTemplate> consolidateDataToList(
+  private List<DataTypeTemplate> consolidateDataToList(
       String[] input, String[] expected, String[] actual) {
+
+    if (isTEMPLATE()) {
+
+
     if (logicCheckInputExpAct(input, expected, actual))
       setStaticArrayFields(input, expected, actual);
     else throw new IllegalStateException("Input expected and actual do not correlate");
@@ -251,13 +263,13 @@ public void printSnapshots() {
 
     for (int i = 0; i < totalCases; i++) {
       String[] inputData = new String[inDatLength];
-      getCaseInputArray(inputData, inDatLength);
+      populateCaseInputArray(inputData, inDatLength);
 
       String[] expData = new String[outDatLength];
-      getCaseExpectedArray(expData, outDatLength);
+      populateCaseExpectedArray(expData, outDatLength);
 
       String[] actData = new String[outDatLength];
-      getCaseActualArray(actData, outDatLength);
+      populateCaseActualArray(actData, outDatLength);
 
       consolidatedData.add(
           i,
@@ -272,30 +284,26 @@ public void printSnapshots() {
     }
 
     return consolidatedData;
+
+    } else throw new IllegalStateException("Cannot consolidateDataToList for non-template DataType");
   }
 
-  private String[] getCaseInputArray(String[] inputData, int inDatLength) {
+  private void populateCaseInputArray(String[] inputData, int inDatLength) {
     for (int in = 0; in < inDatLength; in++) {
-      inputData[in] = INPUT_DATA[inputIndex];
-      inputIndex++;
+      inputData[in] = INPUT_DATA[inputIndex++];
     }
-    return inputData;
   }
 
-  private String[] getCaseExpectedArray(String[] expData, int outDatLength) {
+  private void populateCaseExpectedArray(String[] expData, int outDatLength) {
     for (int ex = 0; ex < outDatLength; ex++) {
-      expData[ex] = EXPECTED_DATA[expIndex];
-      expIndex++;
+      expData[ex] = EXPECTED_DATA[expIndex++];
     }
-    return expData;
   }
 
-  private String[] getCaseActualArray(String[] actData, int outDatLength) {
+  private void populateCaseActualArray(String[] actData, int outDatLength) {
     for (int act = 0; act < outDatLength; act++) {
-      actData[act] = ACTUAL_DATA[actIndex];
-      actIndex++;
+      actData[act] = ACTUAL_DATA[actIndex++];
     }
-    return actData; //
   }
 
   /**
@@ -360,7 +368,10 @@ public void printSnapshots() {
    */
   @Override
   public int getLINES_PER_INPUT() {
+    if (isTEMPLATE()) {
     return this.CASE_TYPE.getLINES_PER_CASE_INPUT();
+  } else throw new IllegalStateException("Cannot getLINES_PER_CASE_INPUT for non-template DataType");
+
   }
 
   /**
@@ -370,7 +381,10 @@ public void printSnapshots() {
    */
   @Override
   public int getLINES_PER_OUTPUT() {
+    if (isTEMPLATE()) {
     return this.CASE_TYPE.getLINES_PER_CASE_OUTPUT();
+  } else throw new IllegalStateException("Cannot getLINES_PER_CASE_OUTPUT for non-template DataType");
+
   }
 
   /**
@@ -380,7 +394,10 @@ public void printSnapshots() {
    */
   @Override
   public long getTOTAL_CASES() {
+    if (isTEMPLATE()) {
     return this.CASE_TYPE.getTOTAL_CASES();
+
+    } else throw new IllegalStateException("Cannot getTOTAL_CASES for non-template DataType");
   }
 
   /**

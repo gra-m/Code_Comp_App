@@ -86,9 +86,11 @@ public class CT_InputExpectedActual implements CaseType {
 
   /** SourceData is required by DataSource Drivers, and so is made available here, without making the SDI externally
    * available, though.. it is final.
+   *<p>
+   * See: {@link cchef.jtrain.self.code_comp.casetypes.importinfotypes.SDIArray}
+   * </br>{@link cchef.jtrain.self.code_comp.casetypes.importinfotypes.SDI_LHMap}
+   *
    * @return SourceDataInfo is either SDIArray or SDI_LHMap
-   * @See SDI_LHMap
-   * @See SDIArray
    */
   @Override
   public SourceDataInfo getSourceDataInfo() {
@@ -96,7 +98,7 @@ public class CT_InputExpectedActual implements CaseType {
   }
 
   /** Not yet implemented, data checking may be consolidated, current @15/05/23 is not neatly implemented. todo
-   * @return
+   * @return  boolean
    */
   @Override
   public boolean selfCheck() {

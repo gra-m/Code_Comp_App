@@ -6,10 +6,10 @@ import cchef.jtrain.self.code_comp.casetypes.importinfotypes.SourceDataInfo;
 /**
  * A container for a SourceDataInfo object (needed to retrieve data) and instructions on how to interpret retrieved
  * data that enables a DataType object to consolidate that information into the units of data that are desired.
- *
+ * <p>
  * It is envisaged that CaseTypes will be ascertained automatically, based on retrieving String data and running contents
  * through type recognition logic.
- *
+ * <p>
  * A CaseType like InputExpectedActual represents a Type from which many instances with different parameters can exist.
  * For example TotalCases lines per input and lines per output can differ from query to query
  *
