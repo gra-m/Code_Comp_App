@@ -1,7 +1,10 @@
 package cchef.jtrain.self.code_comp;
 
 import java.io.*;
+import java.time.ZonedDateTime;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -14,6 +17,8 @@ import cchef.jtrain.self.code_comp.datasource.DataSourceDriver;
 import cchef.jtrain.self.code_comp.datasource.StringFromLocalFileAuto;
 import cchef.jtrain.self.code_comp.datatypes.*;
 import cchef.jtrain.self.code_comp.datasource.StringFromLocalFileHardCoded;
+import cchef.jtrain.self.code_comp.outputdata.DataSnapshot;
+import cchef.jtrain.self.code_comp.gui.App;
 
 import static cchef.jtrain.self.code_comp.casetypes.StringType.*;
 
@@ -30,7 +35,7 @@ class CodeCompComparison {
   static int linesPerCase = 0;
   static int linesPerOutput = 1;
 
-  public static void main(String[] args) throws Exception {
+  public static <App> void main(String[] args) throws Exception {
     IN = new StringFromLocalFileHardCoded(1);
     fileLength = (int) IN.countLines();
 
@@ -90,6 +95,23 @@ class CodeCompComparison {
 
     // Test non auditable creation array:
     strFromLocal.createNonAuditableSnapshot(true);
+    LinkedHashMap<ZonedDateTime, DataSnapshot> retrievedShallowCopy = strFromLocal.getCopyOfSnapshots();
+    DataTypeTemplate[] retrievedReportData = new DataTypeTemplate[900];
+
+    for ( Map.Entry<ZonedDateTime, DataSnapshot> entry : retrievedShallowCopy.entrySet()) {
+      DTOutput retrieved = entry.getValue().getDT_OUTPUT();
+      if (retrieved instanceof ArrayOutput) {
+         retrievedReportData = ((ArrayOutput)retrieved).getDataTypeArray();
+      }
+      break;
+    }
+
+    System.out.println("-----------------HERE They come again");
+
+    for ( DataTypeTemplate dt : retrievedReportData) System.out.println(dt.toString());
+
+  cchef.jtrain.self.code_comp.gui.App app = new cchef.jtrain.self.code_comp.gui.App();
+  
 
     IN.close();
     OUT.close();

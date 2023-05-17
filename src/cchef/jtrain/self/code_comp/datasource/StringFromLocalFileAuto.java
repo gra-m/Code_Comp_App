@@ -6,11 +6,13 @@ package cchef.jtrain.self.code_comp.datasource;
 import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
 import cchef.jtrain.self.code_comp.casetypes.importinfotypes.SDIArray;
 import cchef.jtrain.self.code_comp.datatypes.DataTypeTemplate;
+import cchef.jtrain.self.code_comp.outputdata.DataSnapshot;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.ZonedDateTime;
 import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -42,6 +44,12 @@ public class StringFromLocalFileAuto implements DataSourceDriver {
 
   private static String cleanString(String raw) {
     return raw.replaceAll("[^\\d\\s]", "").trim();
+  }
+
+  @Override
+  public LinkedHashMap<ZonedDateTime, DataSnapshot> getCopyOfSnapshots() {
+
+   return this.DATA_TYPE_TEMPLATE.getShallowCopyOfSnapshots();
   }
 
 /**

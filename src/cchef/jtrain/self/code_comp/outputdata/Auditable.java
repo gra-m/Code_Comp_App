@@ -2,6 +2,7 @@ package cchef.jtrain.self.code_comp.outputdata;
 
 import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;

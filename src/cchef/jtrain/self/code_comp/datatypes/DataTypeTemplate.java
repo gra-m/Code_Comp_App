@@ -2,7 +2,10 @@ package cchef.jtrain.self.code_comp.datatypes;
 
 import cchef.jtrain.self.code_comp.casetypes.importinfotypes.SourceDataInfo;
 import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
+import cchef.jtrain.self.code_comp.outputdata.DataSnapshot;
 
+import java.time.ZonedDateTime;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -22,7 +25,13 @@ public interface DataTypeTemplate {
 
   boolean isTEMPLATE();
 
-  /**
+/**
+ * Temporary shallow copy => replace with deep to enable auditable reports.
+ * @return
+ */
+LinkedHashMap<ZonedDateTime, DataSnapshot> getShallowCopyOfSnapshots();
+
+/**
    * @return
    */
   SourceDataInfo getSourceDataInfo();

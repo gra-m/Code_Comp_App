@@ -1,6 +1,10 @@
 package cchef.jtrain.self.code_comp.datasource;
 
 import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
+import cchef.jtrain.self.code_comp.outputdata.DataSnapshot;
+
+import java.time.ZonedDateTime;
+import java.util.LinkedHashMap;
 
 /**
  * A DataSourceDriver can fetch data from a number of data-sources dependent on the CaseType of the DataType that is passed
@@ -21,7 +25,14 @@ import cchef.jtrain.self.code_comp.datatypes.outputtypes.DTOutput;
  */
 public interface DataSourceDriver {
       DTOutput getOnTheFlyData(boolean arrayDto);
-      void createNonAuditableSnapshot(boolean arrayDto);
+
+/**
+ * Temporary shallow copy, update when deep
+ * @return
+ */
+LinkedHashMap<ZonedDateTime, DataSnapshot> getCopyOfSnapshots();
+
+void createNonAuditableSnapshot(boolean arrayDto);
       void createAuditableSnapshot(boolean arrayDto);
       // todo temp as void, will return string rather than console print calls on printSnapshots in DataTypeTemplate
       void printSnapshotInfo();

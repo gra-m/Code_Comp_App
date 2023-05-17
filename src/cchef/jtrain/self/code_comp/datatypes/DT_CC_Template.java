@@ -37,11 +37,28 @@ public class DT_CC_Template implements DataTypeTemplate {
   private final String[] CASE_EXP_OUTPUT_DATA;
   private final String[] CASE_ACT_OUTPUT_DATA;
 
-  private final boolean
-      TEMPLATE; // todo complete like null check on methods if false exit method (report dts are not
-                // templates)
+  private final boolean TEMPLATE; // template -> <- report/case record
 
-  private final LinkedHashMap<ZonedDateTime, DataSnapshot> snapshots = new LinkedHashMap<>();
+
+private final LinkedHashMap<ZonedDateTime, DataSnapshot> snapshots = new LinkedHashMap<>();
+
+
+/**
+ * Preserves the integrity of 'snapshots' but not the objects within it, should be used with care and eventually removed.
+ * todo replace with deep copy import Apache Commons Serialization utils then copy = SerializationUtils.clone(otherHM);
+ *
+ * @return a shallow copy of snapshots
+ */
+@Override
+public LinkedHashMap<ZonedDateTime, DataSnapshot> getShallowCopyOfSnapshots() {
+  if (isTEMPLATE()) {
+    LinkedHashMap<ZonedDateTime, DataSnapshot> copy = new LinkedHashMap<>(this.snapshots);
+
+    return copy;
+
+  } else
+    throw new IllegalStateException("Cannot getSnapshots for non-template DataType");
+}
 
   /**
    * WIP Creates a TEMPLATE [true] DT_CC_Template with (what should be) a fully formed CASE_TYPE for
@@ -104,23 +121,11 @@ public class DT_CC_Template implements DataTypeTemplate {
   @Override
   public SourceDataInfo getSourceDataInfo() {
     if (this.isTEMPLATE()) {
-    return this.CASE_TYPE.getSourceDataInfo();
-    } else throw new IllegalStateException("Cannot retrieve SourceDataInfo for non-template DataType");
+      return this.CASE_TYPE.getSourceDataInfo();
+    } else
+      throw new IllegalStateException("Cannot retrieve SourceDataInfo for non-template DataType");
   }
 
-  /**
-   * @param inputArray
-   * @return
-   */
-  private DataTypeTemplate[] consolidateDataToArray(String[][] inputArray) {
-    if (this.isTEMPLATE()) {
-
-      if (Objects.nonNull(inputArray)) {
-        return consolidateDataToArray(inputArray[0], inputArray[1], inputArray[2]);
-      } else
-        throw new RuntimeException("@DTCodeChef consolidateData(String[][] inputArray [was null])");
-  } else throw new IllegalStateException("Cannot consolidateDataToArray for non-template DataType");
-  }
 
   /**
    * @param
@@ -129,16 +134,18 @@ public class DT_CC_Template implements DataTypeTemplate {
    */
   public DTOutput consolidateDataToArray(String[][] inputArray, boolean asArray) {
     if (this.isTEMPLATE()) {
-    if (Objects.nonNull(inputArray)) {
-      if (asArray)
-        return new ArrayOutput(consolidateDataToArray(inputArray[0], inputArray[1], inputArray[2]));
-      else
-        return new ListOutput(consolidateDataToList(inputArray[0], inputArray[1], inputArray[2]));
+      if (Objects.nonNull(inputArray)) {
+        if (asArray)
+          return new ArrayOutput(
+              consolidateDataToArray(inputArray[0], inputArray[1], inputArray[2]));
+        else
+          return new ListOutput(consolidateDataToList(inputArray[0], inputArray[1], inputArray[2]));
+      } else
+        throw new RuntimeException(
+            "@DTCodeChef consolidateData(String[][] inputArray [was null], arrayOutput)");
     } else
-      throw new RuntimeException(
-          "@DTCodeChef consolidateData(String[][] inputArray [was null], arrayOutput)");
-  } else throw new IllegalStateException("Cannot consolidateDataToArray(String[][] inputArray, boolean asArray) with non-template DataType");
-
+      throw new IllegalStateException(
+          "Cannot consolidateDataToArray(String[][] inputArray, boolean asArray) with non-template DataType");
   }
 
   /**
@@ -162,11 +169,11 @@ public class DT_CC_Template implements DataTypeTemplate {
   @Override
   public void printSnapshots() {
     if (isTEMPLATE()) {
-    for (Map.Entry<ZonedDateTime, DataSnapshot> entry : this.snapshots.entrySet()) {
-      System.out.println(entry.getKey() + " " + entry.getValue().getInfo());
-    }
-  } else throw new IllegalStateException("Cannot consolidateDataToArray for non-template DataType");
-
+      for (Map.Entry<ZonedDateTime, DataSnapshot> entry : this.snapshots.entrySet()) {
+        System.out.println(entry.getKey() + " " + entry.getValue().getInfo());
+      }
+    } else
+      throw new IllegalStateException("Cannot consolidateDataToArray for non-template DataType");
   }
 
   /**
@@ -197,43 +204,44 @@ public class DT_CC_Template implements DataTypeTemplate {
 
     if (isTEMPLATE()) {
 
-    if (logicCheckInputExpAct(input, expected, actual))
-      setStaticArrayFields(input, expected, actual);
-    else throw new IllegalStateException("Input expected and actual do not correlate");
+      if (logicCheckInputExpAct(input, expected, actual))
+        setStaticArrayFields(input, expected, actual);
+      else throw new IllegalStateException("Input expected and actual do not correlate");
 
-    int totalCases = (int) this.getTOTAL_CASES();
-    int inDatLength = this.getLINES_PER_INPUT();
-    int outDatLength = this.getLINES_PER_OUTPUT();
-    inputIndex = 0;
-    expIndex = 0;
-    actIndex = 0;
+      int totalCases = (int) this.getTOTAL_CASES();
+      int inDatLength = this.getLINES_PER_INPUT();
+      int outDatLength = this.getLINES_PER_OUTPUT();
+      inputIndex = 0;
+      expIndex = 0;
+      actIndex = 0;
 
-    DataTypeTemplate[] consolidatedData = new DT_CC_Template[totalCases];
+      DataTypeTemplate[] consolidatedData = new DT_CC_Template[totalCases];
 
-    for (int i = 0; i < totalCases; i++) {
-      String[] inputData = new String[inDatLength];
-      populateCaseInputArray(inputData, inDatLength);
+      for (int i = 0; i < totalCases; i++) {
+        String[] inputData = new String[inDatLength];
+        populateCaseInputArray(inputData, inDatLength);
 
-      String[] expData = new String[outDatLength];
-      populateCaseExpectedArray(expData, outDatLength);
+        String[] expData = new String[outDatLength];
+        populateCaseExpectedArray(expData, outDatLength);
 
-      String[] actData = new String[outDatLength];
-      populateCaseActualArray(actData, outDatLength);
+        String[] actData = new String[outDatLength];
+        populateCaseActualArray(actData, outDatLength);
 
-      consolidatedData[i] =
-          new DT_CC_Template(
-              i,
-              (i + 1),
-              this.CASE_TYPE,
-              inputData,
-              expData,
-              actData,
-              expectedMatchesActual(expData, actData));
-    }
+        consolidatedData[i] =
+            new DT_CC_Template(
+                i,
+                (i + 1),
+                this.CASE_TYPE,
+                inputData,
+                expData,
+                actData,
+                expectedMatchesActual(expData, actData));
+      }
 
-    return consolidatedData;
+      return consolidatedData;
 
-  } else throw new IllegalStateException("Cannot consolidateDataToArray for non-template DataType");
+    } else
+      throw new IllegalStateException("Cannot consolidateDataToArray for non-template DataType");
   }
 
   /**
@@ -247,45 +255,45 @@ public class DT_CC_Template implements DataTypeTemplate {
 
     if (isTEMPLATE()) {
 
+      if (logicCheckInputExpAct(input, expected, actual))
+        setStaticArrayFields(input, expected, actual);
+      else throw new IllegalStateException("Input expected and actual do not correlate");
 
-    if (logicCheckInputExpAct(input, expected, actual))
-      setStaticArrayFields(input, expected, actual);
-    else throw new IllegalStateException("Input expected and actual do not correlate");
+      int totalCases = (int) this.CASE_TYPE.getTOTAL_CASES();
+      int inDatLength = this.CASE_TYPE.getLINES_PER_CASE_INPUT();
+      int outDatLength = this.CASE_TYPE.getLINES_PER_CASE_OUTPUT();
+      inputIndex = 0;
+      expIndex = 0;
+      actIndex = 0;
 
-    int totalCases = (int) this.CASE_TYPE.getTOTAL_CASES();
-    int inDatLength = this.CASE_TYPE.getLINES_PER_CASE_INPUT();
-    int outDatLength = this.CASE_TYPE.getLINES_PER_CASE_OUTPUT();
-    inputIndex = 0;
-    expIndex = 0;
-    actIndex = 0;
+      List<DataTypeTemplate> consolidatedData = new ArrayList<>(totalCases);
 
-    List<DataTypeTemplate> consolidatedData = new ArrayList<>(totalCases);
+      for (int i = 0; i < totalCases; i++) {
+        String[] inputData = new String[inDatLength];
+        populateCaseInputArray(inputData, inDatLength);
 
-    for (int i = 0; i < totalCases; i++) {
-      String[] inputData = new String[inDatLength];
-      populateCaseInputArray(inputData, inDatLength);
+        String[] expData = new String[outDatLength];
+        populateCaseExpectedArray(expData, outDatLength);
 
-      String[] expData = new String[outDatLength];
-      populateCaseExpectedArray(expData, outDatLength);
+        String[] actData = new String[outDatLength];
+        populateCaseActualArray(actData, outDatLength);
 
-      String[] actData = new String[outDatLength];
-      populateCaseActualArray(actData, outDatLength);
+        consolidatedData.add(
+            i,
+            new DT_CC_Template(
+                i,
+                (i + 1),
+                this.CASE_TYPE,
+                inputData,
+                expData,
+                actData,
+                expectedMatchesActual(expData, actData)));
+      }
 
-      consolidatedData.add(
-          i,
-          new DT_CC_Template(
-              i,
-              (i + 1),
-              this.CASE_TYPE,
-              inputData,
-              expData,
-              actData,
-              expectedMatchesActual(expData, actData)));
-    }
+      return consolidatedData;
 
-    return consolidatedData;
-
-    } else throw new IllegalStateException("Cannot consolidateDataToList for non-template DataType");
+    } else
+      throw new IllegalStateException("Cannot consolidateDataToList for non-template DataType");
   }
 
   private void populateCaseInputArray(String[] inputData, int inDatLength) {
@@ -369,9 +377,9 @@ public class DT_CC_Template implements DataTypeTemplate {
   @Override
   public int getLINES_PER_INPUT() {
     if (isTEMPLATE()) {
-    return this.CASE_TYPE.getLINES_PER_CASE_INPUT();
-  } else throw new IllegalStateException("Cannot getLINES_PER_CASE_INPUT for non-template DataType");
-
+      return this.CASE_TYPE.getLINES_PER_CASE_INPUT();
+    } else
+      throw new IllegalStateException("Cannot getLINES_PER_CASE_INPUT for non-template DataType");
   }
 
   /**
@@ -382,9 +390,9 @@ public class DT_CC_Template implements DataTypeTemplate {
   @Override
   public int getLINES_PER_OUTPUT() {
     if (isTEMPLATE()) {
-    return this.CASE_TYPE.getLINES_PER_CASE_OUTPUT();
-  } else throw new IllegalStateException("Cannot getLINES_PER_CASE_OUTPUT for non-template DataType");
-
+      return this.CASE_TYPE.getLINES_PER_CASE_OUTPUT();
+    } else
+      throw new IllegalStateException("Cannot getLINES_PER_CASE_OUTPUT for non-template DataType");
   }
 
   /**
@@ -395,7 +403,7 @@ public class DT_CC_Template implements DataTypeTemplate {
   @Override
   public long getTOTAL_CASES() {
     if (isTEMPLATE()) {
-    return this.CASE_TYPE.getTOTAL_CASES();
+      return this.CASE_TYPE.getTOTAL_CASES();
 
     } else throw new IllegalStateException("Cannot getTOTAL_CASES for non-template DataType");
   }
