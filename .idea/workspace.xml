@@ -8,17 +8,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="Locked Down DT_CC_Template template/non-template behaviour, + encapsulation">
-      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/gui/App.java" afterDir="false" />
+    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="Retrieve shallow snapshots">
+      <change afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/app_gui_menus/ConsoleApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/CodeCompComparison.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/CodeCompComparison.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/Utilz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/Utilz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datasource/DataSourceDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datasource/DataSourceDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datasource/StringFromLocalFileAuto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datasource/StringFromLocalFileAuto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DT_CC_Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DT_CC_Template.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DataTypeTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DataTypeTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/Auditable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/Auditable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/DataSnapshot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/DataSnapshot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/gui/App.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +271,7 @@
       <workItem from="1683987018243" duration="599000" />
       <workItem from="1684121597120" duration="42000" />
       <workItem from="1684121657254" duration="26449000" />
-      <workItem from="1684296367741" duration="10599000" />
+      <workItem from="1684296367741" duration="13502000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit for this java playground..">
       <created>1677790778872</created>
@@ -412,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684299913493</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Retrieve shallow snapshots">
+      <created>1684314654686</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1684314654686</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -449,7 +450,8 @@
     <MESSAGE value="non-auditable snapshot saving (not print tested) but need to move project!" />
     <MESSAGE value="Java docs" />
     <MESSAGE value="Locked Down DT_CC_Template template/non-template behaviour, + encapsulation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Locked Down DT_CC_Template template/non-template behaviour, + encapsulation" />
+    <MESSAGE value="Retrieve shallow snapshots" />
+    <option name="LAST_COMMIT_MESSAGE" value="Retrieve shallow snapshots" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

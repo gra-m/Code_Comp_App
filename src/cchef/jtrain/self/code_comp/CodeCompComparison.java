@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import cchef.jtrain.self.code_comp.app_gui_menus.ConsoleApp;
 import cchef.jtrain.self.code_comp.casetypes.CT_InputExpectedActual;
 import cchef.jtrain.self.code_comp.casetypes.CaseType;
 import cchef.jtrain.self.code_comp.casetypes.StringType;
@@ -18,7 +19,6 @@ import cchef.jtrain.self.code_comp.datasource.StringFromLocalFileAuto;
 import cchef.jtrain.self.code_comp.datatypes.*;
 import cchef.jtrain.self.code_comp.datasource.StringFromLocalFileHardCoded;
 import cchef.jtrain.self.code_comp.outputdata.DataSnapshot;
-import cchef.jtrain.self.code_comp.gui.App;
 
 import static cchef.jtrain.self.code_comp.casetypes.StringType.*;
 
@@ -35,7 +35,7 @@ class CodeCompComparison {
   static int linesPerCase = 0;
   static int linesPerOutput = 1;
 
-  public static <App> void main(String[] args) throws Exception {
+  public static void main(String[] args) throws Exception {
     IN = new StringFromLocalFileHardCoded(1);
     fileLength = (int) IN.countLines();
 
@@ -108,14 +108,19 @@ class CodeCompComparison {
 
     System.out.println("-----------------HERE They come again");
 
-    for ( DataTypeTemplate dt : retrievedReportData) System.out.println(dt.toString());
+    //for ( DataTypeTemplate dt : retrievedReportData) System.out.println(dt.toString()); // this worked OK
 
-  cchef.jtrain.self.code_comp.gui.App app = new cchef.jtrain.self.code_comp.gui.App();
-  
+    // -------------------------------------------//
+    System.out.println("==========APP STARTED -> From reporting==========");
+
+    ConsoleApp consoleApp = new ConsoleApp();
 
     IN.close();
     OUT.close();
   }
+
+
+
 
   /*===========================================================================*/
 
@@ -164,3 +169,4 @@ class CodeCompComparison {
     }
   }
 }
+
