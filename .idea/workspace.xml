@@ -1,222 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="ANALYZE_INJECTED_CODE" value="false" />
-    <option name="SCOPE_TYPE" value="3" />
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="Retrieve shallow snapshots">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/OuputDataAs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/OutputToConsole.java" afterDir="false" />
+    <list default="true" id="88a64c83-6c65-4cf2-8c2a-f5b76ab0316f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/reporting/GenericStringToConsole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/reporting/Report.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/fun/madeby/code_comp_app/reporting/ReportTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code_Site_CC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Code_Site_CC.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/arrayinput/JibbyJabQ.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/arrayinput/JibbyJabQ_improved.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/arrayinput/ProgrammingLanguages.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/arrays/SmallestElement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/CStock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/ChfRich.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/Chfspl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/Hoops.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/Imdb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/ManySums.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/MxEvnSub.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/Probcat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/Proglang.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/SmalPosWho.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/TandJ1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/TdMaxDiff.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/TurnIt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/TurnIt1st.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/TwoDish.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/Vdates.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/bprog/Weightbl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/DecToBinary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/CodeCompComparison.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/CodeCompComparison.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/StringTypeDefineAndCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/StringTypeDefineAndCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/Utilz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/Utilz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/app_gui_menus/ConsoleApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/app_gui_menus/ConsoleApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/CT_InputExpectedActual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/CT_InputExpectedActual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/CaseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/CaseType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/StringType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/StringType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/importinfotypes/SDIArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/importinfotypes/SDIArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/importinfotypes/SDI_LHMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/importinfotypes/SDI_LHMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/casetypes/importinfotypes/SourceDataInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/importinfotypes/SourceDataInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datasource/DataSourceDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datasource/DataSourceDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datasource/StringFromLocalFileAuto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datasource/StringFromLocalFileAuto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datasource/StringFromLocalFileHardCoded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datasource/StringFromLocalFileHardCoded.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DT_CC_Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/DT_CC_Template.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/DataTypeTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/DataTypeTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/outputtypes/ArrayOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/outputtypes/ArrayOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/outputtypes/DTOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/outputtypes/DTOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/datatypes/outputtypes/ListOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/outputtypes/ListOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/Auditable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/Auditable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/DataSnapshot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/DataSnapshot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/NonAuditable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/NonAuditable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/OuputDataAs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/outputdata/OutputToConsole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Div03.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Horses.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Horses_Improved.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Linchess.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/sorting/MaxDiff.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Signflip.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Signflip_loopOnly.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/sorting/SmPair.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Sticks.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Sticks_4Squares.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/sorting/Sticks_wtf.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters80/Codechef.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters80/Codechef01.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters80/Codechef02.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters81/Codechef81_1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters81/Codechef81_2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters81/Codechef81_3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters81/Codechef81_4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters83/BitwiseXor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters83/Codechef83_1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters83/Codechef83_2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters83/Codechef83_3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters83/Codechef83_4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_1s.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_1s2.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_4_solution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_5solution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_6_chfadjsum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters84/Codechef84_7_awesum_.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters85/Codechef85_1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters85/Codechef85_2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters85/Codechef85_3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters85/Codechef85_4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters85/Codechef85_4LastTwoDigits.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters86/Codechef86_1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters86/Codechef86_2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters86/Codechef86_3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters86/Codechef86_3_a.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters86/Codechef86_4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters86/Codechef86_5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters86/wups/Codechef_mons.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/starters86/wups/Codechef_powerM.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/tidy/Codechef.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/GiftShopCoupon.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/GiftShopCoupon_2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/LuckFour.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/Matches.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/PairQ.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/Pushpa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/PushpaTooSlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/timecomplexity/Revsort.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/utils/Codechef.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/utils/archive/BasicSolutionFramework.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/utils/archive/BasicSolutionFramework_noToken.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/utils/archive/Horses_Improved.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/utils/archive/SolutionFramework.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cchef/jtrain/utils/archive/SolutionTemplate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cingame/javascala/HelloWorld.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hackerrank/easy/IntSizes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hackerrank/easy/Solution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hackerrank/easy/Solution02.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hackerrank/easy/Solution03.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hackerrank/easy/Solution04.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hackerrank/easy/printf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code_Site_CC.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/CodeCompComparison.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/StringTypeDefineAndCheck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/Utilz.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/app_gui_menus/ConsoleApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/CT_InputExpectedActual.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/CaseType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/StringType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/importinfotypes/SDIArray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/importinfotypes/SDI_LHMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/importinfotypes/SourceDataInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datasource/DataSourceDriver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datasource/StringFromLocalFileAuto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datasource/StringFromLocalFileHardCoded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/DT_CC_Template.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/DataTypeTemplate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/outputtypes/ArrayOutput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/outputtypes/DTOutput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/outputtypes/ListOutput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/Auditable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/DataSnapshot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/NonAuditable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/OuputDataAs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/OutputToConsole.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Zeppelin Notebook" />
-        <option value="Package Object" />
-        <option value="Enum" />
-        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$USER_HOME$/.jdks/graalvm-ce-11/lib/src.zip!/java.base/java/lang/NullPointerException.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.jdks/graalvm-ce-11/lib/src.zip!/java.base/java/util/StringTokenizer.java" root0="SKIP_INSPECTION" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectId" id="2M364wrFdfLV0LdwVnpzocMuJ66" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2PxBJpRhbM1i8lnzl4FgQJlqoRN" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="foldersAlwaysOnTop" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "OverrideImplement.generate.javadoc": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "graalvm-ce-17",
-    "last_opened_file_path": "/home/kali/IdeaProjects/Code_Comp_App",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.scala.compiler.ScalaCompileServerForm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Scala",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JAVA"
-    ]
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/cchef/jtrain/self/code_comp/spec_datatypes" />
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="cchef.jtrain.self.code_comp.getdata" />
-      <recent name="cchef.jtrain.self.getdata.data_consolidation" />
-      <recent name="cchef.jtrain.self.getdata" />
-      <recent name="cchef.jtrain.timecomplexity" />
-      <recent name="cchef.jtrain.starters86" />
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="fun.madeby.code_comp_app.reporting" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="fun.madeby.code_comp.CodeCompComparison" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="fun.madeby.code_comp.CodeCompComparison" />
-      <module name="Code_Site_CC" />
+  <component name="RunManager" selected="Application.CodeCompComparison">
+    <configuration name="CodeCompComparison" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fun.madeby.code_comp_app.CodeCompComparison" />
+      <module name="Code_Comp_App" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cchef.jtrain.self.code_comp.datatypes.outputtypes.*" />
+          <option name="PATTERN" value="fun.madeby.code_comp_app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -224,228 +112,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="graalvm-ce-17" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CodeCompAppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Code_Comp_App" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="fun.madeby.code_comp_app.CodeCompAppApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.fun.madeby.code_comp.CodeCompComparison" />
+        <item itemvalue="Application.CodeCompComparison" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="13a77f8c-5c59-45fe-a5d5-778dabdd528c" name="Changes" comment="" />
-      <created>1676983731487</created>
+      <changelist id="88a64c83-6c65-4cf2-8c2a-f5b76ab0316f" name="Changes" comment="" />
+      <created>1684388788854</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1676983731487</updated>
-      <workItem from="1676983733061" duration="884000" />
-      <workItem from="1676984670363" duration="477000" />
-      <workItem from="1676985279737" duration="977000" />
-      <workItem from="1676987647747" duration="3980000" />
-      <workItem from="1676997343866" duration="6292000" />
-      <workItem from="1677050224676" duration="63000" />
-      <workItem from="1677765575167" duration="19498000" />
-      <workItem from="1677829774110" duration="3348000" />
-      <workItem from="1677848620748" duration="13562000" />
-      <workItem from="1677873254261" duration="8252000" />
-      <workItem from="1677940710914" duration="28550000" />
-      <workItem from="1678017033747" duration="18221000" />
-      <workItem from="1678112576815" duration="3709000" />
-      <workItem from="1678116295848" duration="17842000" />
-      <workItem from="1678269699578" duration="24271000" />
-      <workItem from="1678368869410" duration="19172000" />
-      <workItem from="1678436417140" duration="28334000" />
-      <workItem from="1678790264525" duration="4989000" />
-      <workItem from="1678886191438" duration="21224000" />
-      <workItem from="1678952320975" duration="7868000" />
-      <workItem from="1680087178637" duration="16621000" />
-      <workItem from="1680160371770" duration="10508000" />
-      <workItem from="1680186279585" duration="1891000" />
-      <workItem from="1680280653427" duration="13238000" />
-      <workItem from="1680497861783" duration="1520000" />
-      <workItem from="1680499478466" duration="8000" />
-      <workItem from="1680600515194" duration="10000" />
-      <workItem from="1680670205503" duration="32516000" />
-      <workItem from="1680755959251" duration="11707000" />
-      <workItem from="1681278092450" duration="853000" />
-      <workItem from="1681305342530" duration="11763000" />
-      <workItem from="1681359621226" duration="1490000" />
-      <workItem from="1681464876228" duration="311000" />
-      <workItem from="1681465198687" duration="1616000" />
-      <workItem from="1681640313802" duration="6368000" />
-      <workItem from="1681674434107" duration="8474000" />
-      <workItem from="1681756364550" duration="310000" />
-      <workItem from="1681792145022" duration="608000" />
-      <workItem from="1681884988891" duration="762000" />
-      <workItem from="1681892853676" duration="599000" />
-      <workItem from="1681894662948" duration="608000" />
-      <workItem from="1681903224613" duration="15877000" />
-      <workItem from="1681990311252" duration="2112000" />
-      <workItem from="1682341925783" duration="201000" />
-      <workItem from="1682852393551" duration="5848000" />
-      <workItem from="1682933174995" duration="11535000" />
-      <workItem from="1682955334501" duration="506000" />
-      <workItem from="1682955842092" duration="352000" />
-      <workItem from="1683009107019" duration="2570000" />
-      <workItem from="1683012607141" duration="5568000" />
-      <workItem from="1683022185796" duration="23526000" />
-      <workItem from="1683099232648" duration="24000" />
-      <workItem from="1683188494644" duration="12702000" />
-      <workItem from="1683202208715" duration="1626000" />
-      <workItem from="1683361004489" duration="34000" />
-      <workItem from="1683361049791" duration="11000" />
-      <workItem from="1683361078845" duration="39440000" />
-      <workItem from="1683534220882" duration="21929000" />
-      <workItem from="1683617581528" duration="23971000" />
-      <workItem from="1683708426218" duration="13452000" />
-      <workItem from="1683781035035" duration="31810000" />
-      <workItem from="1683987018243" duration="599000" />
-      <workItem from="1684121597120" duration="42000" />
-      <workItem from="1684121657254" duration="26449000" />
-      <workItem from="1684296367741" duration="13502000" />
-      <workItem from="1684325593598" duration="777000" />
+      <updated>1684388788854</updated>
+      <workItem from="1684388789857" duration="21905000" />
     </task>
-    <task id="LOCAL-00001" summary="Initial commit for this java playground..">
-      <created>1677790778872</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1677790778872</updated>
-    </task>
-    <task id="LOCAL-00002" summary="MaxDiff working but before change to String Array">
-      <created>1677944408980</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1677944408980</updated>
-    </task>
-    <task id="LOCAL-00003" summary="A few comps">
-      <created>1680186539411</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1680186539412</updated>
-    </task>
-    <task id="LOCAL-00004" summary="85_4">
-      <created>1681360445240</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1681360445240</updated>
-    </task>
-    <task id="LOCAL-00005" summary="86_">
-      <created>1682342003973</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1682342003974</updated>
-    </task>
-    <task id="LOCAL-00006" summary="getData">
-      <created>1683018296519</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1683018296519</updated>
-    </task>
-    <task id="LOCAL-00007" summary="getData started">
-      <created>1683045940193</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1683045940193</updated>
-    </task>
-    <task id="LOCAL-00008" summary="IntPredicate nested enum">
-      <created>1683056531650</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1683056531650</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Apply method returning relevant IntPredicates added to StringTypes">
-      <created>1683203032201</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1683203032201</updated>
-    </task>
-    <task id="LOCAL-00010" summary="implemented case and datatypes and data consolidation within class itself.">
-      <created>1683391132387</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1683391132387</updated>
-    </task>
-    <task id="LOCAL-00011" summary="tidied CodeChefDT class">
-      <created>1683409326436</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1683409326436</updated>
-    </task>
-    <task id="LOCAL-00012" summary="SourceDataInfo DataTypes StringFromLocalFile replaces internal FastWriter class and widespread refactoring for encapsulation and flexibility">
-      <created>1683630432571</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1683630432571</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Very untidy proof of concept for automated DataType population.">
-      <created>1683655072319</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1683655072319</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Try with resources in StringFromLocalFileAuto renaming and packaging">
-      <created>1683725105680</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1683725105680</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Widescale renaming and javadocs">
-      <created>1683832975245</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1683832975245</updated>
-    </task>
-    <task id="LOCAL-00016" summary="prep for Snapshots">
-      <created>1684131445609</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1684131445609</updated>
-    </task>
-    <task id="LOCAL-00017" summary="non-auditable snapshot saving (not print tested) but need to move project!">
-      <created>1684138796740</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1684138796740</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Java docs">
-      <created>1684171491146</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1684171491146</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Locked Down DT_CC_Template template/non-template behaviour, + encapsulation">
-      <created>1684299913493</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1684299913493</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Retrieve shallow snapshots">
-      <created>1684314654686</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1684314654686</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,42 +160,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial commit for this java playground.." />
-    <MESSAGE value="MaxDiff working but before change to String Array" />
-    <MESSAGE value="A few comps" />
-    <MESSAGE value="85_4" />
-    <MESSAGE value="86_" />
-    <MESSAGE value="getData" />
-    <MESSAGE value="getData started" />
-    <MESSAGE value="IntPredicate nested enum" />
-    <MESSAGE value="Apply method returning relevant IntPredicates added to StringTypes" />
-    <MESSAGE value="implemented case and datatypes and data consolidation within class itself." />
-    <MESSAGE value="tidied CodeChefDT class" />
-    <MESSAGE value="SourceDataInfo DataTypes StringFromLocalFile replaces internal FastWriter class and widespread refactoring for encapsulation and flexibility" />
-    <MESSAGE value="Very untidy proof of concept for automated DataType population." />
-    <MESSAGE value="Try with resources in StringFromLocalFileAuto renaming and packaging" />
-    <MESSAGE value="Widescale renaming and javadocs" />
-    <MESSAGE value="prep for Snapshots" />
-    <MESSAGE value="non-auditable snapshot saving (not print tested) but need to move project!" />
-    <MESSAGE value="Java docs" />
-    <MESSAGE value="Locked Down DT_CC_Template template/non-template behaviour, + encapsulation" />
-    <MESSAGE value="Retrieve shallow snapshots" />
-    <option name="LAST_COMMIT_MESSAGE" value="Retrieve shallow snapshots" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint log-message="true" log-stack="true" type="java-exception">
-          <properties class="java.lang.NumberFormatException" package="java.lang" />
-          <option name="timeStamp" value="13" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
