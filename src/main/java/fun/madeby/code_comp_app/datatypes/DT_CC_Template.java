@@ -8,6 +8,7 @@ import fun.madeby.code_comp_app.datatypes.outputtypes.DTOutput;
 import fun.madeby.code_comp_app.datatypes.outputtypes.ListOutput;
 import fun.madeby.code_comp_app.outputdata.DataSnapshot;
 import fun.madeby.code_comp_app.outputdata.NonAuditable;
+import fun.madeby.code_comp_app.services.reporting.ReportService;
 
 import java.time.ZonedDateTime;
 import java.util.*;
@@ -36,30 +37,11 @@ public class DT_CC_Template implements DataTypeTemplate {
   private final String[] CASE_INPUT_DATA;
   private final String[] CASE_EXP_OUTPUT_DATA;
   private final String[] CASE_ACT_OUTPUT_DATA;
-private final boolean CASE_STATUS_PASSING;
+  private final boolean CASE_STATUS_PASSING;
 
   private final boolean TEMPLATE; // template -> <- report/case record
 
-
-private final LinkedHashMap<ZonedDateTime, DataSnapshot> snapshots = new LinkedHashMap<>();
-
-
-/**
- * Preserves the integrity of 'snapshots' but not the objects within it, should be used with care and eventually removed.
- * todo replace with deep copy import Apache Commons Serialization utils then copy = SerializationUtils.clone(otherHM);
- *
- * @return a shallow copy of snapshots
- */
-@Override
-public LinkedHashMap<ZonedDateTime, DataSnapshot> getShallowCopyOfSnapshots() {
-  if (isTEMPLATE()) {
-    LinkedHashMap<ZonedDateTime, DataSnapshot> copy = new LinkedHashMap<>(this.snapshots);
-
-    return copy;
-
-  } else
-    throw new IllegalStateException("Cannot getSnapshots for non-template DataType");
-}
+  private final LinkedHashMap<ZonedDateTime, DataSnapshot> snapshots = new LinkedHashMap<>();
 
   /**
    * WIP Creates a TEMPLATE [true] DT_CC_Template with (what should be) a fully formed CASE_TYPE for
@@ -117,6 +99,33 @@ public LinkedHashMap<ZonedDateTime, DataSnapshot> getShallowCopyOfSnapshots() {
   }
 
   /**
+   * Preserves the integrity of 'snapshots' but not the objects within it, should be used with care
+   * and eventually removed. todo replace with deep copy import Apache Commons Serialization utils
+   * then copy = SerializationUtils.clone(otherHM);
+   *
+   * @return a shallow copy of snapshots
+   */
+  @Override
+  public LinkedHashMap<ZonedDateTime, DataSnapshot> getShallowCopyOfSnapshots() {
+    if (isTEMPLATE()) {
+      LinkedHashMap<ZonedDateTime, DataSnapshot> copy = new LinkedHashMap<>(this.snapshots);
+
+      return copy;
+
+    } else throw new IllegalStateException("Cannot getSnapshots for non-template DataType");
+  }
+
+  @Override
+  public String[][] getSupportedReportsOfClass(ReportService reportServiceClass) {
+    return new String[0][];
+  }
+
+  @Override
+  public LinkedHashMap<ReportService, String[][]> getAllSupportedReports() {
+    return null;
+  }
+
+  /**
    * @return
    */
   @Override
@@ -126,7 +135,6 @@ public LinkedHashMap<ZonedDateTime, DataSnapshot> getShallowCopyOfSnapshots() {
     } else
       throw new IllegalStateException("Cannot retrieve SourceDataInfo for non-template DataType");
   }
-
 
   /**
    * @param
@@ -417,7 +425,18 @@ public LinkedHashMap<ZonedDateTime, DataSnapshot> getShallowCopyOfSnapshots() {
     return this.TEMPLATE;
   }
 
-  @Override
+/**
+ * If there are no snapshots, one will need to be created, or a live report made, this gives snapshot length.
+ *
+ * @return the size of this DataTemplates snapshots LinkedHashMap
+ */
+@Override
+public int getSnapshotLength() {
+  return this.snapshots.size();
+}
+
+
+@Override
   public String toString() {
     return "CodeChefDT{"
         + "CASE_INDEX="

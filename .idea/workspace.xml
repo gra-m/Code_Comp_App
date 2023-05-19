@@ -4,44 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88a64c83-6c65-4cf2-8c2a-f5b76ab0316f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/reporting/GenericStringToConsole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/reporting/Report.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/fun/madeby/code_comp_app/reporting/ReportTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+    <list default="true" id="88a64c83-6c65-4cf2-8c2a-f5b76ab0316f" name="Changes" comment="Now Spring/Maven project">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/reporting/ConsoleReportService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/reporting/ReportService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code_Site_CC.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/CodeCompComparison.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/StringTypeDefineAndCheck.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/Utilz.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/app_gui_menus/ConsoleApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/CT_InputExpectedActual.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/CaseType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/StringType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/importinfotypes/SDIArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/importinfotypes/SDI_LHMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/casetypes/importinfotypes/SourceDataInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datasource/DataSourceDriver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datasource/StringFromLocalFileAuto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datasource/StringFromLocalFileHardCoded.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/DT_CC_Template.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/DataTypeTemplate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/outputtypes/ArrayOutput.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/outputtypes/DTOutput.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/datatypes/outputtypes/ListOutput.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/Auditable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/DataSnapshot.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/NonAuditable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/OuputDataAs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp/outputdata/OutputToConsole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/CodeCompComparison.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/CodeCompComparison.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/StringTypeDefineAndCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/StringTypeDefineAndCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/app_gui_menus/ConsoleApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/app_gui_menus/ConsoleApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datasource/DataSourceDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/datasource/DataSourceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datasource/StringFromLocalFileAuto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/datasource/LocalFilesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datasource/StringFromLocalFileHardCoded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/datasource/StringFromLocalFileHardCoded.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/DT_CC_Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/DT_CC_Template.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/DataTypeTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/DataTypeTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/outputdata/OuputDataAs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/outputdata/OutputToConsole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/reporting/GenericStringToConsole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/reporting/Report.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +51,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "OverrideImplement.generate.javadoc": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -87,6 +66,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.sourceCode.Scala",
+    "spring.configuration.checksum": "11867b8bfeddffb511cbdc80495dffd0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -143,8 +123,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684388788854</updated>
-      <workItem from="1684388789857" duration="21905000" />
+      <workItem from="1684388789857" duration="22483000" />
+      <workItem from="1684481582454" duration="18651000" />
     </task>
+    <task id="LOCAL-00001" summary="Now Spring/Maven project">
+      <created>1684439263057</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684439263057</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,5 +149,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Now Spring/Maven project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Now Spring/Maven project" />
   </component>
 </project>

@@ -8,6 +8,11 @@ import fun.madeby.code_comp_app.casetypes.StringType;
 public final class StringTypeDefineAndCheck {
 private static String[] arrayFromDefineStringTypeMethod;
 
+/**
+ * A Utility class used to define the 'Type' of the String[] passed to it within the supported parameters from the
+ * StringType Enum. So, a DataTypeTemplate can have it's the String Types it expects for it's input String[]'s allotted,
+ * and any prospective input data can be checked against this 'expected' type.
+ */
 private StringTypeDefineAndCheck() {}
 
   public static boolean isAsExpected(StringType expectedType, StringType actualType){
@@ -15,7 +20,16 @@ private StringTypeDefineAndCheck() {}
     return (expectedType == actualType);
   }
 
-  public static StringType defineStringType(final String[] inputArray, final long failAmount) {
+
+/**
+ * Passed the input String[]'s for a DataTypeTemplate and the acceptable fail amount (Strings that are known/expected
+ * to be anomalous) == wiggle room this method attempts to identify the string type of the String array vs those defined
+ * in the StringType Enum. In reality though, an experiment with Enums and int predicates.
+ * @param inputArray prospective input array
+ * @param failAmount   acceptable number of non conforming strings
+ * @return Actively defined StringType or UNKNOWN
+ */
+public static StringType defineStringType(final String[] inputArray, final long failAmount) {
 
   long arrayLength = inputArray.length;
   if (inputArray.length == 0 || failAmount < 0)
@@ -48,6 +62,7 @@ private StringTypeDefineAndCheck() {}
   return StringType.UNKNOWN;
 
   }
+
 
 private static long countLinesThatAre(StringType stringType) {
   long count = 0;

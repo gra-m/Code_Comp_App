@@ -1,4 +1,4 @@
-package fun.madeby.code_comp_app.datasource;
+package fun.madeby.code_comp_app.services.datasource;
 
 // todo encapsulate with only public interface methods
 // populated with details of use eg. here passes file paths
@@ -19,16 +19,18 @@ import java.util.stream.Stream;
 
 import static fun.madeby.code_comp_app.Utilz.getUserTimeZone;
 
-public class StringFromLocalFileAuto implements DataSourceDriver {
+public class LocalFilesService implements DataSourceService {
   // SHARED
   static int linesPerOutput;
   private static String activePath = "";
-  // New automated.
+
+
+// New automated.
   private final DataTypeTemplate DATA_TYPE_TEMPLATE;
   private BufferedReader autoReader;
   private String[][] allInputData;
 
-  public StringFromLocalFileAuto(final DataTypeTemplate DATA_TYPE_TEMPLATE) {
+  public LocalFilesService(final DataTypeTemplate DATA_TYPE_TEMPLATE) {
 
     this.DATA_TYPE_TEMPLATE = DATA_TYPE_TEMPLATE;
     autoReader = null;
@@ -46,7 +48,12 @@ public class StringFromLocalFileAuto implements DataSourceDriver {
     return raw.replaceAll("[^\\d\\s]", "").trim();
   }
 
-  @Override
+/**
+ * Currently objects within LHM are the same, need deep copy to protect snapshots in DataTypeTemplate.
+ *
+ * @return
+ */
+@Override
   public LinkedHashMap<ZonedDateTime, DataSnapshot> getCopyOfSnapshots() {
 
    return this.DATA_TYPE_TEMPLATE.getShallowCopyOfSnapshots();
@@ -124,8 +131,23 @@ public DTOutput getOnTheFlyData(final boolean arrayDto) {
   return this.DATA_TYPE_TEMPLATE.consolidateDataToArray(inputArray, arrayDto);
 }
 
+/**
+ * WIP, 1st implementation of a ReportService requires what would have to be the datatypes default datasourceService
+ * to return its DataTypeTemplate. Used in ReportService Constructor.
+ *
+ * @return final DataTypeTemplate if isTemplate == true
+ * @See public ConsoleReportService(DataSourceService dataSourceService)
+ */
+@Override
+public DataTypeTemplate getDataTypeTemplate() {
+  if (this.DATA_TYPE_TEMPLATE.isTEMPLATE())
+    return this.DATA_TYPE_TEMPLATE;
+  else throw new RuntimeException("The DataTypeTemplate within LocalFilesService is not a template.");
+}
 
-/** Replaced below, Will be removed, kept for current run testing
+
+/** Used by report service for on the fly reporting, without any reference to snapshots.
+ * Useful for the creation of default reports.
    *
    *
    * @return
@@ -157,7 +179,7 @@ private String[] getSources() {
     } else
       throw new RuntimeException(
           String.format(
-              "@StringFromLocalFileAuto/getSources() expected SDIArray sourceDataInfoType but (%s) was retrieved from DATA_TYPE",
+              "@LocalFilesService/getSources() expected SDIArray sourceDataInfoType but (%s) was retrieved from DATA_TYPE",
               sourceDataInfoType.getClass()));
   }
 

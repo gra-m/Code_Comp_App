@@ -4,14 +4,16 @@ import fun.madeby.code_comp_app.app_gui_menus.ConsoleApp;
 import fun.madeby.code_comp_app.casetypes.CT_InputExpectedActual;
 import fun.madeby.code_comp_app.casetypes.CaseType;
 import fun.madeby.code_comp_app.casetypes.StringType;
-import fun.madeby.code_comp_app.datasource.DataSourceDriver;
-import fun.madeby.code_comp_app.datasource.StringFromLocalFileAuto;
-import fun.madeby.code_comp_app.datasource.StringFromLocalFileHardCoded;
+import fun.madeby.code_comp_app.services.datasource.DataSourceService;
+import fun.madeby.code_comp_app.services.datasource.LocalFilesService;
+import fun.madeby.code_comp_app.services.datasource.StringFromLocalFileHardCoded;
 import fun.madeby.code_comp_app.datatypes.DT_CC_Template;
 import fun.madeby.code_comp_app.datatypes.DataTypeTemplate;
 import fun.madeby.code_comp_app.datatypes.outputtypes.ArrayOutput;
 import fun.madeby.code_comp_app.datatypes.outputtypes.DTOutput;
 import fun.madeby.code_comp_app.outputdata.DataSnapshot;
+import fun.madeby.code_comp_app.services.reporting.ConsoleReportService;
+
 import java.io.*;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
@@ -78,7 +80,7 @@ class CodeCompComparison {
     System.out.println(ccDataType);
 
     // Passing DTCodeChef object to GetDataAs -> StringFromLocalFile
-    DataSourceDriver strFromLocal = new StringFromLocalFileAuto(ccDataType);
+    DataSourceService strFromLocal = new LocalFilesService(ccDataType);
     DTOutput populated = strFromLocal.getOnTheFlyData(true);
     ArrayOutput listPopulated;
     if ( populated instanceof ArrayOutput ) {
@@ -122,6 +124,11 @@ class CodeCompComparison {
     for (Map.Entry<String, String[]> entry: caseFieldsMapped.entrySet()) {
       System.out.println(entry.getKey() + " " + Arrays.toString(entry.getValue()));
     }
+
+    System.out.println("================NOw in rEpOrT type==============");
+
+    /*ConsoleReportService cReport = new ConsoleReportService(ccDataType);
+    System.out.println(cReport.DataTemplateReportable(cReport.getDATA_TYPE_TEMPLATE()));*/
 
     IN.close();
     OUT.close();

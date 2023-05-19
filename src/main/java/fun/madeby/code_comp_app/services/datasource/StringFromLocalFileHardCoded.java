@@ -1,4 +1,4 @@
-package fun.madeby.code_comp_app.datasource;
+package fun.madeby.code_comp_app.services.datasource;
 
 // todo encapsulate with only public interface methods
 // todo create final constant ImportInstructions class to be held by DataType classes that is
