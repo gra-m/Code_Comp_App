@@ -13,6 +13,7 @@ import fun.madeby.code_comp_app.datatypes.outputtypes.ArrayOutput;
 import fun.madeby.code_comp_app.datatypes.outputtypes.DTOutput;
 import fun.madeby.code_comp_app.outputdata.DataSnapshot;
 import fun.madeby.code_comp_app.services.reporting.ConsoleReportService;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.time.ZonedDateTime;
@@ -21,7 +22,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-
 class CodeCompComparison {
 
   static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";

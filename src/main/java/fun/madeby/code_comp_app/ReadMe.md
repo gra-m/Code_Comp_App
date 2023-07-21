@@ -1,0 +1,1 @@
+Moving app into single module Spring
