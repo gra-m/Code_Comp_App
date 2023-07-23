@@ -8,6 +8,7 @@ import fun.madeby.code_comp_app.datatypes.outputtypes.DTOutput;
 import fun.madeby.code_comp_app.datatypes.outputtypes.ListOutput;
 import fun.madeby.code_comp_app.outputdata.DataSnapshot;
 import fun.madeby.code_comp_app.outputdata.NonAuditable;
+import fun.madeby.code_comp_app.services.datasource.DataSourceService;
 import fun.madeby.code_comp_app.services.reporting.ReportService;
 
 import java.time.ZonedDateTime;
@@ -220,7 +221,7 @@ public class DataTypeCodeChef implements DataTypeTemplate {
       int totalCases = (int) this.getTOTAL_CASES();
       int inDatLength = this.getLINES_PER_INPUT();
       int outDatLength = this.getLINES_PER_OUTPUT();
-      inputIndex = 0;
+      inputIndex = INPUT_FILE_HEADER;
       expIndex = 0;
       actIndex = 0;
 
@@ -254,7 +255,7 @@ public class DataTypeCodeChef implements DataTypeTemplate {
   }
 
   /**
-   * @param input
+   * @param input the input data array, remember to offset against INPUT_FILE_HEADER
    * @param expected
    * @param actual
    * @return
@@ -271,7 +272,7 @@ public class DataTypeCodeChef implements DataTypeTemplate {
       int totalCases = (int) this.CASE_TYPE.getTOTAL_CASES();
       int inDatLength = this.CASE_TYPE.getLINES_PER_CASE_INPUT();
       int outDatLength = this.CASE_TYPE.getLINES_PER_CASE_OUTPUT();
-      inputIndex = 0;
+      inputIndex = INPUT_FILE_HEADER;
       expIndex = 0;
       actIndex = 0;
 
@@ -379,17 +380,6 @@ public class DataTypeCodeChef implements DataTypeTemplate {
   }
 
 /**
- * The main reason for this DataTypes existence: creation of a report specific for this data type.
- * The report service passed decides the context of this report.
- *
- * @param reportService
- */
-@Override
-public void createDataTypesDefaultReport(ReportService reportService) {
-
-}
-
-/**
    * Makes LINES_PER_INPUT for this DataTypeCodeChef CASE_TYPE externally accessible
    *
    * @return int
@@ -444,6 +434,20 @@ public void createDataTypesDefaultReport(ReportService reportService) {
 @Override
 public int getSnapshotLength() {
   return this.snapshots.size();
+}
+
+/**
+ * The main reason for this DataTypes existence: creation of a report specific for this data type.
+ * The report service passed decides the context of this report.
+ *
+ * @param reportService
+ */
+@Override
+public void createDataTypesDefaultReport(ReportService reportService, DataSourceService dataSourceService) {
+           DTOutput populated = dataSourceService.getOnTheFlyData(true);
+
+
+
 }
 
 

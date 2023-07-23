@@ -69,7 +69,7 @@ class CodeCompComparison {
     OUT.println(StringTypeDefineAndCheck.defineStringType(act, 0));
     // 04 END
 
-    // 05 Define CaseType from info we have:
+    // 05 Define CaseType from info that has been confirmed via validated input files:
     OUT.println("\n\n05 -> Defining Case Type From Input");
     CaseTypeInputExpectedActual thisImportsCaseType =
         new CaseTypeInputExpectedActual(
@@ -85,27 +85,34 @@ class CodeCompComparison {
 
     OUT.println(thisImportsCaseType.caseTypeDescription());
 
+    // 06 Now that a specific caseType has been validated (CaseTypeInputExpectedActual) this can now be passed to a
+    // DataTypeTemplate that suits it (i.e. with a constructor for that CaseType).
+
     DataTypeTemplate ccDataType = new DataTypeCodeChef(thisImportsCaseType);
 
-    OUT.println(ccDataType);
+    OUT.println("#################--Printing ccDataType just created--#################\n" + ccDataType);
 
-    // 06 Passing DTCodeChef object to GetDataAs -> StringFromLocalFile
-    DataSourceService strFromLocal = new LocalFilesService(ccDataType);
-    DTOutput populated = strFromLocal.getOnTheFlyData(true);
-    ArrayOutput listPopulated;
-    if ( populated instanceof ArrayOutput ) {
-      listPopulated = (ArrayOutput) populated;
+    OUT.println("#################--Printing ccDataType just created END--#################\n");
+    
 
-      DataTypeTemplate[] arrayList = listPopulated.getDataTypeArray();
+    // 07 Create a DataSourceService from which onTheFlyData data can be created or Auditable/NonAuditable Snapshots
+    // created and saved in the DataTypeTemplates LinkedHashMap of snapshots.
+    DataSourceService localFilesService = new LocalFilesService(ccDataType);
+    ArrayOutput populated = (ArrayOutput ) localFilesService.getOnTheFlyData(true);
 
+      DataTypeTemplate[] arrayList = populated.getDataTypeArray();
 
+     // Arrays.stream(arrayList).filter(dt -> dt.)
+
+      // Print all:
       for ( DataTypeTemplate dt : arrayList) OUT.println(dt.toString());
 
-    } else OUT.println("it failed");
+    
+
 
     // Test non auditable creation array:
-    strFromLocal.createNonAuditableSnapshot(true);
-    LinkedHashMap<ZonedDateTime, DataSnapshot> retrievedShallowCopy = strFromLocal.getCopyOfSnapshots();
+    localFilesService.createNonAuditableSnapshot(true);
+    LinkedHashMap<ZonedDateTime, DataSnapshot> retrievedShallowCopy = localFilesService.getCopyOfSnapshots();
     DataTypeTemplate[] retrievedReportData = new DataTypeTemplate[900];
 
     for ( Map.Entry<ZonedDateTime, DataSnapshot> entry : retrievedShallowCopy.entrySet()) {

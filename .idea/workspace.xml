@@ -5,27 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88a64c83-6c65-4cf2-8c2a-f5b76ab0316f" name="Changes" comment="Renamed 'Services' created default methods for CASE_ types working on default report">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/reporting/exception/ReportingServiceException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/reporting/impl/TextFileReportServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/CodeCompAppApplication.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/CodeCompComparison.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/CodeCompComparison.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/Utilz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/Utilz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/app_gui_menus/ConsoleApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/app_gui_menus/ConsoleApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/casetypes/CT_InputExpectedActual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/casetypes/CaseTypeInputExpectedActual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/casetypes/CaseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/casetypes/CaseType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/casetypes/importinfotypes/SDIArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/casetypes/importinfotypes/SourceDataInfoArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/casetypes/importinfotypes/SDI_LHMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/casetypes/importinfotypes/SourceDataInfoLinkedHashMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/DT_CC_Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/DataTypeCodeChef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/DataTypeCodeChef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/DataTypeCodeChef.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/DataTypeTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/DataTypeTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/outputdata/Auditable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/outputdata/Auditable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/outputdata/DataSnapshot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/outputdata/DataSnapshot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/datasource/DataSourceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/datasource/DataSourceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/datasource/LocalFilesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/datasource/LocalFilesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/datasource/StringFromLocalFileHardCoded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/datasource/StringFromLocalFileHardCoded.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/reporting/ConsoleReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/reporting/impl/ConsoleReportServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/outputtypes/DTOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/outputtypes/DTOutput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/reporting/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/reporting/ReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/reporting/impl/ConsoleReportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/reporting/impl/ConsoleReportServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/reporting/impl/TextFileReportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/services/reporting/impl/TextFileReportServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +73,9 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Commentary" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="fun.madeby.code_comp_app.reporting" />
     </key>
@@ -143,7 +133,7 @@
       <workItem from="1689500816349" duration="226000" />
       <workItem from="1689502407128" duration="366000" />
       <workItem from="1689502792123" duration="606000" />
-      <workItem from="1689955721606" duration="17841000" />
+      <workItem from="1689955721606" duration="28869000" />
     </task>
     <task id="LOCAL-00001" summary="Now Spring/Maven project">
       <created>1684439263057</created>
@@ -186,8 +176,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/CodeCompComparison.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="1" />
+          <line>99</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

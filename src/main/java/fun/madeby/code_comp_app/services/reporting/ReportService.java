@@ -1,6 +1,7 @@
 package fun.madeby.code_comp_app.services.reporting;
 
 import fun.madeby.code_comp_app.datatypes.DataTypeTemplate;
+import fun.madeby.code_comp_app.services.datasource.DataSourceService;
 
 /**
  * The default methods use a DataTypeTemplates intrinsic logic to quickly show the available reportable fields
@@ -8,7 +9,6 @@ import fun.madeby.code_comp_app.datatypes.DataTypeTemplate;
  * methodologies.
  */
 public interface ReportService {
-
 
   default String DataTemplateReportable(DataTypeTemplate dataTypeTemplate) {
         String[][] caseFields = dataTypeTemplate.getCASE_Fields();
@@ -43,6 +43,6 @@ void createDefaultServiceImplReport(boolean firstTen, DataTypeTemplate dataTypeT
  * A client passes a dataTypeTemplate to a ReportService, that report service then passes itself to the
  * dataTypeTemplate and creates the correct contextual reports for that ReportService.
  */
-void createDataTypesDefaultReport(DataTypeTemplate dataTypeTemplate);
+void createDataTypesDefaultReport(DataTypeTemplate dataTypeTemplate, DataSourceService dataSourceService);
 
 }

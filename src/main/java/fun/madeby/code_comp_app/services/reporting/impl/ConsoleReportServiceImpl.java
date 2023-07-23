@@ -59,11 +59,13 @@ public void createDefaultServiceImplReport(boolean firstTen, DataTypeTemplate da
  * A client passes a dataTypeTemplate to a ReportService, that report service then passes itself to the
  * dataTypeTemplate and creates the correct contextual reports for that ReportService.
  *
+ * Todo if the dataTypeTemplate has snapshot data use that? Or always OnTheFly?
+ *
  * @param dataTypeTemplate
  */
 @Override
-public void createDataTypesDefaultReport(DataTypeTemplate dataTypeTemplate) {
-      dataTypeTemplate.createDataTypesDefaultReport(this);
+public void createDataTypesDefaultReport(DataTypeTemplate dataTypeTemplate, DataSourceService dataSourceService) {
+      dataTypeTemplate.createDataTypesDefaultReport(this, dataSourceService);
 
 }
 

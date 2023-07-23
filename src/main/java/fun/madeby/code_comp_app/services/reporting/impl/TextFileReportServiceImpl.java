@@ -61,8 +61,8 @@ public void createDefaultServiceImplReport(boolean firstTen, DataTypeTemplate cc
  * @param dataTypeTemplate
  */
 @Override
-public void createDataTypesDefaultReport(DataTypeTemplate dataTypeTemplate) {
-    dataTypeTemplate.createDataTypesDefaultReport(this);
+public void createDataTypesDefaultReport(DataTypeTemplate dataTypeTemplate, DataSourceService dataSourceService) {
+    dataTypeTemplate.createDataTypesDefaultReport(this, dataSourceService);
 
 }
 

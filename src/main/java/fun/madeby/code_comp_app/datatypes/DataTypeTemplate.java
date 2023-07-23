@@ -3,6 +3,7 @@ package fun.madeby.code_comp_app.datatypes;
 import fun.madeby.code_comp_app.casetypes.importinfotypes.SourceDataInfo;
 import fun.madeby.code_comp_app.datatypes.outputtypes.DTOutput;
 import fun.madeby.code_comp_app.outputdata.DataSnapshot;
+import fun.madeby.code_comp_app.services.datasource.DataSourceService;
 import fun.madeby.code_comp_app.services.reporting.ReportService;
 import java.lang.reflect.Field;
 import java.time.ZonedDateTime;
@@ -25,7 +26,7 @@ public interface DataTypeTemplate {
    *
    * @param reportService
    */
-  void createDataTypesDefaultReport(ReportService reportService);
+  void createDataTypesDefaultReport(ReportService reportService, DataSourceService dataSourceService);
 
   int getLINES_PER_INPUT();
 
