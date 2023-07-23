@@ -36,6 +36,7 @@ public interface DataTypeTemplate {
 
   boolean isTEMPLATE();
 
+
   /**
    * If there are no snapshots, one will need to be created, or a live report made, this gives
    * snapshot length.

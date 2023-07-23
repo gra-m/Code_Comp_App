@@ -1,7 +1,7 @@
 package fun.madeby.code_comp_app.datatypes;
 
-import fun.madeby.code_comp_app.casetypes.CaseTypeInputExpectedActual;
 import fun.madeby.code_comp_app.casetypes.CaseType;
+import fun.madeby.code_comp_app.casetypes.CaseTypeInputExpectedActual;
 import fun.madeby.code_comp_app.casetypes.importinfotypes.SourceDataInfo;
 import fun.madeby.code_comp_app.datatypes.outputtypes.ArrayOutput;
 import fun.madeby.code_comp_app.datatypes.outputtypes.DTOutput;
@@ -10,7 +10,6 @@ import fun.madeby.code_comp_app.outputdata.DataSnapshot;
 import fun.madeby.code_comp_app.outputdata.NonAuditable;
 import fun.madeby.code_comp_app.services.datasource.DataSourceService;
 import fun.madeby.code_comp_app.services.reporting.ReportService;
-
 import java.time.ZonedDateTime;
 import java.util.*;
 
@@ -45,8 +44,8 @@ public class DataTypeCodeChef implements DataTypeTemplate {
   private final LinkedHashMap<ZonedDateTime, DataSnapshot> snapshots = new LinkedHashMap<>();
 
   /**
-   * WIP Creates a TEMPLATE [true] DataTypeCodeChef with (what should be) a fully formed CASE_TYPE for
-   * the type of data that this template imports. Instructions from the CASE_TYPE are directly
+   * WIP Creates a TEMPLATE [true] DataTypeCodeChef with (what should be) a fully formed CASE_TYPE
+   * for the type of data that this template imports. Instructions from the CASE_TYPE are directly
    * pulled through into this DataTypeTemplate's fields, this may be revisited, but at present makes
    * this info externally available without digging.
    *
@@ -91,7 +90,7 @@ public class DataTypeCodeChef implements DataTypeTemplate {
       final boolean PASSING) {
     this.CASE_INDEX = CASE_INDEX;
     this.CASE_ID = CASE_ID;
-    this.CASE_TYPE = ( CaseTypeInputExpectedActual ) CASE_TYPE;
+    this.CASE_TYPE = (CaseTypeInputExpectedActual) CASE_TYPE;
     this.CASE_INPUT_DATA = CASE_INPUT_DATA;
     this.CASE_EXP_OUTPUT_DATA = CASE_EXP_OUTPUT_DATA;
     this.CASE_ACT_OUTPUT_DATA = CASE_ACT_OUTPUT_DATA;
@@ -99,7 +98,7 @@ public class DataTypeCodeChef implements DataTypeTemplate {
     this.TEMPLATE = false;
   }
 
-  /**
+/**
    * Preserves the integrity of 'snapshots' but not the objects within it, should be used with care
    * and eventually removed. todo replace with deep copy import Apache Commons Serialization utils
    * then copy = SerializationUtils.clone(otherHM);
@@ -379,7 +378,7 @@ public class DataTypeCodeChef implements DataTypeTemplate {
     return Arrays.deepEquals(expected, actual);
   }
 
-/**
+  /**
    * Makes LINES_PER_INPUT for this DataTypeCodeChef CASE_TYPE externally accessible
    *
    * @return int
@@ -426,32 +425,30 @@ public class DataTypeCodeChef implements DataTypeTemplate {
     return this.TEMPLATE;
   }
 
-/**
- * If there are no snapshots, one will need to be created, or a live report made, this gives snapshot length.
- *
- * @return the size of this DataTemplates snapshots LinkedHashMap
- */
-@Override
-public int getSnapshotLength() {
-  return this.snapshots.size();
-}
+  /**
+   * If there are no snapshots, one will need to be created, or a live report made, this gives
+   * snapshot length.
+   *
+   * @return the size of this DataTemplates snapshots LinkedHashMap
+   */
+  @Override
+  public int getSnapshotLength() {
+    return this.snapshots.size();
+  }
 
-/**
- * The main reason for this DataTypes existence: creation of a report specific for this data type.
- * The report service passed decides the context of this report.
- *
- * @param reportService
- */
-@Override
-public void createDataTypesDefaultReport(ReportService reportService, DataSourceService dataSourceService) {
-           DTOutput populated = dataSourceService.getOnTheFlyData(true);
+  /**
+   * The main reason for this DataTypes existence: creation of a report specific for this data type.
+   * The report service passed decides the context of this report.
+   *
+   * @param reportService
+   */
+  @Override
+  public void createDataTypesDefaultReport(
+      ReportService reportService, DataSourceService dataSourceService) {
+    DTOutput populated = dataSourceService.getOnTheFlyData(true);
+  }
 
-
-
-}
-
-
-@Override
+  @Override
   public String toString() {
     return "CodeChefDT{"
         + "CASE_INDEX="
@@ -471,4 +468,14 @@ public void createDataTypesDefaultReport(ReportService reportService, DataSource
         + '\''
         + '}';
   }
+
+  public String[] getCASE_INPUT_DATA() {
+    return CASE_INPUT_DATA;
+  }
+
+public boolean isCASE_STATUS_PASSING() {
+  return CASE_STATUS_PASSING;
+}
+
+
 }

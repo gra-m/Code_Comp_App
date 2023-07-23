@@ -17,9 +17,11 @@ import fun.madeby.code_comp_app.services.reporting.impl.TextFileReportServiceImp
 
 import java.io.*;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 class CodeCompComparison {
@@ -90,6 +92,10 @@ class CodeCompComparison {
 
     DataTypeTemplate ccDataType = new DataTypeCodeChef(thisImportsCaseType);
 
+
+
+
+
     OUT.println("#################--Printing ccDataType just created--#################\n" + ccDataType);
 
     OUT.println("#################--Printing ccDataType just created END--#################\n");
@@ -102,10 +108,22 @@ class CodeCompComparison {
 
       DataTypeTemplate[] arrayList = populated.getDataTypeArray();
 
-     // Arrays.stream(arrayList).filter(dt -> dt.)
+    ArrayList<DataTypeTemplate> filteredArrayList =
+        (ArrayList<DataTypeTemplate>)
+            Arrays.stream(arrayList)
+                .filter(
+                    dataTypeTemplate -> {
+                      if (dataTypeTemplate instanceof DataTypeCodeChef) {
+                        DataTypeCodeChef dt = (DataTypeCodeChef) dataTypeTemplate;
+                        return !(dt.isCASE_STATUS_PASSING());
+                      }
+                      else {
+                        throw new RuntimeException("Wrong DataTypeTemplate passed");
+                      }
+                    })
+                .collect(Collectors.toList());
 
-      // Print all:
-      for ( DataTypeTemplate dt : arrayList) OUT.println(dt.toString());
+    for ( DataTypeTemplate dt : filteredArrayList) OUT.println(dt);
 
     
 
