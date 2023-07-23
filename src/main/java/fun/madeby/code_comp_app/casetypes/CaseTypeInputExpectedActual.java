@@ -1,8 +1,8 @@
 package fun.madeby.code_comp_app.casetypes;
 
 import fun.madeby.code_comp_app.casetypes.importinfotypes.SourceDataInfo;
-import fun.madeby.code_comp_app.casetypes.importinfotypes.SDIArray;
-import fun.madeby.code_comp_app.casetypes.importinfotypes.SDI_LHMap;
+import fun.madeby.code_comp_app.casetypes.importinfotypes.SourceDataInfoArray;
+import fun.madeby.code_comp_app.casetypes.importinfotypes.SourceDataInfoLinkedHashMap;
 
 /**
  * A case type where three sources of input data in two forms 1[input] input 2[output] expected and actual are defined.
@@ -11,7 +11,7 @@ import fun.madeby.code_comp_app.casetypes.importinfotypes.SDI_LHMap;
  *
  *
  */
-public class CT_InputExpectedActual implements CaseType {
+public class CaseTypeInputExpectedActual implements CaseType {
 
   private final long TOTAL_CASES;
   private final int LINES_PER_CASE_INPUT;
@@ -21,7 +21,7 @@ public class CT_InputExpectedActual implements CaseType {
   private final StringType ACTUAL_ST;
   private final SourceDataInfo SOURCE_DATA_INFO;
 
-  public CT_InputExpectedActual(
+  public CaseTypeInputExpectedActual(
       final long TOTAL_CASES,
       final int LINES_PER_CASE_INPUT,
       final int LINES_PER_CASE_OUTPUT,
@@ -89,10 +89,10 @@ public class CT_InputExpectedActual implements CaseType {
   /** SourceData is required by DataSource Drivers, and so is made available here, without making the SDI externally
    * available, though.. it is final.
    *<p>
-   * See: {@link SDIArray}
-   * </br>{@link SDI_LHMap}
+   * See: {@link SourceDataInfoArray}
+   * </br>{@link SourceDataInfoLinkedHashMap}
    *
-   * @return SourceDataInfo is either SDIArray or SDI_LHMap
+   * @return SourceDataInfo is either SourceDataInfoArray or SourceDataInfoLinkedHashMap
    */
   @Override
   public SourceDataInfo getSourceDataInfo() {

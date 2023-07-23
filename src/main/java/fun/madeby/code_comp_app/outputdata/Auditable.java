@@ -7,8 +7,8 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 /**
- * Only Auditable from perspective of it includes original data for now. Creation not controlled, all manner of data
- * could be constructed with the timestamp.
+ * Only Auditable from perspective of it including original data (for now) that any subsequent data could be audited
+ * against. Creation not controlled though, all manner of data could be constructed with the timestamp.
  */
 public class Auditable implements DataSnapshot {
   private final String UTC_OFFSET;

@@ -29,13 +29,20 @@ public interface ReportService {
   }
 
 /** <p>
- * The default report for any ReportService Type is every ReportableCase_Field as the column heading followed by the output for
- * the firstTen cases, if firstTen is false the results for all cases will be returned.
- * </p>
+ * The default report for any ReportServiceImplementation, generally outputting a DataTypes created data from input.
+ * Another way of describing this is that this is the equivalent of a DataTypes save data, a way of extracting the work
+ * that has already been undertaken in a DataType Template. It differs from create DataTypeTemplates default report
+ * in that this report will contain all data that at DataTypes specific reports could be made from. </p>
  *
  * @param firstTen true = only first ten cases
  */
-void createDefaultReport(boolean firstTen);
+void createDefaultServiceImplReport(boolean firstTen, DataTypeTemplate dataTypeTemplate);
 
+
+/**
+ * A client passes a dataTypeTemplate to a ReportService, that report service then passes itself to the
+ * dataTypeTemplate and creates the correct contextual reports for that ReportService.
+ */
+void createDataTypesDefaultReport(DataTypeTemplate dataTypeTemplate);
 
 }

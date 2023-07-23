@@ -1,6 +1,6 @@
 package fun.madeby.code_comp_app.casetypes;
 
-import fun.madeby.code_comp_app.casetypes.importinfotypes.SDIArray;
+import fun.madeby.code_comp_app.casetypes.importinfotypes.SourceDataInfoArray;
 import fun.madeby.code_comp_app.casetypes.importinfotypes.SourceDataInfo;
 
 /**
@@ -20,14 +20,14 @@ public interface CaseType {
 /**
  * The original reason for this application was the import of these files, represented here for ease of use though
  * this should be moved to SourceDataInfo as that is where this type of data originates and is stored.
- * todo move default to SourceDataInfo Interface.
+ * todo move default to SourceDataInfo Interface/ resources management
  */
-SDIArray DEFAULT_SDI_ARRAY =
-      new SDIArray(
+SourceDataInfoArray DEFAULT_SDI_ARRAY =
+      new SourceDataInfoArray(
           new String[] {
-            "/home/kali/Documents/001_CC/00fullIn.txt",
-            "/home/kali/Documents/001_CC/00exp.txt",
-            "/home/kali/Documents/001_CC/00act.txt"
+            "/home/kali/Documents/001_CC/000App/00fullIn.txt",
+            "/home/kali/Documents/001_CC/000App/00exp.txt",
+            "/home/kali/Documents/001_CC/000App/00act.txt"
           });
 
   StringType[] getStringTypeArray();

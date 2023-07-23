@@ -7,7 +7,7 @@ import java.time.ZonedDateTime;
 
 /**
  * Meant to be passed to a reporting Interface and the expected reports be created based on template
- * type? or internal specification? todo ENUM of report types for report output?
+ * type? or internal specification? todo ENUM of report types for report output? Data snapshots would be retrievable
  */
 public interface DataSnapshot extends Serializable {
 

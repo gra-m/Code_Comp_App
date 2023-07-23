@@ -1,6 +1,6 @@
 package fun.madeby.code_comp_app.datatypes;
 
-import fun.madeby.code_comp_app.casetypes.CT_InputExpectedActual;
+import fun.madeby.code_comp_app.casetypes.CaseTypeInputExpectedActual;
 import fun.madeby.code_comp_app.casetypes.CaseType;
 import fun.madeby.code_comp_app.casetypes.importinfotypes.SourceDataInfo;
 import fun.madeby.code_comp_app.datatypes.outputtypes.ArrayOutput;
@@ -20,7 +20,7 @@ import java.util.*;
  * snapshot for further processing and reporting. Action taken during consolidation: Does actual
  * output match expected output for every given case: STATUS_PASSING
  */
-public class DT_CC_Template implements DataTypeTemplate {
+public class DataTypeCodeChef implements DataTypeTemplate {
   private static final int INPUT_FILE_HEADER = 1; // the number of lines of header
   private static String[] INPUT_DATA;
   private static int inputIndex;
@@ -32,7 +32,7 @@ public class DT_CC_Template implements DataTypeTemplate {
   // 'CASE_' fields order default column order for reporting?
   private final long CASE_INDEX;
   private final long CASE_ID;
-  private final CT_InputExpectedActual CASE_TYPE;
+  private final CaseTypeInputExpectedActual CASE_TYPE;
 
   private final String[] CASE_INPUT_DATA;
   private final String[] CASE_EXP_OUTPUT_DATA;
@@ -44,17 +44,17 @@ public class DT_CC_Template implements DataTypeTemplate {
   private final LinkedHashMap<ZonedDateTime, DataSnapshot> snapshots = new LinkedHashMap<>();
 
   /**
-   * WIP Creates a TEMPLATE [true] DT_CC_Template with (what should be) a fully formed CASE_TYPE for
+   * WIP Creates a TEMPLATE [true] DataTypeCodeChef with (what should be) a fully formed CASE_TYPE for
    * the type of data that this template imports. Instructions from the CASE_TYPE are directly
    * pulled through into this DataTypeTemplate's fields, this may be revisited, but at present makes
    * this info externally available without digging.
    *
    * @param CASE_TYPE Must not be null
    * @throws NullPointerException if CASE_TYPE is null
-   * @see #DT_CC_Template(long, long, CaseType, String[], String[], String[], boolean) the private
+   * @see #DataTypeCodeChef(long, long, CaseType, String[], String[], String[], boolean) the private
    *     constructor used to create Arrays of this type.
    */
-  public DT_CC_Template(final CT_InputExpectedActual CASE_TYPE) {
+  public DataTypeCodeChef(final CaseTypeInputExpectedActual CASE_TYPE) {
     Objects.requireNonNull(CASE_TYPE);
     this.CASE_TYPE = CASE_TYPE;
     int linesPerOutput = this.CASE_TYPE.getLINES_PER_CASE_OUTPUT();
@@ -68,7 +68,7 @@ public class DT_CC_Template implements DataTypeTemplate {
   }
 
   /**
-   * The internal constructor for DataTypeTemplates of type DT_CC_Template when they are being
+   * The internal constructor for DataTypeTemplates of type DataTypeCodeChef when they are being
    * consolidated for quick reference or in order to create a
    *
    * @param CASE_INDEX the position of this case in any DataTypeTemplate[]
@@ -80,7 +80,7 @@ public class DT_CC_Template implements DataTypeTemplate {
    * @param CASE_ACT_OUTPUT_DATA the actual output data for this case
    * @param PASSING == true if expected and actual data are the same
    */
-  private DT_CC_Template(
+  private DataTypeCodeChef(
       final long CASE_INDEX,
       final long CASE_ID,
       final CaseType CASE_TYPE,
@@ -90,7 +90,7 @@ public class DT_CC_Template implements DataTypeTemplate {
       final boolean PASSING) {
     this.CASE_INDEX = CASE_INDEX;
     this.CASE_ID = CASE_ID;
-    this.CASE_TYPE = (CT_InputExpectedActual) CASE_TYPE;
+    this.CASE_TYPE = ( CaseTypeInputExpectedActual ) CASE_TYPE;
     this.CASE_INPUT_DATA = CASE_INPUT_DATA;
     this.CASE_EXP_OUTPUT_DATA = CASE_EXP_OUTPUT_DATA;
     this.CASE_ACT_OUTPUT_DATA = CASE_ACT_OUTPUT_DATA;
@@ -224,7 +224,7 @@ public class DT_CC_Template implements DataTypeTemplate {
       expIndex = 0;
       actIndex = 0;
 
-      DataTypeTemplate[] consolidatedData = new DT_CC_Template[totalCases];
+      DataTypeTemplate[] consolidatedData = new DataTypeCodeChef[totalCases];
 
       for (int i = 0; i < totalCases; i++) {
         String[] inputData = new String[inDatLength];
@@ -237,7 +237,7 @@ public class DT_CC_Template implements DataTypeTemplate {
         populateCaseActualArray(actData, outDatLength);
 
         consolidatedData[i] =
-            new DT_CC_Template(
+            new DataTypeCodeChef(
                 i,
                 (i + 1),
                 this.CASE_TYPE,
@@ -289,7 +289,7 @@ public class DT_CC_Template implements DataTypeTemplate {
 
         consolidatedData.add(
             i,
-            new DT_CC_Template(
+            new DataTypeCodeChef(
                 i,
                 (i + 1),
                 this.CASE_TYPE,
@@ -332,9 +332,9 @@ public class DT_CC_Template implements DataTypeTemplate {
    */
   private void setStaticArrayFields(
       final String[] INPUT, final String[] EXPECTED, final String[] ACTUAL) {
-    DT_CC_Template.INPUT_DATA = INPUT;
-    DT_CC_Template.EXPECTED_DATA = EXPECTED;
-    DT_CC_Template.ACTUAL_DATA = ACTUAL;
+    DataTypeCodeChef.INPUT_DATA = INPUT;
+    DataTypeCodeChef.EXPECTED_DATA = EXPECTED;
+    DataTypeCodeChef.ACTUAL_DATA = ACTUAL;
   }
 
   /**
@@ -378,8 +378,19 @@ public class DT_CC_Template implements DataTypeTemplate {
     return Arrays.deepEquals(expected, actual);
   }
 
-  /**
-   * Makes LINES_PER_INPUT for this DT_CC_Template CASE_TYPE externally accessible
+/**
+ * The main reason for this DataTypes existence: creation of a report specific for this data type.
+ * The report service passed decides the context of this report.
+ *
+ * @param reportService
+ */
+@Override
+public void createDataTypesDefaultReport(ReportService reportService) {
+
+}
+
+/**
+   * Makes LINES_PER_INPUT for this DataTypeCodeChef CASE_TYPE externally accessible
    *
    * @return int
    */
@@ -392,7 +403,7 @@ public class DT_CC_Template implements DataTypeTemplate {
   }
 
   /**
-   * Makes LINES_PER_OUTPUT for this DT_CC_Template CASE_TYPE externally accessible
+   * Makes LINES_PER_OUTPUT for this DataTypeCodeChef CASE_TYPE externally accessible
    *
    * @return int
    */
@@ -405,7 +416,7 @@ public class DT_CC_Template implements DataTypeTemplate {
   }
 
   /**
-   * Makes TOTAL_CASES for this DT_CC_Template CASE_TYPE externally accessible
+   * Makes TOTAL_CASES for this DataTypeCodeChef CASE_TYPE externally accessible
    *
    * @return long
    */

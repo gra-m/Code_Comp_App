@@ -19,9 +19,9 @@ import java.util.stream.Stream;
 
 public class StringFromLocalFileHardCoded {
   // ORIGiNAl LiKe FastWRiter
-  static final String _1FULL_IN = "/home/kali/Documents/001_CC/00fullIn.txt";
-  static final String _2EXP_IN = "/home/kali/Documents/001_CC/00exp.txt";
-  static final String _3ACT_IN = "/home/kali/Documents/001_CC/00act.txt";
+  static final String _1FULL_IN = "/home/kali/Documents/001_CC/000App/00fullIn.txt";
+  static final String _2EXP_IN = "/home/kali/Documents/001_CC/000App/00exp.txt";
+  static final String _3ACT_IN = "/home/kali/Documents/001_CC/000App/00act.txt";
   private final BufferedReader READER;
   private String activePath = "";
   //SHARED
@@ -59,7 +59,7 @@ public class StringFromLocalFileHardCoded {
     if ( Objects.isNull(this.DATA_TYPE))
       throw new IllegalStateException("@StringFromLocalFile/populate cannot populate with null DATA_TYPE");
 
-    SDIArray sdiArray =  (SDIArray ) DATA_TYPE.getSourceDataInfo();
+    SourceDataInfoArray sdiArray =  (SourceDataInfoArray ) DATA_TYPE.getSourceDataInfo();
     String[] arrayOfPaths = sdiArray.getStringArray();
     int headerLines = DATA_TYPE.getInputFileHeaderSize();
     String[][] inputArray = new String[arrayOfPaths.length][];

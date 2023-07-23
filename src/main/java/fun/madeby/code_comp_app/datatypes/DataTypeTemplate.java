@@ -4,7 +4,6 @@ import fun.madeby.code_comp_app.casetypes.importinfotypes.SourceDataInfo;
 import fun.madeby.code_comp_app.datatypes.outputtypes.DTOutput;
 import fun.madeby.code_comp_app.outputdata.DataSnapshot;
 import fun.madeby.code_comp_app.services.reporting.ReportService;
-
 import java.lang.reflect.Field;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
@@ -19,6 +18,15 @@ import java.util.List;
  * the business logic of any given DataTemplate.
  */
 public interface DataTypeTemplate {
+
+  /**
+   * The main reason for this DataTypes existence: creation of a report specific for this data type.
+   * The report service passed decides the context of this report.
+   *
+   * @param reportService
+   */
+  void createDataTypesDefaultReport(ReportService reportService);
+
   int getLINES_PER_INPUT();
 
   int getLINES_PER_OUTPUT();
@@ -27,11 +35,13 @@ public interface DataTypeTemplate {
 
   boolean isTEMPLATE();
 
-/**
- * If there are no snapshots, one will need to be created, or a live report made, this gives snapshot length.
- * @return
- */
-int getSnapshotLength();
+  /**
+   * If there are no snapshots, one will need to be created, or a live report made, this gives
+   * snapshot length.
+   *
+   * @return
+   */
+  int getSnapshotLength();
 
   /**
    * Temporary shallow copy => replace with deep to enable auditable reports.
@@ -52,7 +62,7 @@ int getSnapshotLength();
   // poss temp
   void printSnapshots();
 
-  String[][] getSupportedReportsOfClass(ReportService reportServiceClass)   ;
+  String[][] getSupportedReportsOfClass(ReportService reportServiceClass);
 
   LinkedHashMap<ReportService, String[][]> getAllSupportedReports();
 
@@ -74,7 +84,7 @@ int getSnapshotLength();
    * Given that DataTypeTemplate reporting fields begin with "CASE_" this method returns an array of
    * them in the default order they have been listed in the template.
    *
-   * <p>The first array returned contains the DeclaringClass().getSimpleName() eg DT_CC_Template,
+   * <p>The first array returned contains the DeclaringClass().getSimpleName() eg DataTypeCodeChef,
    * and 'column headings' for the array contents.
    *
    * <p>Then each subsequent String[] contains:
@@ -130,7 +140,7 @@ int getSnapshotLength();
    * LinkedHashMap<String, String[]> with the CASE_ field name as the key, in all positions apart
    * from the first, which has a key of "Type".
    *
-   * <p>The first key "Type" contains DeclaringClass().getSimpleName() eg. DT_CC_Template as its
+   * <p>The first key "Type" contains DeclaringClass().getSimpleName() eg. DataTypeCodeChef as its
    * value. Then: CASE_ field name and
    *
    * <p>String array: [0] count[default] == the default position/column number of the field within

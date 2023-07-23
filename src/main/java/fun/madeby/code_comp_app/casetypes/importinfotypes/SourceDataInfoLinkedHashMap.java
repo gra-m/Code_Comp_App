@@ -7,10 +7,10 @@ import java.util.Objects;
 /**
  * For when source data information is more complex than a few local file paths
  */
-public class SDI_LHMap implements SourceDataInfo {
+public class SourceDataInfoLinkedHashMap implements SourceDataInfo {
   private final LinkedHashMap<String, String> sourceDataInfo;
 
-  public SDI_LHMap(LinkedHashMap<String, String> sourceDataInfo) {
+  public SourceDataInfoLinkedHashMap(LinkedHashMap<String, String> sourceDataInfo) {
       this.sourceDataInfo = sourceDataInfo;
   }
 

@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
  * <p>
  * The end goal is the creation of a 'collection' of DataTypes from which the necessary reports can then be made.
  * Example:
- * CaseType CT_InputExpectedActual is passed to StringFromLocalFile within a DTCodeChef DataType.
+ * CaseType CaseTypeInputExpectedActual is passed to StringFromLocalFile within a DTCodeChef DataType.
  * fetchFromDataSource() will gather the necessary input data based on the template provided by the CaseType and then
  * pass it to the DataType instance in order to create and return a DataType collection.
  * </p>
@@ -35,7 +35,7 @@ DTOutput getOnTheFlyData(boolean arrayDto);
 /** WIP, 1st implementation of a ReportService requires what would have to be the datatypes default datasourceService
  * to return its DataTypeTemplate. Used in ReportService Constructor.
  *
- * @See public ConsoleReportService(DataSourceService dataSourceService)
+ * @See public ConsoleReportServiceImpl(DataSourceService dataSourceService)
  *
  * @return final DataTypeTemplate if isTemplate == true
  */

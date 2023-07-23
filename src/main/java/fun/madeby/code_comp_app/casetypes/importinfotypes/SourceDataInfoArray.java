@@ -2,11 +2,11 @@ package fun.madeby.code_comp_app.casetypes.importinfotypes;
 
 import java.util.Objects;
 
-public class SDIArray implements SourceDataInfo {
+public class SourceDataInfoArray implements SourceDataInfo {
   private static String[] sourceDataInfo;
 
-  public SDIArray(String[] sourceDataInfo) {
-        SDIArray.sourceDataInfo = sourceDataInfo;}
+  public SourceDataInfoArray(String[] sourceDataInfo) {
+        SourceDataInfoArray.sourceDataInfo = sourceDataInfo;}
 
 public String[] getStringArray() {
         return sourceDataInfo;

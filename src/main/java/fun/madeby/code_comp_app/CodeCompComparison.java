@@ -1,19 +1,19 @@
 package fun.madeby.code_comp_app;
 
 import fun.madeby.code_comp_app.app_gui_menus.ConsoleApp;
-import fun.madeby.code_comp_app.casetypes.CT_InputExpectedActual;
+import fun.madeby.code_comp_app.casetypes.CaseTypeInputExpectedActual;
 import fun.madeby.code_comp_app.casetypes.CaseType;
 import fun.madeby.code_comp_app.casetypes.StringType;
+import fun.madeby.code_comp_app.datatypes.DataTypeCodeChef;
 import fun.madeby.code_comp_app.services.datasource.DataSourceService;
 import fun.madeby.code_comp_app.services.datasource.LocalFilesService;
 import fun.madeby.code_comp_app.services.datasource.StringFromLocalFileHardCoded;
-import fun.madeby.code_comp_app.datatypes.DT_CC_Template;
 import fun.madeby.code_comp_app.datatypes.DataTypeTemplate;
 import fun.madeby.code_comp_app.datatypes.outputtypes.ArrayOutput;
 import fun.madeby.code_comp_app.datatypes.outputtypes.DTOutput;
 import fun.madeby.code_comp_app.outputdata.DataSnapshot;
-import fun.madeby.code_comp_app.services.reporting.ConsoleReportService;
-import org.springframework.stereotype.Component;
+import fun.madeby.code_comp_app.services.reporting.impl.ConsoleReportServiceImpl;
+import fun.madeby.code_comp_app.services.reporting.impl.TextFileReportServiceImpl;
 
 import java.io.*;
 import java.time.ZonedDateTime;
@@ -24,7 +24,6 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 class CodeCompComparison {
 
-  static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/out.txt";
   static final FastWriter OUT = new FastWriter();
   static final StringType expectedInputStringType = StringType.NUMERIC_SP;
   static final StringType expectedOutputStringType = StringType.NUMERIC;
@@ -36,6 +35,9 @@ class CodeCompComparison {
   static int linesPerOutput = 1;
 
   public static void main(String[] args) throws Exception {
+
+    //01 Data import and check
+    // Get 00fullIn.txt from hardcoded path
     IN = new StringFromLocalFileHardCoded(1);
     fileLength = (int) IN.countLines();
 
@@ -44,25 +46,33 @@ class CodeCompComparison {
     linesPerCase = Utilz.getCaseLength(fullIn);
 
     IN.close(); // todo create safe/auto close
-    // END of Input Data import and check.
+    // 01 END of Input Data import and check.
+
+    // 02 Import expected output
     IN = new StringFromLocalFileHardCoded(2);
     String[] exp = IN.checkLinesReadStringArray(casesFromArray);
     //linesPerOutput = Utilz.getOutputLength(exp);
     IN.close();
-    // END import of expected Output
+    // 02 END import of expected Output
+
+    // 03 Import actual Output
     IN = new StringFromLocalFileHardCoded(3);
     String[] act = IN.checkLinesReadStringArray(casesFromArray);
     IN.close();
-    // END import of actual Output
+    // 03 END import of actual Output
 
-    //Checking before CT confirmed
-    OUT.println(StringTypeDefineAndCheck.isAsExpected(expectedInputStringType, expectedOutputStringType));
+    // 04 Checking before Case Type is confirmed
+    OUT.println("\n\n04 -> Checking before Case Type is confirmed");
+    OUT.println(
+        StringTypeDefineAndCheck.isAsExpected(expectedInputStringType, expectedOutputStringType));
     OUT.println(StringTypeDefineAndCheck.defineStringType(fullIn, 0));
     OUT.println(StringTypeDefineAndCheck.defineStringType(act, 0));
+    // 04 END
 
-    // Define CaseType from info we have:
-    CT_InputExpectedActual thisImportsCaseType =
-        new CT_InputExpectedActual(
+    // 05 Define CaseType from info we have:
+    OUT.println("\n\n05 -> Defining Case Type From Input");
+    CaseTypeInputExpectedActual thisImportsCaseType =
+        new CaseTypeInputExpectedActual(
             casesFromArray,
             linesPerCase,
             linesPerOutput,
@@ -73,13 +83,13 @@ class CodeCompComparison {
             CaseType.DEFAULT_SDI_ARRAY
             );
 
-    System.out.println(thisImportsCaseType.caseTypeDescription());
+    OUT.println(thisImportsCaseType.caseTypeDescription());
 
-    DataTypeTemplate ccDataType = new DT_CC_Template(thisImportsCaseType);
+    DataTypeTemplate ccDataType = new DataTypeCodeChef(thisImportsCaseType);
 
-    System.out.println(ccDataType);
+    OUT.println(ccDataType);
 
-    // Passing DTCodeChef object to GetDataAs -> StringFromLocalFile
+    // 06 Passing DTCodeChef object to GetDataAs -> StringFromLocalFile
     DataSourceService strFromLocal = new LocalFilesService(ccDataType);
     DTOutput populated = strFromLocal.getOnTheFlyData(true);
     ArrayOutput listPopulated;
@@ -89,9 +99,9 @@ class CodeCompComparison {
       DataTypeTemplate[] arrayList = listPopulated.getDataTypeArray();
 
 
-      for ( DataTypeTemplate dt : arrayList) System.out.println(dt.toString());
+      for ( DataTypeTemplate dt : arrayList) OUT.println(dt.toString());
 
-    } else System.out.println("it failed");
+    } else OUT.println("it failed");
 
     // Test non auditable creation array:
     strFromLocal.createNonAuditableSnapshot(true);
@@ -106,12 +116,20 @@ class CodeCompComparison {
       break;
     }
 
-    System.out.println("-----------------HERE They come again");
 
-    //for ( DataTypeTemplate dt : retrievedReportData) System.out.println(dt.toString()); // this worked OK
+    OUT.println("================NOw in rEpOrT type==============");
 
-    // -------------------------------------------//
-    System.out.println("==========APP STARTED -> From reporting==========");
+    /*TextFileReportServiceImpl textFileReportServiceImpl = new TextFileReportServiceImpl();
+    textFileReportServiceImpl.createDefaultServiceImplReport(true, ccDataType);*/
+
+    ConsoleReportServiceImpl consoleReportService = new ConsoleReportServiceImpl();
+
+  /*  OUT.println("-------------Removed while working on REporT SerVicEs----HERE They come again");
+
+    //for ( DataTypeTemplate dt : retrievedReportData) System.out.println(dt.toString()); // this worked OK*/
+/*
+    // ------------------------------------------Console App on hold-//
+    OUT.println("==========APP STARTED -> From reporting==========");
 
     ConsoleApp consoleApp = new ConsoleApp();
 
@@ -122,13 +140,9 @@ class CodeCompComparison {
     LinkedHashMap<String, String[]> caseFieldsMapped = ccDataType.getCASE_FieldsLinkedMap();
 
     for (Map.Entry<String, String[]> entry: caseFieldsMapped.entrySet()) {
-      System.out.println(entry.getKey() + " " + Arrays.toString(entry.getValue()));
-    }
+      OUT.println(entry.getKey() + " " + Arrays.toString(entry.getValue()));
+    }*/
 
-    System.out.println("================NOw in rEpOrT type==============");
-
-    /*ConsoleReportService cReport = new ConsoleReportService(ccDataType);
-    System.out.println(cReport.DataTemplateReportable(cReport.getDATA_TYPE_TEMPLATE()));*/
 
     IN.close();
     OUT.close();
@@ -152,36 +166,21 @@ class CodeCompComparison {
   }
 
 
-  static class FastWriter {
-    private final BufferedWriter BW;
+static class FastWriter {
+  private final BufferedWriter BW =  new BufferedWriter(new OutputStreamWriter(System.out));
 
-    public FastWriter() {
-      BufferedWriter bw1;
-      if (System.getProperty("ONLINE_JUDGE") == null && FILE_WRITE) {
-        try {
-          bw1 = new BufferedWriter(new FileWriter(OUTPUT_PATH));
-          bw1.flush();
-        } catch (IOException e) {
-          bw1 = new BufferedWriter(new OutputStreamWriter(System.out));
-        }
-      } else {
-        bw1 = new BufferedWriter(new OutputStreamWriter(System.out));
-      }
-      this.BW = bw1;
-    }
-
-    public void print(Object object) throws IOException {
-      BW.append(String.valueOf(object));
-    }
-
-    public void println(Object object) throws IOException {
-      print(object);
-      BW.append("\n");
-    }
-
-    public void close() throws IOException {
-      BW.close();
-    }
+  public void print(Object object) throws IOException {
+    BW.append(String.valueOf(object));
   }
+
+  public void println(Object object) throws IOException {
+    print(object);
+    BW.append("\n");
+  }
+
+  public void close() throws IOException {
+    BW.close();
+  }
+}
 }
 

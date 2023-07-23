@@ -3,8 +3,8 @@ package fun.madeby.code_comp_app.services.datasource;
 // todo encapsulate with only public interface methods
 // populated with details of use eg. here passes file paths
 
+import fun.madeby.code_comp_app.casetypes.importinfotypes.SourceDataInfoArray;
 import fun.madeby.code_comp_app.datatypes.outputtypes.DTOutput;
-import fun.madeby.code_comp_app.casetypes.importinfotypes.SDIArray;
 import fun.madeby.code_comp_app.datatypes.DataTypeTemplate;
 import fun.madeby.code_comp_app.outputdata.DataSnapshot;
 
@@ -136,7 +136,7 @@ public DTOutput getOnTheFlyData(final boolean arrayDto) {
  * to return its DataTypeTemplate. Used in ReportService Constructor.
  *
  * @return final DataTypeTemplate if isTemplate == true
- * @See public ConsoleReportService(DataSourceService dataSourceService)
+ * @See public ConsoleReportServiceImpl(DataSourceService dataSourceService)
  */
 @Override
 public DataTypeTemplate getDataTypeTemplate() {
@@ -173,13 +173,13 @@ public DataTypeTemplate getDataTypeTemplate() {
 private String[] getSources() {
     Object sourceDataInfoType = DATA_TYPE_TEMPLATE.getSourceDataInfo();
 
-    if (sourceDataInfoType instanceof SDIArray) {
-      SDIArray sdiArray = (SDIArray) sourceDataInfoType;
-      return sdiArray.getStringArray();
+    if (sourceDataInfoType instanceof SourceDataInfoArray ) {
+      SourceDataInfoArray sourceDataInfoArray = ( SourceDataInfoArray ) sourceDataInfoType;
+      return sourceDataInfoArray.getStringArray();
     } else
       throw new RuntimeException(
           String.format(
-              "@LocalFilesService/getSources() expected SDIArray sourceDataInfoType but (%s) was retrieved from DATA_TYPE",
+              "@LocalFilesService/getSources() expected SourceDataInfoArray sourceDataInfoType but (%s) was retrieved from DATA_TYPE",
               sourceDataInfoType.getClass()));
   }
 

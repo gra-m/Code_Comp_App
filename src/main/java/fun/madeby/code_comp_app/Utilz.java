@@ -10,18 +10,17 @@ public final class Utilz {
     return 1;
   }
 
-/** Created to emulate the process of retrieving user timezone NOT
- * from session information but from user account info.
- *
- * @return
- */
-public static String getUserTimeZone() {
-  return "UTC+2";
-
+  /**
+   * Created to emulate the process of retrieving user timezone NOT from session information but
+   * from user account info.
+   *
+   * @return
+   */
+  public static String getUserTimeZone() {
+    return "UTC+2";
   }
 
-
-/**
+  /**
    * Gets case length and confirms file validity in that the quoted cases are divisible into total
    * data lines in file (array length - 1).
    */
@@ -33,7 +32,7 @@ public static String getUserTimeZone() {
     int arrayLength = arrayOfFullInput.length;
 
     System.out.println("ArrayOfFullInput is " + arrayOfFullInput.length);
-           // fixme magic number full input is 900 not 901 here
+    // fixme magic number full input is 900 not 901 here
     try {
       if ((arrayLength - 1) % cases == 0) {
         return (arrayLength - 1) / cases;
@@ -64,10 +63,6 @@ public static String getUserTimeZone() {
       for (int i = 1; i <= caseLength; i++) CodeCompComparison.OUT.println(caseNum + " " + i);
     }
   }
-
-
-
-
 
 
 }
