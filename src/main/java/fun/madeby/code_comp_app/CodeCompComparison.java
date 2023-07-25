@@ -1,6 +1,5 @@
 package fun.madeby.code_comp_app;
 
-import fun.madeby.code_comp_app.app_gui_menus.ConsoleApp;
 import fun.madeby.code_comp_app.casetypes.CaseTypeInputExpectedActual;
 import fun.madeby.code_comp_app.casetypes.CaseType;
 import fun.madeby.code_comp_app.casetypes.StringType;
@@ -26,10 +25,8 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 class CodeCompComparison {
 
-  static final FastWriter OUT = new FastWriter();
   static final StringType expectedInputStringType = StringType.NUMERIC_SP;
   static final StringType expectedOutputStringType = StringType.NUMERIC;
-  static final boolean FILE_WRITE = false;
   static StringFromLocalFileHardCoded IN;   // this was FastScanner
   static int fileLength; // not lossy int level input is max for Arrays and ArrayLists
   static int casesFromArray = 0;
@@ -64,15 +61,15 @@ class CodeCompComparison {
     // 03 END import of actual Output
 
     // 04 Checking before Case Type is confirmed
-    OUT.println("\n\n04 -> Checking before Case Type is confirmed");
-    OUT.println(
+    System.out.println("\n\n04 -> Checking before Case Type is confirmed");
+    System.out.println(
         StringTypeDefineAndCheck.isAsExpected(expectedInputStringType, expectedOutputStringType));
-    OUT.println(StringTypeDefineAndCheck.defineStringType(fullIn, 0));
-    OUT.println(StringTypeDefineAndCheck.defineStringType(act, 0));
+    System.out.println(StringTypeDefineAndCheck.defineStringType(fullIn, 0));
+    System.out.println(StringTypeDefineAndCheck.defineStringType(act, 0));
     // 04 END
 
     // 05 Define CaseType from info that has been confirmed via validated input files:
-    OUT.println("\n\n05 -> Defining Case Type From Input");
+    System.out.println("\n\n05 -> Defining Case Type From Input");
     CaseTypeInputExpectedActual thisImportsCaseType =
         new CaseTypeInputExpectedActual(
             casesFromArray,
@@ -85,7 +82,7 @@ class CodeCompComparison {
             CaseType.DEFAULT_SDI_ARRAY
             );
 
-    OUT.println(thisImportsCaseType.caseTypeDescription());
+    System.out.println(thisImportsCaseType.caseTypeDescription());
 
     // 06 Now that a specific caseType has been validated (CaseTypeInputExpectedActual) this can now be passed to a
     // DataTypeTemplate that suits it (i.e. with a constructor for that CaseType).
@@ -96,9 +93,9 @@ class CodeCompComparison {
 
 
 
-    OUT.println("#################--Printing ccDataType just created--#################\n" + ccDataType);
+    System.out.println("#################--Printing ccDataType just created--#################\n" + ccDataType);
 
-    OUT.println("#################--Printing ccDataType just created END--#################\n");
+    System.out.println("#################--Printing ccDataType just created END--#################\n");
     
 
     // 07 Create a DataSourceService from which onTheFlyData data can be created or Auditable/NonAuditable Snapshots
@@ -106,8 +103,10 @@ class CodeCompComparison {
     DataSourceService localFilesService = new LocalFilesService(ccDataType);
     ArrayOutput populated = (ArrayOutput ) localFilesService.getOnTheFlyData(true);
 
-      DataTypeTemplate[] arrayList = populated.getDataTypeArray();
 
+
+      DataTypeTemplate[] arrayList = populated.getDataTypeArray();
+// filter to actual type
     ArrayList<DataTypeTemplate> filteredArrayList =
         (ArrayList<DataTypeTemplate>)
             Arrays.stream(arrayList)
@@ -123,9 +122,9 @@ class CodeCompComparison {
                     })
                 .collect(Collectors.toList());
 
-    for ( DataTypeTemplate dt : filteredArrayList) OUT.println(dt);
+ //   for ( DataTypeTemplate dt : filteredArrayList) OUT.println(dt);
 
-    
+
 
 
     // Test non auditable creation array:
@@ -142,13 +141,17 @@ class CodeCompComparison {
     }
 
 
-    OUT.println("================NOw in rEpOrT type==============");
+    System.out.println("================NOw in rEpOrT type==============");
 
-    /*TextFileReportServiceImpl textFileReportServiceImpl = new TextFileReportServiceImpl();
-    textFileReportServiceImpl.createDefaultServiceImplReport(true, ccDataType);*/
+    TextFileReportServiceImpl textFileReportService = new TextFileReportServiceImpl();
+    textFileReportService.createDataTypesDefaultReport(ccDataType, localFilesService);
 
     ConsoleReportServiceImpl consoleReportService = new ConsoleReportServiceImpl();
-
+    consoleReportService.createDataTypesDefaultReport(ccDataType, localFilesService);
+    
+/* TextFileReportServiceImpl textFileReportService = new TextFileReportServiceImpl();
+    textFileReportService.createDataTypesDefaultReport(ccDataType, localFilesService);
+*/
   /*  OUT.println("-------------Removed while working on REporT SerVicEs----HERE They come again");
 
     //for ( DataTypeTemplate dt : retrievedReportData) System.out.println(dt.toString()); // this worked OK*/
@@ -170,42 +173,7 @@ class CodeCompComparison {
 
 
     IN.close();
-    OUT.close();
   }
 
-
-
-
-  /*===========================================================================*/
-
-  private static Integer[] intArrToIntegerArr(int[] st01) throws NumberFormatException {
-
-    IntStream st02 = Arrays.stream(st01);
-    Stream<Integer> st03 = st02.boxed();
-
-    return st03.toArray(Integer[]::new);
-  }
-
-  private static String cleanString(String raw) {
-    return raw.replaceAll("[^\\d\\s]", "").trim();
-  }
-
-
-static class FastWriter {
-  private final BufferedWriter BW =  new BufferedWriter(new OutputStreamWriter(System.out));
-
-  public void print(Object object) throws IOException {
-    BW.append(String.valueOf(object));
-  }
-
-  public void println(Object object) throws IOException {
-    print(object);
-    BW.append("\n");
-  }
-
-  public void close() throws IOException {
-    BW.close();
-  }
-}
 }
 

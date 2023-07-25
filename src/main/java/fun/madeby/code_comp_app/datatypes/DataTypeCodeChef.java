@@ -9,9 +9,14 @@ import fun.madeby.code_comp_app.datatypes.outputtypes.ListOutput;
 import fun.madeby.code_comp_app.outputdata.DataSnapshot;
 import fun.madeby.code_comp_app.outputdata.NonAuditable;
 import fun.madeby.code_comp_app.services.datasource.DataSourceService;
+import fun.madeby.code_comp_app.services.datasource.LocalFilesService;
 import fun.madeby.code_comp_app.services.reporting.ReportService;
+import fun.madeby.code_comp_app.services.reporting.impl.ConsoleReportServiceImpl;
+
+import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Given data that matches this DataType Template, that is data that originates from the CodeChef
@@ -443,9 +448,43 @@ public class DataTypeCodeChef implements DataTypeTemplate {
    * @param reportService
    */
   @Override
-  public void createDataTypesDefaultReport(
-      ReportService reportService, DataSourceService dataSourceService) {
-    DTOutput populated = dataSourceService.getOnTheFlyData(true);
+  public void outputDefaultReport(
+      ReportService reportService, DataSourceService dataSourceService) throws IOException {
+    ArrayOutput populated = (ArrayOutput ) dataSourceService.getOnTheFlyData(true);
+
+    DataTypeTemplate[] arrayList = populated.getDataTypeArray();
+
+    // filter failing DataTypeTemplates
+    ArrayList<DataTypeTemplate> failingData =
+        (ArrayList<DataTypeTemplate>)
+            Arrays.stream(arrayList)
+                .filter(
+                    dataTypeTemplate -> {
+                      if (dataTypeTemplate instanceof DataTypeCodeChef) {
+                        DataTypeCodeChef dt = (DataTypeCodeChef) dataTypeTemplate;
+                        return !(dt.isCASE_STATUS_PASSING());
+                      } else {
+                        throw new RuntimeException("Wrong DataTypeTemplate passed");
+                      }
+                    })
+                .collect(Collectors.toList());
+
+    System.out.println("FAILING CASES: " + failingData.size());
+    for (DataTypeTemplate dt : failingData) System.out.println(dt);
+
+     List<String> formattedData = failingData.stream()
+                                                                     .map(dataTypeTemplate -> {
+      StringBuilder sb = new StringBuilder("");
+      String[] caseInput = dataTypeTemplate.getCASE_INPUT_DATA();
+      for (int i = 0; i < CASE_TYPE.getLINES_PER_CASE_INPUT(); i++) {
+      sb.append(caseInput[i]).append("\n");
+        }
+      return sb.toString().trim();
+    }).collect(Collectors.toList());
+
+    reportService.output(formattedData);
+
+
   }
 
   @Override
@@ -470,7 +509,7 @@ public class DataTypeCodeChef implements DataTypeTemplate {
   }
 
   public String[] getCASE_INPUT_DATA() {
-    return CASE_INPUT_DATA;
+    return this.CASE_INPUT_DATA;
   }
 
 public boolean isCASE_STATUS_PASSING() {

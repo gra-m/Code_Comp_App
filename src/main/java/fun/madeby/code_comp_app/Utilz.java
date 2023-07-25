@@ -56,11 +56,11 @@ public final class Utilz {
   public static void createTestInput(int cases, int caseLength, boolean countAtStart)
       throws IOException {
     int count = cases;
-    if (countAtStart) CodeCompComparison.OUT.println(cases);
+    if (countAtStart) System.out.println(cases);
     while (cases-- > 0) {
 
       int caseNum = count - cases;
-      for (int i = 1; i <= caseLength; i++) CodeCompComparison.OUT.println(caseNum + " " + i);
+      for (int i = 1; i <= caseLength; i++) System.out.println(caseNum + " " + i);
     }
   }
 

@@ -3,6 +3,8 @@ package fun.madeby.code_comp_app.services.reporting;
 import fun.madeby.code_comp_app.datatypes.DataTypeTemplate;
 import fun.madeby.code_comp_app.services.datasource.DataSourceService;
 
+import java.util.List;
+
 /**
  * The default methods use a DataTypeTemplates intrinsic logic to quickly show the available reportable fields
  * implementers of this interface will contain logic to create reports of specific types/ or with specific outputs/render
@@ -44,5 +46,8 @@ void createDefaultServiceImplReport(boolean firstTen, DataTypeTemplate dataTypeT
  * dataTypeTemplate and creates the correct contextual reports for that ReportService.
  */
 void createDataTypesDefaultReport(DataTypeTemplate dataTypeTemplate, DataSourceService dataSourceService);
+
+void output(List<String> formattedData);
+
 
 }

@@ -18,12 +18,7 @@ import java.util.Map;
 
 
 public class ConsoleReportServiceImpl implements ReportService {
-private static final FastWriter OUT;
-
-static {
-      OUT = new FastWriter();
-}
-
+static final FastWriter OUT = new FastWriter();
 
 /**
  * <p>
@@ -44,13 +39,7 @@ public void createDefaultServiceImplReport(boolean firstTen, DataTypeTemplate da
 
             DataTypeTemplate[] arrayList = listPopulated.getDataTypeArray();
 
-            try {
-                  for ( DataTypeTemplate dt : arrayList) OUT.println(dt.toString());
-            }
-            catch( IOException e ) {
-        throw new ReportingServiceException(String.format("Create Default Service Report failed for dataTypeTemplate:" +
-        " %s", dataTypeTemplate.getSourceDataInfo(), e));
-            }
+            for ( DataTypeTemplate dt : arrayList) System.out.println(dt.toString());
 
       }
       }
@@ -65,8 +54,29 @@ public void createDefaultServiceImplReport(boolean firstTen, DataTypeTemplate da
  */
 @Override
 public void createDataTypesDefaultReport(DataTypeTemplate dataTypeTemplate, DataSourceService dataSourceService) {
-      dataTypeTemplate.createDataTypesDefaultReport(this, dataSourceService);
+      try {
+            dataTypeTemplate.outputDefaultReport(this, dataSourceService);
+      }
+      catch( IOException e ) {
+      throw new ReportingServiceException("Error on outputDataTypeDefaultReport" , e);
+      }
 
+}
+
+/**
+*
+   * @param formattedData
+  */
+@Override
+public void output(List<String> formattedData) {
+      try {
+    System.out.println(formattedData.size());
+    for (String str : formattedData) System.out.println(str);
+    OUT.println("hello");
+    }
+      catch (IOException e) {
+            throw new ReportingServiceException("failed output in ReportService " + this.getClass(), e);
+      }
 }
 
 private List<String> getDefaultReportHeaders(DataTypeTemplate dataTypeTemplate) {
@@ -80,11 +90,14 @@ private List<String> getDefaultReportHeaders(DataTypeTemplate dataTypeTemplate) 
       return returnMe;
 }
 
+
 static class FastWriter {
-      private final BufferedWriter BW = new BufferedWriter(new OutputStreamWriter(System.out));
+      private final BufferedWriter BW;
 
       public FastWriter() {
+                  this.BW = new BufferedWriter(new OutputStreamWriter(System.out));
       }
+
 
       public void print(Object object) throws IOException {
             BW.append(String.valueOf(object));
@@ -92,11 +105,6 @@ static class FastWriter {
 
       public void println(Object object) throws IOException {
             print(object);
-            BW.append("\n");
-      }
-
-      public void println(String string) throws IOException {
-            print(string);
             BW.append("\n");
       }
 

@@ -5,6 +5,8 @@ import fun.madeby.code_comp_app.datatypes.outputtypes.DTOutput;
 import fun.madeby.code_comp_app.outputdata.DataSnapshot;
 import fun.madeby.code_comp_app.services.datasource.DataSourceService;
 import fun.madeby.code_comp_app.services.reporting.ReportService;
+
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
@@ -26,7 +28,7 @@ public interface DataTypeTemplate {
    *
    * @param reportService
    */
-  void createDataTypesDefaultReport(ReportService reportService, DataSourceService dataSourceService);
+  void outputDefaultReport(ReportService reportService, DataSourceService dataSourceService) throws IOException;
 
   int getLINES_PER_INPUT();
 
@@ -34,8 +36,9 @@ public interface DataTypeTemplate {
 
   long getTOTAL_CASES();
 
-  boolean isTEMPLATE();
+  String[] getCASE_INPUT_DATA();
 
+  boolean isTEMPLATE();
 
   /**
    * If there are no snapshots, one will need to be created, or a live report made, this gives
