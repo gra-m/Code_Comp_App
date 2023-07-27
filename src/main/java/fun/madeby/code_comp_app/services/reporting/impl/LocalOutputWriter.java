@@ -1,14 +1,21 @@
 package fun.madeby.code_comp_app.services.reporting.impl;
 
 import fun.madeby.code_comp_app.services.reporting.exception.ReportingServiceException;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+/**
+ * A class providing a FastWriter BufferedWriter that either writes locally to console or to a provided String
+ * OUTPUT_PATH.
+ */
 public class LocalOutputWriter {
 FastWriter out;
 
+/**
+ * Used by TextFileReportService
+ * @param OUTPUT_PATH
+ */
 LocalOutputWriter(final String OUTPUT_PATH) {
     out = new FastWriter(OUTPUT_PATH);
 }

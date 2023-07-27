@@ -11,9 +11,13 @@ import fun.madeby.code_comp_app.services.reporting.exception.ReportingServiceExc
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * A class to enable the default
+ */
 public class TextFileReportServiceImpl implements ReportService {
   static final String OUTPUT_PATH = "/home/kali/Documents/001_CC/000App/Test01.txt";
   static final LocalOutputWriter localOutputWriter = new LocalOutputWriter(OUTPUT_PATH);
+
 
   /**
    * <p>

@@ -4,25 +4,10 @@ import fun.madeby.code_comp_app.casetypes.CaseTypeInputExpectedActual;
 import fun.madeby.code_comp_app.casetypes.CaseType;
 import fun.madeby.code_comp_app.casetypes.StringType;
 import fun.madeby.code_comp_app.datatypes.DataTypeCodeChef;
-import fun.madeby.code_comp_app.services.datasource.DataSourceService;
-import fun.madeby.code_comp_app.services.datasource.LocalFilesService;
 import fun.madeby.code_comp_app.services.datasource.StringFromLocalFileHardCoded;
 import fun.madeby.code_comp_app.datatypes.DataTypeTemplate;
-import fun.madeby.code_comp_app.datatypes.outputtypes.ArrayOutput;
-import fun.madeby.code_comp_app.datatypes.outputtypes.DTOutput;
-import fun.madeby.code_comp_app.outputdata.DataSnapshot;
-import fun.madeby.code_comp_app.services.reporting.impl.ConsoleReportServiceImpl;
+import fun.madeby.code_comp_app.services.reporting.ReportService;
 import fun.madeby.code_comp_app.services.reporting.impl.TextFileReportServiceImpl;
-
-import java.io.*;
-import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 class CodeCompComparison {
 
   static final StringType expectedInputStringType = StringType.NUMERIC_SP;
@@ -59,7 +44,6 @@ class CodeCompComparison {
     String[] act = IN.checkLinesReadStringArray(casesFromArray);
     IN.close();
     // 03 END import of actual Output
-
     // 04 Checking before Case Type is confirmed
     System.out.println("\n\n04 -> Checking before Case Type is confirmed");
     System.out.println(
@@ -81,7 +65,7 @@ class CodeCompComparison {
             StringTypeDefineAndCheck.defineStringType(act, 0),
             CaseType.DEFAULT_SDI_ARRAY
             );
-
+/*
     System.out.println(thisImportsCaseType.caseTypeDescription());
 
     // 06 Now that a specific caseType has been validated (CaseTypeInputExpectedActual) this can now be passed to a
@@ -142,12 +126,17 @@ class CodeCompComparison {
 
 
     System.out.println("================NOw in rEpOrT type==============");
+*/
+    ReportService textFileReportService = new TextFileReportServiceImpl();
+    DataTypeTemplate ccDataType = new DataTypeCodeChef(thisImportsCaseType);
 
-    TextFileReportServiceImpl textFileReportService = new TextFileReportServiceImpl();
-    textFileReportService.createDataTypesDefaultReport(ccDataType, localFilesService);
+    System.out.println("--------------------------------------");
 
-    ConsoleReportServiceImpl consoleReportService = new ConsoleReportServiceImpl();
-    consoleReportService.createDataTypesDefaultReport(ccDataType, localFilesService);
+    textFileReportService.getDataTemplatesReportableCaseFields(ccDataType, true);
+    System.out.println("--------------------------------------");
+
+    /*ConsoleReportServiceImpl consoleReportService = new ConsoleReportServiceImpl();
+    consoleReportService.createDataTypesDefaultReport(ccDataType, localFilesService);*/
     
 /* TextFileReportServiceImpl textFileReportService = new TextFileReportServiceImpl();
     textFileReportService.createDataTypesDefaultReport(ccDataType, localFilesService);
