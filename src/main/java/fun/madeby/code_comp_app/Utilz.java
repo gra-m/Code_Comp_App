@@ -31,7 +31,7 @@ public final class Utilz {
     int cases = Integer.parseInt(arrayOfFullInput[0]);
     int arrayLength = arrayOfFullInput.length;
 
-    System.out.println("ArrayOfFullInput is " + arrayOfFullInput.length);
+    System.out.println("From getCaseLength (String[] arrayOfFullInput) ArrayOfFullInput is " + arrayOfFullInput.length + " lines long");
     // fixme magic number full input is 900 not 901 here
     try {
       if ((arrayLength - 1) % cases == 0) {

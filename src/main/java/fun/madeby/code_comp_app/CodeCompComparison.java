@@ -9,9 +9,11 @@ import fun.madeby.code_comp_app.datatypes.DataTypeTemplate;
 import fun.madeby.code_comp_app.services.reporting.ReportService;
 import fun.madeby.code_comp_app.services.reporting.impl.TextFileReportServiceImpl;
 class CodeCompComparison {
-
+  // For CodeChef Numeric_SP for all lines
   static final StringType expectedInputStringType = StringType.NUMERIC_SP;
+  // Numeric for ALL outputs without spaces
   static final StringType expectedOutputStringType = StringType.NUMERIC;
+
   static StringFromLocalFileHardCoded IN;   // this was FastScanner
   static int fileLength; // not lossy int level input is max for Arrays and ArrayLists
   static int casesFromArray = 0;
@@ -20,39 +22,45 @@ class CodeCompComparison {
 
   public static void main(String[] args) throws Exception {
 
+    ///////////////////IMPORT FROM HARDCODED FILEPATHS//////////////////////////
     //01 Data import and check
-    // Get 00fullIn.txt from hardcoded path
     IN = new StringFromLocalFileHardCoded(1);
     fileLength = (int) IN.countLines();
-
     String[] fullIn = IN.readStringArray(fileLength);
     casesFromArray = Integer.parseInt(fullIn[0]);
     linesPerCase = Utilz.getCaseLength(fullIn);
-
-    IN.close(); // todo create safe/auto close
-    // 01 END of Input Data import and check.
-
+    IN.close(); // todo create safe/auto close try with ..
     // 02 Import expected output
     IN = new StringFromLocalFileHardCoded(2);
     String[] exp = IN.checkLinesReadStringArray(casesFromArray);
     //linesPerOutput = Utilz.getOutputLength(exp);
     IN.close();
-    // 02 END import of expected Output
-
     // 03 Import actual Output
     IN = new StringFromLocalFileHardCoded(3);
     String[] act = IN.checkLinesReadStringArray(casesFromArray);
     IN.close();
-    // 03 END import of actual Output
-    // 04 Checking before Case Type is confirmed
-    System.out.println("\n\n04 -> Checking before Case Type is confirmed");
+    /////////////////////////END OF IMPORT//////////////////////////////////////
+
+    /////////////////////////DEFINING WHAT FILES CONTAIN, CONFIRMING IS AS EXPECTED/////////////////////
+    System.out.println("\n\nConfirming that expected**InputStringType Numeric or Space and " +
+    "expected**outputStringTypes are not the same");
     System.out.println(
         StringTypeDefineAndCheck.isAsExpected(expectedInputStringType, expectedOutputStringType));
-    System.out.println(StringTypeDefineAndCheck.defineStringType(fullIn, 0));
-    System.out.println(StringTypeDefineAndCheck.defineStringType(act, 0));
-    // 04 END
+    System.out.println("Confirming that input is defined as other unless an allowed mismatch of 1 is allowed for " +
+    "900\nthe first entry defining number of cases");
+    StringType fullInNumericOrSpace = StringTypeDefineAndCheck.defineStringType(fullIn, 0);
+    StringType expNumericOnly = StringTypeDefineAndCheck.defineStringType(exp, 0);
+    StringType actNumericOnly = StringTypeDefineAndCheck.defineStringType(act, 0);
+    System.out.println("Input String Type as expected? " + StringTypeDefineAndCheck.isAsExpected(fullInNumericOrSpace,
+  expectedInputStringType));
+    System.out.println("exp Output String Type as expected? " + StringTypeDefineAndCheck.isAsExpected(expNumericOnly,
+    expectedOutputStringType));
+    System.out.println("act Output String Type as expected? " + StringTypeDefineAndCheck.isAsExpected(actNumericOnly,
+    expectedOutputStringType));
 
-    // 05 Define CaseType from info that has been confirmed via validated input files:
+    /////////////////////////END OF DEFINITION/////////////////////////////////////////////////////////
+
+  /*  // 05 Define CaseType from info that has been confirmed via validated input files:
     System.out.println("\n\n05 -> Defining Case Type From Input");
     CaseTypeInputExpectedActual thisImportsCaseType =
         new CaseTypeInputExpectedActual(
@@ -64,7 +72,7 @@ class CodeCompComparison {
             StringTypeDefineAndCheck.defineStringType(exp, 0),
             StringTypeDefineAndCheck.defineStringType(act, 0),
             CaseType.DEFAULT_SDI_ARRAY
-            );
+            );*/
 /*
     System.out.println(thisImportsCaseType.caseTypeDescription());
 
@@ -127,13 +135,13 @@ class CodeCompComparison {
 
     System.out.println("================NOw in rEpOrT type==============");
 */
-    ReportService textFileReportService = new TextFileReportServiceImpl();
+    /*ReportService textFileReportService = new TextFileReportServiceImpl();
     DataTypeTemplate ccDataType = new DataTypeCodeChef(thisImportsCaseType);
 
     System.out.println("--------------------------------------");
 
     textFileReportService.getDataTemplatesReportableCaseFields(ccDataType, true);
-    System.out.println("--------------------------------------");
+    System.out.println("--------------------------------------");*/
 
     /*ConsoleReportServiceImpl consoleReportService = new ConsoleReportServiceImpl();
     consoleReportService.createDataTypesDefaultReport(ccDataType, localFilesService);*/

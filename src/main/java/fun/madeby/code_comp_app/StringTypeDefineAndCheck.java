@@ -1,6 +1,7 @@
 package fun.madeby.code_comp_app;
 
 
+import java.util.Arrays;
 import java.util.function.IntPredicate;
 
 import fun.madeby.code_comp_app.casetypes.StringType;
@@ -22,41 +23,48 @@ private StringTypeDefineAndCheck() {}
 
 
 /**
+ * NOTE this is a work in progress, in reality it could be more effectively replaced with an existing api
+ * But it is a fun experiment in creating an ENUM with an apply method. A kind of self defining
+ * Enum that I like the idea of, originates from an Effective Java example.
+ *
+ * note '900' is giving a false positive in numeric_OSEP but NumericSp is working acceptably, and will
+ * not be changed until this is moved into a testing environment. Although numeric files are caught by four options,
+ * they are acceptably defined at present because of ordering.
+ *
  * Passed the input String[]'s for a DataTypeTemplate and the acceptable fail amount (Strings that are known/expected
  * to be anomalous) == wiggle room this method attempts to identify the string type of the String array vs those defined
  * in the StringType Enum. In reality though, an experiment with Enums and int predicates.
+ *
  * @param inputArray prospective input array
- * @param failAmount   acceptable number of non conforming strings
+ * @param allowedMismatches   acceptable number of non-matching strings
  * @return Actively defined StringType or UNKNOWN
  */
-public static StringType defineStringType(final String[] inputArray, final long failAmount) {
+public static StringType defineStringType(final String[] inputArray, final long allowedMismatches) {
 
   long arrayLength = inputArray.length;
-  if (inputArray.length == 0 || failAmount < 0)
+  if (inputArray.length == 0 || allowedMismatches < 0)
     throw new IllegalStateException("Zero length array passed at defineStringType() \n OR fail amount was negative");
 
   arrayFromDefineStringTypeMethod = inputArray;
 
-  long numericCount = arrayLength - failAmount;
-  numericCount = numericCount - countLinesThatAre(StringType.NUMERIC);
-  long numericSpCount = arrayLength - failAmount;
-  numericSpCount = numericSpCount - countLinesThatAre(StringType.NUMERIC_SP);
-  long numericOtherSepCount = arrayLength - failAmount;
-  numericOtherSepCount = numericOtherSepCount - countLinesThatAre(StringType.NUMERIC_OSEP);
-  long singleWordAZCount = arrayLength - failAmount;
-  singleWordAZCount = singleWordAZCount - countLinesThatAre(StringType.SINGLE_WORD_A_Z);
-  long otherWordCount = arrayLength - failAmount;
-  otherWordCount = otherWordCount - countLinesThatAre(StringType.OTHER);
+    System.out.println("**NOTE**DefineStringType(String[], allowedMismatches) is responsible for this console mess: " +
+    Arrays.deepToString(arrayFromDefineStringTypeMethod));
 
-  if (numericCount <= 0)
+  long numericOnlyMatches = countLinesThatAre(StringType.NUMERIC);
+  long numericOrSpaceMatches = countLinesThatAre(StringType.NUMERIC_SP);
+  long numericOtherSepMatches = countLinesThatAre(StringType.NUMERIC_OSEP);
+  long singleWordAZMatches = countLinesThatAre(StringType.SINGLE_WORD_A_Z);
+  long otherWordMatches = countLinesThatAre(StringType.OTHER);
+
+  if (numericOnlyMatches >= arrayLength - allowedMismatches)
     return StringType.NUMERIC;
-  else if (numericSpCount <= 0)
+  else if (numericOrSpaceMatches >= arrayLength - allowedMismatches)
     return StringType.NUMERIC_SP;
-  else if (numericOtherSepCount <= 0)
+  else if (numericOtherSepMatches >= arrayLength - allowedMismatches)
     return StringType.NUMERIC_OSEP;
-  else if (singleWordAZCount <= 0)
+  else if (singleWordAZMatches >= arrayLength - allowedMismatches)
     return StringType.SINGLE_WORD_A_Z;
-  else if (otherWordCount <= 0)
+  else if (otherWordMatches >= arrayLength - allowedMismatches)
     return StringType.OTHER;
 
   return StringType.UNKNOWN;
@@ -104,8 +112,24 @@ private static long countLinesThatAre(StringType stringType) {
 }
 
 private static boolean checkGeneric(final String currentStr,  final IntPredicate intPredicate) {
+  currentStr.trim();
+
+  /*boolean match = currentStr.chars().allMatch(intPredicate);
+    if (match) return match;
+    else {System.out.println(currentStr);
+      return false;}*/
   return currentStr.chars().allMatch(intPredicate);
 }
+
+private static boolean checkGenTEST(final String currentStr, final IntPredicate intPredicate) {
+   boolean match = currentStr.chars().allMatch(intPredicate);
+    if (match) {
+      System.out.println("**NOTE**checkGenTEST(String, intPredicate) is responsible for showing this anomalous match " +
+      "against numericOtherSep\n" + currentStr);
+      return true;}
+    else
+      return false;}
+
 
 
 }

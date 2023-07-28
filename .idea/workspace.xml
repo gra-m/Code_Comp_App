@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88a64c83-6c65-4cf2-8c2a-f5b76ab0316f" name="Changes" comment="Renamed 'Services' created default methods for CASE_ types working on default report">
+    <list default="true" id="88a64c83-6c65-4cf2-8c2a-f5b76ab0316f" name="Changes" comment="001. ConsoleReportServiceImpl and notes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/CodeCompComparison.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/CodeCompComparison.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/DataTypeCodeChef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/DataTypeCodeChef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/DataTypeTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/datatypes/DataTypeTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/StringTypeDefineAndCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/StringTypeDefineAndCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/Utilz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/Utilz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/casetypes/StringType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/casetypes/StringType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +39,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
@@ -130,7 +132,11 @@
       <workItem from="1689502407128" duration="366000" />
       <workItem from="1689502792123" duration="606000" />
       <workItem from="1689955721606" duration="30493000" />
-      <workItem from="1690111316142" duration="2057000" />
+      <workItem from="1690111316142" duration="3427000" />
+      <workItem from="1690182254557" duration="373000" />
+      <workItem from="1690182894468" duration="84000" />
+      <workItem from="1690266076077" duration="94565000" />
+      <workItem from="1690526309686" duration="11330000" />
     </task>
     <task id="LOCAL-00001" summary="Now Spring/Maven project">
       <created>1684439263057</created>
@@ -146,7 +152,23 @@
       <option name="project" value="LOCAL" />
       <updated>1684527643619</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="LocalOutputWriter plus basic output report working">
+      <option name="closed" value="true" />
+      <created>1690372288256</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1690372288256</updated>
+    </task>
+    <task id="LOCAL-00004" summary="001. ConsoleReportServiceImpl and notes">
+      <option name="closed" value="true" />
+      <created>1690453024328</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1690453024328</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +188,19 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Now Spring/Maven project" />
     <MESSAGE value="Renamed 'Services' created default methods for CASE_ types working on default report" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed 'Services' created default methods for CASE_ types working on default report" />
+    <MESSAGE value="LocalOutputWriter plus basic output report working" />
+    <MESSAGE value="001. ConsoleReportServiceImpl and notes" />
+    <option name="LAST_COMMIT_MESSAGE" value="001. ConsoleReportServiceImpl and notes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/fun/madeby/code_comp_app/CodeCompComparison.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
